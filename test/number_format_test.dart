@@ -14,7 +14,9 @@ void main() {
     });
 
     test('separa millares a partir de cinco cifras', () {
-      expect(Num.fixed(14000, 0), '14 000');
+      // El separador es el espacio fino U+2009, no un espacio normal: se
+      // escribe escapado para que ningún editor lo convierta por el camino.
+      expect(Num.fixed(14000, 0), '14 000');
       expect(Num.fixed(1250, 0), '1250');
     });
 

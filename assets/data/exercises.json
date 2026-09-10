@@ -664,7 +664,7 @@
   "explanation": "k = 1 + 3,322 · 1,602 = 6,32 → 6 clases. Es una sugerencia razonable, no una obligación: si con 6 clases se pierde algo relevante, se cambia y se justifica.",
   "answer": {
    "value": 6,
-   "tolerance": 0,
+   "tolerance": 0.25,
    "unit": "clases"
   },
   "context": ""

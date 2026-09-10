@@ -12,9 +12,21 @@ import 'helpers/file_content_repository.dart';
 ///
 /// No intenta cubrir cada pantalla: comprueba que la app arranca, que el
 /// contenido llega a la primera pantalla y que la navegación básica funciona.
-/// El contenido se inyecta desde el sistema de archivos para que la prueba no
-/// dependa del bundle de assets.
+///
+/// El contenido se lee del sistema de archivos **una sola vez, antes de los
+/// tests**, y dentro de ellos se sirve ya cargado. `testWidgets` corre con un
+/// reloj simulado en el que una lectura real de disco no llega a completarse
+/// nunca: si la app esperase ese `Future` dentro del test, la pantalla de
+/// arranque se quedaría cargando y el test agotaría su tiempo.
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  late ContentBundle bundle;
+
+  setUpAll(() async {
+    bundle = await const FileContentRepository().load();
+  });
+
   setUp(() {
     SharedPreferences.setMockInitialValues(<String, Object>{});
   });
@@ -24,16 +36,26 @@ void main() {
       ProviderScope(
         overrides: <Override>[
           contentRepositoryProvider.overrideWithValue(
-            const FileContentRepository(),
+            _PreloadedContentRepository(bundle),
           ),
         ],
         child: const EstadisticaFundamentalApp(),
       ),
     );
-    // El arranque dispara la carga en un `postFrameCallback`: hace falta un
-    // pump para que se ejecute y otro para que el estado resultante se pinte.
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 100));
+
+    // El arranque encadena tres pasos asíncronos: el `postFrameCallback` que
+    // lanza la carga, el contenido y la hidratación del progreso desde
+    // SharedPreferences. Se bombea hasta que la barra de navegación está en
+    // pantalla, que es la señal de que el arranque terminó. No se usa
+    // `pumpAndSettle` aquí: mientras carga hay una barra de progreso
+    // indeterminada, es decir, una animación que no se detiene nunca.
+    for (int i = 0;
+        i < 20 && find.byType(NavigationBar).evaluate().isEmpty;
+        i++) {
+      await tester.pump(const Duration(milliseconds: 50));
+    }
+    expect(find.byType(NavigationBar), findsOneWidget,
+        reason: 'La app no pasó de la pantalla de arranque');
     await tester.pumpAndSettle();
   }
 
@@ -66,8 +88,9 @@ void main() {
     expect(find.text('Laboratorio'), findsOneWidget);
   });
 
-  testWidgets('el contenido cargado es coherente con lo que se muestra',
-      (WidgetTester tester) async {
+  // Sin `testWidgets`: aquí sí se lee del disco de verdad, y eso necesita el
+  // reloj real.
+  test('el contenido cargado es coherente con lo que se muestra', () async {
     final ProviderContainer container = ProviderContainer(
       overrides: <Override>[
         contentRepositoryProvider
@@ -76,11 +99,11 @@ void main() {
     );
     addTearDown(container.dispose);
 
-    final ContentBundle bundle = await container.read(contentProvider.future);
-    expect(bundle.modules.length, 5);
-    expect(bundle.exercises.length, greaterThanOrEqualTo(45));
-    expect(bundle.datasets.length, greaterThanOrEqualTo(15));
-    expect(bundle.tutorTopics.length, greaterThanOrEqualTo(30));
+    final ContentBundle loaded = await container.read(contentProvider.future);
+    expect(loaded.modules.length, 5);
+    expect(loaded.exercises.length, greaterThanOrEqualTo(45));
+    expect(loaded.datasets.length, greaterThanOrEqualTo(15));
+    expect(loaded.tutorTopics.length, greaterThanOrEqualTo(30));
   });
 
   testWidgets('la navegación inferior cambia de sección',
@@ -103,4 +126,15 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Tu progreso'), findsWidgets);
   });
+}
+
+/// Sirve un contenido ya cargado en memoria: dentro de un test de widgets no
+/// puede haber lectura de disco (ver la nota de arriba).
+class _PreloadedContentRepository implements ContentRepository {
+  const _PreloadedContentRepository(this.bundle);
+
+  final ContentBundle bundle;
+
+  @override
+  Future<ContentBundle> load() async => bundle;
 }
