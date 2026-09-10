@@ -1,0 +1,254 @@
+[
+ {
+  "id": "escala_numerica",
+  "label": "Números que no son cantidades",
+  "whatStudentsThink": "Si la variable se escribe con números, es cuantitativa.",
+  "whyItIsWrong": "El DNI, el código de carrera y el número de aula son etiquetas: sumarlos o promediarlos no produce nada interpretable.",
+  "correction": "La prueba es funcional, no visual: si sumar dos valores no significa nada, la variable es cualitativa por muy numérica que se vea.",
+  "moduleId": "m1",
+  "checkYourself": "¿Qué significaría la suma de dos valores de esta variable?"
+ },
+ {
+  "id": "ordinal_promediado",
+  "label": "Promediar una escala ordinal",
+  "whatStudentsThink": "Si codifico 'Muy insatisfecho' como 1 y 'Muy satisfecho' como 5, ya puedo calcular la media.",
+  "whyItIsWrong": "Codificar no crea distancias. Nada garantiza que el salto de Neutral a Satisfecho sea igual al de Satisfecho a Muy satisfecho, y la media asume que sí lo es.",
+  "correction": "En escala ordinal, la mediana y la moda describen sin suponer distancias. Si aun así reportas una media, declara el supuesto.",
+  "moduleId": "m1",
+  "checkYourself": "¿Puedo afirmar que la distancia entre dos niveles consecutivos es siempre la misma?"
+ },
+ {
+  "id": "poblacion_vs_muestra",
+  "label": "La muestra hablando por la población",
+  "whatStudentsThink": "Lo que calculé con mis 40 encuestados vale para todos los estudiantes.",
+  "whyItIsWrong": "La muestra describe a quienes fueron medidos. Extenderlo a la población es un salto que requiere justificar cómo se seleccionó la muestra.",
+  "correction": "Describe siempre la muestra y, si generalizas, di explícitamente sobre qué población y con qué criterio de muestreo.",
+  "moduleId": "m1",
+  "checkYourself": "¿Quién quedó fuera de esta muestra y en qué se diferencia de quienes entraron?"
+ },
+ {
+  "id": "atipico_borrado",
+  "label": "Eliminar el atípico incómodo",
+  "whatStudentsThink": "Ese valor descuadra el promedio, lo quito.",
+  "whyItIsWrong": "Un valor extremo verificado forma parte del fenómeno. Eliminarlo cambia la conclusión sin cambiar la realidad.",
+  "correction": "Un dato se elimina solo si puedes demostrar que es falso. Si es real y molesta, se reporta junto con una medida robusta como la mediana.",
+  "moduleId": "m1",
+  "checkYourself": "¿Puedo demostrar que este valor es un error, o solo que me estorba?"
+ },
+ {
+  "id": "intervalo_vs_razon",
+  "label": "Intervalo tratado como razón",
+  "whatStudentsThink": "Un 16 es el doble de bueno que un 8; 20 °C es el doble de calor que 10 °C.",
+  "whyItIsWrong": "En escala de intervalo el cero es convencional: no marca ausencia. Sin cero absoluto, las razones no significan nada.",
+  "correction": "Con escala de intervalo puedes restar y comparar diferencias, pero no dividir ni hablar de 'el doble'. Tampoco calcular coeficiente de variación.",
+  "moduleId": "m1",
+  "checkYourself": "¿El cero de esta escala significa ausencia total de la magnitud?"
+ },
+ {
+  "id": "limite_doble_conteo",
+  "label": "El valor que cae en el límite",
+  "whatStudentsThink": "Si las clases son [12–35] y [35–58], un 35 va en las dos o en la que prefiera.",
+  "whyItIsWrong": "Un dato debe caer en exactamente una clase; si no, las frecuencias no suman n y la tabla es inválida.",
+  "correction": "Usa intervalos cerrados por la izquierda y abiertos por la derecha, [Lᵢ, Lₛ), con el último cerrado para incluir el máximo.",
+  "moduleId": "m2",
+  "checkYourself": "¿La suma de mis frecuencias absolutas da exactamente n?"
+ },
+ {
+  "id": "absoluta_vs_relativa",
+  "label": "Comparar con frecuencias absolutas",
+  "whatStudentsThink": "La sección con más estudiantes en la clase alta es la que mejor va.",
+  "whyItIsWrong": "Un grupo con más integrantes tiene más casos en casi todas las clases. La comparación mide tamaño, no comportamiento.",
+  "correction": "Para comparar grupos de distinto tamaño usa siempre frecuencias relativas o porcentajes.",
+  "moduleId": "m2",
+  "checkYourself": "¿Los dos grupos que comparo tienen el mismo n?"
+ },
+ {
+  "id": "clase_modal_vs_moda",
+  "label": "Clase modal confundida con moda",
+  "whatStudentsThink": "La clase modal es la moda de los datos.",
+  "whyItIsWrong": "La clase modal es un intervalo y depende de cómo elegiste las clases; la moda es un valor concreto de los datos originales.",
+  "correction": "Reporta la clase modal como intervalo ('la clase más frecuente es [35–58)') y la moda solo si trabajas con los datos sin agrupar.",
+  "moduleId": "m2",
+  "checkYourself": "¿Estoy nombrando un intervalo o un valor?"
+ },
+ {
+  "id": "media_agrupada",
+  "label": "La media agrupada tomada por exacta",
+  "whatStudentsThink": "La media que sale de la tabla es la media de los datos.",
+  "whyItIsWrong": "Al agrupar sustituyes cada dato por la marca de su clase. El resultado se aproxima, no coincide.",
+  "correction": "Si tienes los datos originales, calcula con ellos. La media agrupada es para cuando solo dispones de la tabla, y se declara como estimación.",
+  "moduleId": "m2",
+  "checkYourself": "¿Tengo los datos originales? Entonces, ¿por qué estoy usando marcas de clase?"
+ },
+ {
+  "id": "acumulada_mal_leida",
+  "label": "Frecuencia acumulada mal leída",
+  "whatStudentsThink": "La cuarta fila de Fᵢ me dice cuántos casos hay en la cuarta clase.",
+  "whyItIsWrong": "Fᵢ acumula todas las clases anteriores más la actual; fᵢ es la de esa clase sola.",
+  "correction": "Fᵢ responde '¿cuántos hasta aquí?' y fᵢ responde '¿cuántos aquí?'. Comprueba que la última Fᵢ sea igual a n.",
+  "moduleId": "m2",
+  "checkYourself": "¿La pregunta dice 'hasta' o 'en'?"
+ },
+ {
+  "id": "media_siempre",
+  "label": "La media por defecto",
+  "whatStudentsThink": "Cuando me piden el promedio, calculo la media.",
+  "whyItIsWrong": "Con distribuciones asimétricas o con atípicos, la media describe un caso que no existe en los datos.",
+  "correction": "Compara media y mediana antes de reportar. Si difieren mucho respecto al rango, explica por qué eliges la que eliges.",
+  "moduleId": "m3",
+  "checkYourself": "¿Cuánto se separan la media y la mediana en este conjunto?"
+ },
+ {
+  "id": "media_vs_mediana",
+  "label": "Media y mediana intercambiadas",
+  "whatStudentsThink": "La mediana siempre es mejor porque es robusta.",
+  "whyItIsWrong": "La mediana no reconstruye el total: no sirve para presupuestar, repartir ni proyectar sumas.",
+  "correction": "Para describir el caso típico con cola, mediana. Para totales, repartos y proyecciones, media.",
+  "moduleId": "m3",
+  "checkYourself": "¿La decisión que voy a tomar depende del total o del caso típico?"
+ },
+ {
+  "id": "moda_inexistente",
+  "label": "La moda dada por supuesta",
+  "whatStudentsThink": "Todo conjunto tiene una moda.",
+  "whyItIsWrong": "Si ningún valor se repite, el conjunto es amodal; si varios empatan en el máximo, hay varias modas.",
+  "correction": "Comprueba las frecuencias antes de nombrar una moda. 'No hay moda' es una respuesta válida y a veces la única correcta.",
+  "moduleId": "m3",
+  "checkYourself": "¿Hay algún valor que se repita más que los demás, o hay empate?"
+ },
+ {
+  "id": "media_de_medias",
+  "label": "Promediar promedios",
+  "whatStudentsThink": "El promedio de las dos secciones es el promedio de sus promedios.",
+  "whyItIsWrong": "Solo es válido si ambos grupos tienen el mismo tamaño. Con tamaños distintos, la media simple da más peso al grupo pequeño del que le corresponde.",
+  "correction": "Usa media ponderada por el tamaño de cada grupo: x̄ₚ = Σ(nᵢ·x̄ᵢ) / Σnᵢ.",
+  "moduleId": "m3",
+  "checkYourself": "¿Los grupos que estoy combinando tienen el mismo número de casos?"
+ },
+ {
+  "id": "centro_sin_dispersion",
+  "label": "Un centro sin dispersión al lado",
+  "whatStudentsThink": "Con reportar el promedio ya describí el grupo.",
+  "whyItIsWrong": "Dos grupos pueden tener media, mediana y moda idénticas y ser completamente distintos.",
+  "correction": "Reporta siempre una medida de centro acompañada de una de dispersión. En un informe profesional van juntas.",
+  "moduleId": "m3",
+  "checkYourself": "Si otro grupo tuviera esta misma media, ¿sería el mismo grupo?"
+ },
+ {
+  "id": "rango_vs_desviacion",
+  "label": "El rango como medida de variabilidad",
+  "whatStudentsThink": "El rango me dice cuánto varían los datos.",
+  "whyItIsWrong": "El rango lo determinan exactamente dos datos, normalmente los dos menos representativos. Ignora los otros n−2.",
+  "correction": "Para variabilidad general usa desviación estándar o RIC. El rango solo describe la amplitud total.",
+  "moduleId": "m4",
+  "checkYourself": "¿Cuántos datos han intervenido en esta medida?"
+ },
+ {
+  "id": "varianza_unidades",
+  "label": "La varianza interpretada directamente",
+  "whatStudentsThink": "La varianza es 1 094,86 minutos.",
+  "whyItIsWrong": "La varianza está en unidades al cuadrado: minutos cuadrados. No es una cantidad interpretable en el problema.",
+  "correction": "Interpreta siempre la desviación estándar, que vuelve a las unidades originales. La varianza es un paso intermedio.",
+  "moduleId": "m4",
+  "checkYourself": "¿En qué unidades está el número que voy a reportar?"
+ },
+ {
+  "id": "n_vs_n1",
+  "label": "Muestral y poblacional confundidas",
+  "whatStudentsThink": "Da igual dividir entre n o entre n−1.",
+  "whyItIsWrong": "Dividir entre n cuando los datos son una muestra subestima sistemáticamente la variabilidad de la población.",
+  "correction": "n−1 cuando los datos son una muestra de algo mayor; n cuando tienes la población completa.",
+  "moduleId": "m4",
+  "checkYourself": "¿Estos datos son todos los casos, o una parte?"
+ },
+ {
+  "id": "regla_empirica_mal_aplicada",
+  "label": "La regla empírica fuera de sitio",
+  "whatStudentsThink": "El 68 % de los datos siempre está a una desviación de la media.",
+  "whyItIsWrong": "La regla 68–95–99,7 supone una distribución aproximadamente simétrica y acampanada. Con colas largas falla.",
+  "correction": "Comprueba la forma antes de aplicarla. Si hay asimetría fuerte, usa Chebyshev, que no exige forma.",
+  "moduleId": "m4",
+  "checkYourself": "¿La distribución es aproximadamente simétrica?"
+ },
+ {
+  "id": "cv_mal_usado",
+  "label": "Coeficiente de variación fuera de escala",
+  "whatStudentsThink": "El CV se puede calcular con cualquier variable numérica.",
+  "whyItIsWrong": "El CV divide entre la media y necesita un cero absoluto. En escala de intervalo el resultado cambia si mueves el origen: no significa nada.",
+  "correction": "CV solo en escala de razón, y solo si la media está lejos de cero.",
+  "moduleId": "m4",
+  "checkYourself": "¿El cero de esta variable significa ausencia?"
+ },
+ {
+  "id": "desviacion_comparada_entre_unidades",
+  "label": "Desviaciones de distinta unidad comparadas",
+  "whatStudentsThink": "33 minutos de desviación es más variabilidad que 0,11 % de ley de cobre.",
+  "whyItIsWrong": "Son unidades y magnitudes distintas. La comparación directa no tiene sentido.",
+  "correction": "Convierte a dispersión relativa: compara coeficientes de variación.",
+  "moduleId": "m4",
+  "checkYourself": "¿Las dos variables están en la misma unidad y en el mismo orden de magnitud?"
+ },
+ {
+  "id": "correlacion_causalidad",
+  "label": "Correlación leída como causa",
+  "whatStudentsThink": "Si suben juntas, una causa la otra.",
+  "whyItIsWrong": "Una tercera variable puede mover a ambas, la causalidad puede ir al revés, o puede ser coincidencia.",
+  "correction": "Antes de afirmar causa, descarta confusión, inversión y azar. Un gráfico de dispersión nunca basta.",
+  "moduleId": "m5",
+  "checkYourself": "¿Qué tercera variable podría estar moviendo a las dos?"
+ },
+ {
+  "id": "eje_truncado",
+  "label": "El eje que no empieza en cero",
+  "whatStudentsThink": "Si la línea cae en picado, la caída es grande.",
+  "whyItIsWrong": "Recortando el eje vertical, una variación pequeña ocupa todo el alto del gráfico.",
+  "correction": "Mira el origen y el rango del eje antes que la forma de la curva. En gráficos de barras el eje debe empezar en cero.",
+  "moduleId": "m5",
+  "checkYourself": "¿Dónde empieza el eje vertical y cuánto abarca?"
+ },
+ {
+  "id": "grafico_mal_elegido",
+  "label": "Gráfico elegido por costumbre",
+  "whatStudentsThink": "El circular sirve para cualquier comparación.",
+  "whyItIsWrong": "El gráfico circular compara ángulos, que el ojo compara mal, y solo tiene sentido para composición de un total con pocas categorías.",
+  "correction": "Elige por tipo de variable y pregunta: barras para comparar categorías, histograma para forma, caja para comparar grupos, dispersión para relación, líneas para tiempo.",
+  "moduleId": "m5",
+  "checkYourself": "¿Qué tipo de variable tengo y qué pregunta quiero responder?"
+ },
+ {
+  "id": "histograma_vs_barras",
+  "label": "Histograma y barras confundidos",
+  "whatStudentsThink": "Es lo mismo con las barras juntas o separadas.",
+  "whyItIsWrong": "Las barras pegadas indican un eje continuo dividido en intervalos; separadas indican categorías sin continuidad.",
+  "correction": "Histograma para variable cuantitativa agrupada; barras para cualitativa. La separación no es estética, es información.",
+  "moduleId": "m5",
+  "checkYourself": "¿El eje horizontal es continuo o son categorías?"
+ },
+ {
+  "id": "r_cero_sin_relacion",
+  "label": "r = 0 leído como sin relación",
+  "whatStudentsThink": "Si r es cero, las variables no tienen nada que ver.",
+  "whyItIsWrong": "r mide relación lineal. Una relación en U perfecta puede dar r cercano a cero.",
+  "correction": "Mira siempre el gráfico de dispersión antes de interpretar r. El coeficiente sin el gráfico esconde formas no lineales.",
+  "moduleId": "m5",
+  "checkYourself": "¿He mirado el gráfico, o solo el número?"
+ },
+ {
+  "id": "caja_bimodal",
+  "label": "La caja tomada por la forma completa",
+  "whatStudentsThink": "Si la caja se ve normal, la distribución es normal.",
+  "whyItIsWrong": "El diagrama de caja resume cinco números y no muestra si hay dos grupos separados dentro de los datos.",
+  "correction": "Para ver la forma —picos, bimodalidad, huecos— usa el histograma. La caja es para comparar grupos.",
+  "moduleId": "m5",
+  "checkYourself": "¿Podría haber dos poblaciones mezcladas aquí?"
+ },
+ {
+  "id": "lectura_caja",
+  "label": "Qué muestra y qué no muestra la caja",
+  "whatStudentsThink": "El diagrama de caja no me deja leer la mediana ni los cuartiles con precisión.",
+  "whyItIsWrong": "La caja muestra exactamente cinco números: mínimo dentro de las vallas, Q₁, mediana, Q₃ y máximo dentro de las vallas, más los atípicos. Todo eso sí se lee en el gráfico.",
+  "correction": "Lo que la caja no muestra es la forma interna: picos, huecos y bimodalidad. Para eso, histograma.",
+  "moduleId": "m5",
+  "checkYourself": "¿Lo que quiero saber está entre los cinco números resumen, o es una cuestión de forma?"
+ }
+]

@@ -1,0 +1,533 @@
+[
+ {
+  "id": "g_poblacion",
+  "term": "Población",
+  "formalDefinition": "Conjunto completo de unidades sobre las que se quiere concluir algo.",
+  "plainDefinition": "Todos los que te interesan, los hayas medido o no.",
+  "moduleId": "m1",
+  "related": [
+   "g_muestra",
+   "g_unidad"
+  ],
+  "caution": "Definirla mal es el error más caro: todo lo demás describe a otro grupo."
+ },
+ {
+  "id": "g_muestra",
+  "term": "Muestra",
+  "formalDefinition": "Subconjunto de la población efectivamente observado.",
+  "plainDefinition": "Los que sí mediste.",
+  "moduleId": "m1",
+  "related": [
+   "g_poblacion"
+  ],
+  "caution": "Todo lo que calculas describe la muestra. Extenderlo a la población es un paso aparte."
+ },
+ {
+  "id": "g_unidad",
+  "term": "Unidad de análisis",
+  "formalDefinition": "Elemento del que se registra cada observación.",
+  "plainDefinition": "El 'quién' o el 'qué' de cada fila de tu tabla.",
+  "moduleId": "m1",
+  "related": [
+   "g_variable"
+  ]
+ },
+ {
+  "id": "g_variable",
+  "term": "Variable",
+  "formalDefinition": "Característica medida en cada unidad, que puede tomar distintos valores.",
+  "plainDefinition": "Lo que le mides a cada uno.",
+  "moduleId": "m1",
+  "related": [
+   "g_unidad",
+   "g_escala"
+  ]
+ },
+ {
+  "id": "g_cualitativa",
+  "term": "Variable cualitativa",
+  "formalDefinition": "Variable cuyos valores son categorías.",
+  "plainDefinition": "Clasifica, no cuenta ni mide.",
+  "moduleId": "m1",
+  "related": [
+   "g_nominal",
+   "g_ordinal"
+  ]
+ },
+ {
+  "id": "g_discreta",
+  "term": "Variable cuantitativa discreta",
+  "formalDefinition": "Variable numérica que solo admite valores aislados, normalmente enteros.",
+  "plainDefinition": "Se cuenta: 3 o 4 cursos, nunca 3,5.",
+  "moduleId": "m1",
+  "related": [
+   "g_continua"
+  ]
+ },
+ {
+  "id": "g_continua",
+  "term": "Variable cuantitativa continua",
+  "formalDefinition": "Variable numérica que admite cualquier valor dentro de un intervalo.",
+  "plainDefinition": "Se mide: entre 6 y 7 horas hay infinitos valores.",
+  "moduleId": "m1",
+  "related": [
+   "g_discreta"
+  ],
+  "caution": "Que la registres redondeada no la vuelve discreta."
+ },
+ {
+  "id": "g_escala",
+  "term": "Escala de medición",
+  "formalDefinition": "Nivel de información que aporta una variable, y que determina qué operaciones son válidas.",
+  "plainDefinition": "El permiso que tienes para operar con esos datos.",
+  "moduleId": "m1",
+  "related": [
+   "g_nominal",
+   "g_ordinal",
+   "g_intervalo",
+   "g_razon"
+  ]
+ },
+ {
+  "id": "g_nominal",
+  "term": "Escala nominal",
+  "formalDefinition": "Escala que solo permite distinguir categorías, sin orden.",
+  "plainDefinition": "Solo puedes decir 'este es distinto de aquel'.",
+  "moduleId": "m1",
+  "related": [
+   "g_moda"
+  ],
+  "caution": "Única medida de centro admisible: la moda."
+ },
+ {
+  "id": "g_ordinal",
+  "term": "Escala ordinal",
+  "formalDefinition": "Escala con orden entre categorías, sin distancias comparables.",
+  "plainDefinition": "Puedes ordenar, no restar.",
+  "moduleId": "m1",
+  "related": [
+   "g_mediana"
+  ],
+  "caution": "Promediar códigos 1–5 supone que los saltos son iguales. Nadie lo ha comprobado."
+ },
+ {
+  "id": "g_intervalo",
+  "term": "Escala de intervalo",
+  "formalDefinition": "Escala con distancias comparables y cero convencional.",
+  "plainDefinition": "Puedes restar, no dividir.",
+  "moduleId": "m1",
+  "related": [
+   "g_razon"
+  ],
+  "caution": "Sin cero absoluto no hay razones ni coeficiente de variación."
+ },
+ {
+  "id": "g_razon",
+  "term": "Escala de razón",
+  "formalDefinition": "Escala con cero absoluto, en la que las razones tienen sentido.",
+  "plainDefinition": "El cero significa 'nada', así que el doble es realmente el doble.",
+  "moduleId": "m1",
+  "related": [
+   "g_cv"
+  ]
+ },
+ {
+  "id": "g_sesgo_seleccion",
+  "term": "Sesgo de selección",
+  "formalDefinition": "Distorsión producida cuando la forma de seleccionar la muestra excluye sistemáticamente a parte de la población.",
+  "plainDefinition": "Mediste solo a los que estaban a mano, y no se parecen al resto.",
+  "moduleId": "m1",
+  "related": [
+   "g_muestra"
+  ],
+  "caution": "No se corrige aumentando el tamaño de la muestra."
+ },
+ {
+  "id": "g_frecuencia_absoluta",
+  "term": "Frecuencia absoluta (fᵢ)",
+  "formalDefinition": "Número de observaciones que caen en una clase o categoría.",
+  "plainDefinition": "Cuántos hay aquí.",
+  "moduleId": "m2",
+  "related": [
+   "g_frecuencia_relativa"
+  ],
+  "formula": "Σfᵢ = n"
+ },
+ {
+  "id": "g_frecuencia_relativa",
+  "term": "Frecuencia relativa (hᵢ)",
+  "formalDefinition": "Proporción de observaciones de una clase respecto al total.",
+  "plainDefinition": "Qué parte del total es esta clase.",
+  "moduleId": "m2",
+  "related": [
+   "g_frecuencia_absoluta"
+  ],
+  "formula": "hᵢ = fᵢ / n",
+  "caution": "Es la única que permite comparar grupos de distinto tamaño."
+ },
+ {
+  "id": "g_frecuencia_acumulada",
+  "term": "Frecuencia acumulada (Fᵢ)",
+  "formalDefinition": "Suma de las frecuencias hasta una clase inclusive.",
+  "plainDefinition": "Cuántos hay hasta aquí.",
+  "moduleId": "m2",
+  "related": [
+   "g_frecuencia_absoluta"
+  ],
+  "formula": "Fᵢ = f₁ + … + fᵢ",
+  "caution": "La última Fᵢ debe ser igual a n. Si no, la tabla está mal."
+ },
+ {
+  "id": "g_sturges",
+  "term": "Regla de Sturges",
+  "formalDefinition": "Criterio orientativo para elegir el número de clases de una tabla de frecuencias.",
+  "plainDefinition": "Una sugerencia razonable de cuántas clases usar.",
+  "moduleId": "m2",
+  "related": [
+   "g_ancho_clase"
+  ],
+  "formula": "k = 1 + 3,322 · log₁₀(n)",
+  "caution": "Es sugerencia, no obligación. Si oculta algo relevante, cámbiala y justifícalo."
+ },
+ {
+  "id": "g_ancho_clase",
+  "term": "Ancho de clase",
+  "formalDefinition": "Amplitud de cada intervalo de una tabla de frecuencias agrupadas.",
+  "plainDefinition": "Cuántas unidades abarca cada barra.",
+  "moduleId": "m2",
+  "related": [
+   "g_marca_clase"
+  ],
+  "formula": "A = (x_máx − x_mín) / k"
+ },
+ {
+  "id": "g_marca_clase",
+  "term": "Marca de clase",
+  "formalDefinition": "Punto medio de un intervalo de clase.",
+  "plainDefinition": "El valor que representa a toda la clase cuando calculas con la tabla.",
+  "moduleId": "m2",
+  "related": [
+   "g_media_agrupada"
+  ],
+  "formula": "xᵢ = (Lᵢ + Lₛ) / 2"
+ },
+ {
+  "id": "g_clase_modal",
+  "term": "Clase modal",
+  "formalDefinition": "Intervalo con mayor frecuencia absoluta.",
+  "plainDefinition": "El grupo más numeroso.",
+  "moduleId": "m2",
+  "related": [
+   "g_moda"
+  ],
+  "caution": "No es la moda: es un intervalo, y depende de cómo elegiste las clases."
+ },
+ {
+  "id": "g_media_agrupada",
+  "term": "Media de datos agrupados",
+  "formalDefinition": "Media estimada sustituyendo cada dato por la marca de su clase.",
+  "plainDefinition": "El promedio calculado desde la tabla, no desde los datos.",
+  "moduleId": "m2",
+  "related": [
+   "g_marca_clase",
+   "g_media"
+  ],
+  "formula": "x̄ = Σ(xᵢ · fᵢ) / n",
+  "caution": "Es una estimación con pérdida. Si tienes los datos originales, úsalos."
+ },
+ {
+  "id": "g_media",
+  "term": "Media aritmética",
+  "formalDefinition": "Suma de todos los valores dividida entre el número de observaciones.",
+  "plainDefinition": "El reparto igualitario del total.",
+  "moduleId": "m3",
+  "related": [
+   "g_mediana",
+   "g_moda"
+  ],
+  "formula": "x̄ = Σxᵢ / n",
+  "caution": "Cualquier valor extremo la arrastra."
+ },
+ {
+  "id": "g_mediana",
+  "term": "Mediana",
+  "formalDefinition": "Valor que ocupa la posición central en los datos ordenados.",
+  "plainDefinition": "El del medio: la mitad está por debajo.",
+  "moduleId": "m3",
+  "related": [
+   "g_media",
+   "g_cuartil"
+  ],
+  "caution": "No reconstruye el total: no sirve para presupuestar."
+ },
+ {
+  "id": "g_moda",
+  "term": "Moda",
+  "formalDefinition": "Valor o valores con mayor frecuencia.",
+  "plainDefinition": "El caso más repetido.",
+  "moduleId": "m3",
+  "related": [
+   "g_clase_modal"
+  ],
+  "caution": "Puede no existir (amodal) o haber varias."
+ },
+ {
+  "id": "g_media_ponderada",
+  "term": "Media ponderada",
+  "formalDefinition": "Media en la que cada valor pesa según su importancia relativa.",
+  "plainDefinition": "El promedio cuando no todos los datos valen igual.",
+  "moduleId": "m3",
+  "related": [
+   "g_media"
+  ],
+  "formula": "x̄ₚ = Σ(wᵢ · xᵢ) / Σwᵢ",
+  "caution": "Promediar promedios de grupos de distinto tamaño es incorrecto: hay que ponderar."
+ },
+ {
+  "id": "g_asimetria",
+  "term": "Asimetría",
+  "formalDefinition": "Falta de simetría en la distribución de los datos respecto a su centro.",
+  "plainDefinition": "Una cola más larga hacia un lado.",
+  "moduleId": "m3",
+  "related": [
+   "g_media",
+   "g_mediana"
+  ],
+  "caution": "media > mediana → cola a la derecha; media < mediana → cola a la izquierda."
+ },
+ {
+  "id": "g_rango",
+  "term": "Rango",
+  "formalDefinition": "Diferencia entre el valor máximo y el mínimo.",
+  "plainDefinition": "Del más bajo al más alto.",
+  "moduleId": "m4",
+  "related": [
+   "g_ric"
+  ],
+  "formula": "R = x_máx − x_mín",
+  "caution": "Lo determinan solo dos datos, normalmente los menos representativos."
+ },
+ {
+  "id": "g_cuartil",
+  "term": "Cuartiles",
+  "formalDefinition": "Valores que dividen los datos ordenados en cuatro partes iguales.",
+  "plainDefinition": "Los tres cortes que parten los datos en cuatro grupos del mismo tamaño.",
+  "moduleId": "m4",
+  "related": [
+   "g_ric",
+   "g_mediana"
+  ],
+  "caution": "Existen varias convenciones de cálculo. Esta app usa interpolación lineal, como Excel."
+ },
+ {
+  "id": "g_ric",
+  "term": "Rango intercuartílico (RIC)",
+  "formalDefinition": "Diferencia entre el tercer y el primer cuartil.",
+  "plainDefinition": "El ancho de la mitad central de los datos.",
+  "moduleId": "m4",
+  "related": [
+   "g_cuartil",
+   "g_valla"
+  ],
+  "formula": "RIC = Q₃ − Q₁",
+  "caution": "No le afectan los valores extremos: por eso es robusto."
+ },
+ {
+  "id": "g_valla",
+  "term": "Vallas de Tukey",
+  "formalDefinition": "Límites a partir de los cuales una observación se considera atípica.",
+  "plainDefinition": "La frontera que marca qué dato hay que ir a mirar.",
+  "moduleId": "m4",
+  "related": [
+   "g_atipico",
+   "g_ric"
+  ],
+  "formula": "Q₁ − 1,5·RIC  y  Q₃ + 1,5·RIC",
+  "caution": "El 1,5 es una convención, no una verdad matemática."
+ },
+ {
+  "id": "g_atipico",
+  "term": "Valor atípico",
+  "formalDefinition": "Observación que se aparta notablemente del resto del conjunto.",
+  "plainDefinition": "Un dato que se sale de la nube.",
+  "moduleId": "m4",
+  "related": [
+   "g_valla"
+  ],
+  "caution": "Atípico significa 'revísalo', no 'bórralo'. Solo se elimina si demuestras que es falso."
+ },
+ {
+  "id": "g_varianza",
+  "term": "Varianza",
+  "formalDefinition": "Promedio de los cuadrados de las desviaciones respecto a la media.",
+  "plainDefinition": "La dispersión, en unidades al cuadrado.",
+  "moduleId": "m4",
+  "related": [
+   "g_desviacion"
+  ],
+  "formula": "s² = Σ(xᵢ − x̄)² / (n − 1)",
+  "caution": "No se interpreta directamente: está en unidades al cuadrado."
+ },
+ {
+  "id": "g_desviacion",
+  "term": "Desviación estándar",
+  "formalDefinition": "Raíz cuadrada de la varianza.",
+  "plainDefinition": "Cuánto se aleja típicamente un dato de la media.",
+  "moduleId": "m4",
+  "related": [
+   "g_varianza",
+   "g_cv"
+  ],
+  "formula": "s = √s²",
+  "caution": "n − 1 para muestras; n cuando tienes la población completa."
+ },
+ {
+  "id": "g_cv",
+  "term": "Coeficiente de variación",
+  "formalDefinition": "Desviación estándar expresada como porcentaje de la media.",
+  "plainDefinition": "La dispersión relativa, sin unidades.",
+  "moduleId": "m4",
+  "related": [
+   "g_desviacion",
+   "g_razon"
+  ],
+  "formula": "CV = (s / |x̄|) · 100 %",
+  "caution": "Solo tiene sentido en escala de razón y con media lejos de cero."
+ },
+ {
+  "id": "g_regla_empirica",
+  "term": "Regla empírica",
+  "formalDefinition": "En distribuciones aproximadamente normales, el 68 %, 95 % y 99,7 % de los datos caen a ±1, ±2 y ±3 desviaciones de la media.",
+  "plainDefinition": "La regla del 68–95–99,7.",
+  "moduleId": "m4",
+  "related": [
+   "g_chebyshev",
+   "g_desviacion"
+  ],
+  "caution": "Exige simetría aproximada. Con colas largas da resultados falsos."
+ },
+ {
+  "id": "g_chebyshev",
+  "term": "Desigualdad de Chebyshev",
+  "formalDefinition": "Cota mínima de la proporción de datos dentro de k desviaciones, válida para cualquier distribución.",
+  "plainDefinition": "Garantía mínima que funciona con cualquier forma de datos.",
+  "moduleId": "m4",
+  "related": [
+   "g_regla_empirica"
+  ],
+  "formula": "≥ (1 − 1/k²) · 100 %, para k > 1"
+ },
+ {
+  "id": "g_z",
+  "term": "Puntuación z",
+  "formalDefinition": "Número de desviaciones estándar que separan un valor de la media.",
+  "plainDefinition": "A cuántas desviaciones estás del promedio.",
+  "moduleId": "m4",
+  "related": [
+   "g_desviacion"
+  ],
+  "formula": "z = (x − x̄) / s"
+ },
+ {
+  "id": "g_histograma",
+  "term": "Histograma",
+  "formalDefinition": "Gráfico de barras contiguas que representa la distribución de una variable cuantitativa agrupada.",
+  "plainDefinition": "El dibujo de la forma de tus datos.",
+  "moduleId": "m5",
+  "related": [
+   "g_barras",
+   "g_asimetria"
+  ],
+  "caution": "Las barras van pegadas porque el eje es continuo."
+ },
+ {
+  "id": "g_barras",
+  "term": "Gráfico de barras",
+  "formalDefinition": "Gráfico con barras separadas que compara categorías de una variable cualitativa.",
+  "plainDefinition": "Para comparar categorías.",
+  "moduleId": "m5",
+  "related": [
+   "g_histograma"
+  ],
+  "caution": "El eje vertical debe empezar en cero: se comparan longitudes."
+ },
+ {
+  "id": "g_caja",
+  "term": "Diagrama de caja",
+  "formalDefinition": "Representación de los cinco números resumen y los valores atípicos.",
+  "plainDefinition": "La caja que resume mínimo, cuartiles, mediana y máximo.",
+  "moduleId": "m5",
+  "related": [
+   "g_cuartil",
+   "g_atipico"
+  ],
+  "caution": "No muestra bimodalidad. Para ver la forma interna, histograma."
+ },
+ {
+  "id": "g_dispersion_grafico",
+  "term": "Gráfico de dispersión",
+  "formalDefinition": "Representación de pares de valores de dos variables cuantitativas.",
+  "plainDefinition": "Una nube de puntos que muestra si dos cosas van juntas.",
+  "moduleId": "m5",
+  "related": [
+   "g_correlacion"
+  ]
+ },
+ {
+  "id": "g_correlacion",
+  "term": "Coeficiente de correlación de Pearson",
+  "formalDefinition": "Medida de la fuerza y el sentido de la relación lineal entre dos variables cuantitativas, entre −1 y 1.",
+  "plainDefinition": "Cuánto se parecen a una recta esos puntos.",
+  "moduleId": "m5",
+  "related": [
+   "g_causalidad",
+   "g_r2"
+  ],
+  "formula": "r = Σ(xᵢ−x̄)(yᵢ−ȳ) / √[Σ(xᵢ−x̄)²·Σ(yᵢ−ȳ)²]",
+  "caution": "r = 0 significa 'sin relación lineal', no 'sin relación'."
+ },
+ {
+  "id": "g_r2",
+  "term": "Coeficiente de determinación (r²)",
+  "formalDefinition": "Proporción de la variabilidad de una variable explicada por la relación lineal con la otra.",
+  "plainDefinition": "Qué parte de lo que varía queda explicado por la recta.",
+  "moduleId": "m5",
+  "related": [
+   "g_correlacion"
+  ],
+  "formula": "r² = r · r"
+ },
+ {
+  "id": "g_causalidad",
+  "term": "Correlación y causalidad",
+  "formalDefinition": "La asociación estadística entre dos variables no implica que una produzca la otra.",
+  "plainDefinition": "Que suban juntas no significa que una cause la otra.",
+  "moduleId": "m5",
+  "related": [
+   "g_correlacion",
+   "g_confusion"
+  ],
+  "caution": "Antes de afirmar causa: descarta confusión, inversión y azar."
+ },
+ {
+  "id": "g_confusion",
+  "term": "Variable de confusión",
+  "formalDefinition": "Tercera variable que influye a la vez sobre las dos variables correlacionadas.",
+  "plainDefinition": "El factor oculto que mueve a las dos.",
+  "moduleId": "m5",
+  "related": [
+   "g_causalidad"
+  ]
+ },
+ {
+  "id": "g_eje_truncado",
+  "term": "Eje truncado",
+  "formalDefinition": "Eje que no comienza en cero, lo que amplifica visualmente las diferencias.",
+  "plainDefinition": "El truco de recortar el eje para que un cambio pequeño parezca enorme.",
+  "moduleId": "m5",
+  "related": [
+   "g_barras"
+  ],
+  "caution": "Inadmisible en barras. En series temporales, admisible si se declara."
+ }
+]

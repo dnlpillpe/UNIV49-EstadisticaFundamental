@@ -1,0 +1,694 @@
+[
+ {
+  "id": "t_media_vs_mediana",
+  "title": "¿Cuándo uso la media y cuándo la mediana?",
+  "answer": "Depende de dos cosas, en este orden.\n\n**1. La escala.** En escala nominal no puedes usar ninguna de las dos, solo la moda. En ordinal, mediana sí, media no (o solo declarando el supuesto de que los niveles están igualmente espaciados).\n\n**2. La forma.** Compara media y mediana. Si se parecen, la distribución es aproximadamente simétrica y da igual cuál uses: usa la media, que aprovecha más información. Si difieren mucho respecto al rango, hay cola o atípicos.\n\nY hay un tercer criterio que suele olvidarse: **si tu decisión depende del total** —presupuestar, repartir, proyectar una suma—, la media es la única que sirve, porque media × n reconstruye el total. La mediana no.",
+  "keywords": [
+   "media",
+   "mediana",
+   "cuando usar media",
+   "diferencia entre media y mediana",
+   "promedio o mediana",
+   "que medida uso"
+  ],
+  "moduleId": "m3",
+  "concepts": [
+   "media",
+   "mediana"
+  ],
+  "followUps": [
+   "¿Por qué la media se ve afectada por los valores atípicos?",
+   "¿Qué es la asimetría?",
+   "¿Cuándo uso la moda?"
+  ],
+  "example": "Sueldos de egresados: media 2 556,67 y mediana 1 825. Para responder «¿cuánto voy a ganar?», mediana. Para «¿cuánto cuesta el programa de subsidios?», media."
+ },
+ {
+  "id": "t_por_que_media_atipicos",
+  "title": "¿Por qué a la media le afectan los valores extremos?",
+  "answer": "Porque la media usa el **valor** de cada dato, mientras que la mediana usa solo su **posición**.\n\nSi el egresado que gana 9 500 pasara a ganar 90 000, la media se dispararía y la mediana no se movería ni un sol: seguiría habiendo el mismo número de personas por encima y por debajo del centro.\n\nEsa es toda la diferencia. La media reparte el total; la mediana cuenta posiciones.",
+  "keywords": [
+   "por que la media",
+   "atipico afecta media",
+   "valor extremo media",
+   "media sensible",
+   "outlier"
+  ],
+  "moduleId": "m3",
+  "concepts": [
+   "media",
+   "valor atípico"
+  ],
+  "followUps": [
+   "¿Qué es un valor atípico?",
+   "¿Cuándo uso la media y cuándo la mediana?"
+  ]
+ },
+ {
+  "id": "t_atipico",
+  "title": "¿Qué es un valor atípico y qué hago con él?",
+  "answer": "Un valor atípico es una observación que se aparta claramente del resto. La forma estándar de detectarlo son las **vallas de Tukey**: por debajo de Q₁ − 1,5·RIC o por encima de Q₃ + 1,5·RIC.\n\nLo importante es qué hacer después: **atípico significa «ve a mirarlo», no «bórralo»**.\n\n- Si compruebas que es un error de registro (un pH de 45), lo corriges o lo marcas como faltante.\n- Si es un dato real y verificado (un egresado que fundó su empresa), **se queda**. Forma parte del fenómeno.\n\nEliminar un dato verificado porque descuadra el promedio convierte el análisis en una opinión con decimales.",
+  "keywords": [
+   "atipico",
+   "valor atipico",
+   "outlier",
+   "dato raro",
+   "eliminar dato",
+   "borrar dato",
+   "tukey",
+   "vallas"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "valor atípico",
+   "vallas"
+  ],
+  "followUps": [
+   "¿Cómo calculo el rango intercuartílico?",
+   "¿Por qué a la media le afectan los valores extremos?"
+  ]
+ },
+ {
+  "id": "t_desviacion_significado",
+  "title": "¿Qué significa realmente la desviación estándar?",
+  "answer": "Es **la distancia típica de un dato a la media**, en las unidades del problema.\n\nSi las horas de sueño tienen media 6,5 y desviación 1,69, la lectura es: un estudiante típico duerme algo así como entre 4,8 y 8,2 horas.\n\nEsa es la interpretación. La fórmula (elevar al cuadrado, promediar, sacar la raíz) es el procedimiento para llegar ahí, y existe porque las desviaciones sin elevar al cuadrado suman siempre cero.\n\nUn número de desviación estándar suelto no dice nada: **siempre se lee junto a la media**.",
+  "keywords": [
+   "desviacion estandar",
+   "que significa desviacion",
+   "interpretar desviacion",
+   "sigma",
+   "s"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "desviación estándar"
+  ],
+  "followUps": [
+   "¿Por qué se divide entre n−1?",
+   "¿Qué es el coeficiente de variación?",
+   "¿Qué es la varianza?"
+  ],
+  "example": "Sección A: media 13,15 y s = 0,67 → prácticamente todos entre 12,5 y 13,8. Sección B: misma media y s = 4,43 → entre 8,7 y 17,6."
+ },
+ {
+  "id": "t_n_menos_1",
+  "title": "¿Por qué se divide entre n − 1?",
+  "answer": "Porque al calcular las desviaciones usas la media **de la propia muestra**, que ya está ajustada a esos datos concretos. Eso hace que las desviaciones observadas sean sistemáticamente algo menores que las que habría respecto a la media verdadera de la población.\n\nDividir entre n − 1 en lugar de n corrige ese sesgo hacia abajo.\n\nLa regla práctica:\n- **n − 1** si tus datos son una muestra de algo mayor.\n- **n** si tus datos son la población completa.\n\nY la elección no es un detalle de precisión: expresa qué estás afirmando.",
+  "keywords": [
+   "n-1",
+   "n menos 1",
+   "por que n-1",
+   "muestral poblacional",
+   "varianza muestral",
+   "grados de libertad",
+   "n 1",
+   "dividir entre n",
+   "divido entre n"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "varianza"
+  ],
+  "followUps": [
+   "¿Qué significa realmente la desviación estándar?",
+   "¿Qué es la varianza?"
+  ]
+ },
+ {
+  "id": "t_varianza",
+  "title": "¿Qué es la varianza y por qué no la interpreto directamente?",
+  "answer": "La varianza es el promedio de los cuadrados de las desviaciones respecto a la media. Se elevan al cuadrado para que las desviaciones positivas y negativas no se cancelen (sin elevar, siempre suman exactamente cero).\n\nEl problema es que al elevar al cuadrado **las unidades también se elevan**: minutos cuadrados, soles cuadrados. Eso no es una magnitud interpretable.\n\nPor eso se saca la raíz y se reporta la desviación estándar, que vuelve a las unidades originales. La varianza es un paso intermedio necesario, no el resultado que se comunica.",
+  "keywords": [
+   "varianza",
+   "que es la varianza",
+   "unidades varianza",
+   "s cuadrado"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "varianza"
+  ],
+  "followUps": [
+   "¿Qué significa realmente la desviación estándar?",
+   "¿Por qué se divide entre n−1?"
+  ]
+ },
+ {
+  "id": "t_cv",
+  "title": "¿Qué es el coeficiente de variación y cuándo se usa?",
+  "answer": "Es la desviación estándar expresada como porcentaje de la media: CV = (s / |x̄|) · 100.\n\nSirve para una cosa que ninguna otra medida de dispersión puede hacer: **comparar la variabilidad de variables con unidades distintas**. Comparar 33,09 minutos con 0,107 % de cobre no significa nada; comparar 65,2 % con 10,1 % sí.\n\nDos restricciones:\n- Solo en **escala de razón**. En escala de intervalo (notas, temperatura Celsius, pH) el resultado cambiaría si movieras el origen de la escala, así que no significa nada.\n- La media debe estar lejos de cero, o el cociente se dispara.",
+  "keywords": [
+   "coeficiente de variacion",
+   "cv",
+   "dispersion relativa",
+   "comparar variabilidad",
+   "comparar dispersion"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "coeficiente de variación"
+  ],
+  "followUps": [
+   "¿Qué significa realmente la desviación estándar?",
+   "¿Qué es la escala de razón?"
+  ]
+ },
+ {
+  "id": "t_correlacion_causalidad",
+  "title": "¿Por qué correlación no es causalidad?",
+  "answer": "Porque hay al menos tres explicaciones distintas para que dos variables suban y bajen juntas, y solo una de ellas es «A causa B»:\n\n1. **Variable de confusión**: una tercera variable mueve a las dos. Es lo más frecuente.\n2. **Causalidad invertida**: B causa A, no al revés.\n3. **Coincidencia**, sobre todo con pocos datos.\n\nEl ejemplo del curso: las ventas de bebidas frías y las atenciones por golpe de calor tienen r = 0,98 en el campus. Restringir las bebidas frías no reduciría ni un caso, porque lo que mueve a las dos series es la temperatura del mes.\n\nPara afirmar causa hace falta un experimento con asignación aleatoria, o un diseño que controle explícitamente las variables de confusión. Un gráfico de dispersión nunca basta, por bonito que sea.",
+  "keywords": [
+   "correlacion causalidad",
+   "causalidad",
+   "causa",
+   "correlacion no implica",
+   "espuria",
+   "confusion"
+  ],
+  "moduleId": "m5",
+  "concepts": [
+   "correlación",
+   "causalidad"
+  ],
+  "followUps": [
+   "¿Qué mide exactamente el coeficiente r?",
+   "¿Qué es una variable de confusión?"
+  ]
+ },
+ {
+  "id": "t_r",
+  "title": "¿Qué mide exactamente el coeficiente r?",
+  "answer": "Mide la **fuerza y el sentido de la relación lineal** entre dos variables cuantitativas, en una escala de −1 a 1.\n\nLa palabra clave es *lineal*, y es donde se cometen los dos errores habituales:\n\n- **r = 0 no significa «sin relación»**, significa «sin relación lineal». Una parábola perfecta puede dar r ≈ 0.\n- **r alto no significa causa** (ver la pregunta sobre causalidad).\n\nRegla práctica: nunca interpretes r sin mirar antes el gráfico de dispersión. El número solo resume una forma concreta de relación, y esconde todas las demás.\n\nSi elevas r al cuadrado obtienes r², la proporción de variabilidad explicada por la recta: con r = 0,93, r² = 0,867, es decir el 86,7 %.",
+  "keywords": [
+   "coeficiente r",
+   "correlacion pearson",
+   "r cuadrado",
+   "que mide r",
+   "interpretar r",
+   "pearson"
+  ],
+  "moduleId": "m5",
+  "concepts": [
+   "correlación"
+  ],
+  "followUps": [
+   "¿Por qué correlación no es causalidad?",
+   "¿Qué gráfico uso para dos variables cuantitativas?"
+  ]
+ },
+ {
+  "id": "t_eje_truncado",
+  "title": "¿Cómo detecto un gráfico engañoso?",
+  "answer": "Cuatro comprobaciones, siempre las mismas, antes de mirar la forma de las líneas:\n\n1. **¿Dónde empieza cada eje?** El truco más común es el eje truncado: recortando el eje vertical, un cambio de 13 puntos ocupa todo el alto del gráfico y parece un derrumbe. En gráficos de barras el eje **debe** empezar en cero, porque se comparan longitudes; en series temporales, truncar es admisible si se declara.\n2. **¿Qué unidades tiene?** Porcentajes y valores absolutos cuentan historias distintas.\n3. **¿De cuántos casos sale?** Un gráfico impecable sobre 6 observaciones no es un hallazgo.\n4. **¿Qué no se está mostrando?** Series recortadas justo antes de un cambio, categorías agrupadas en «otros».\n\nDos trucos más: el **área que exagera** (un icono el doble de alto y de ancho tiene cuatro veces el área) y el **eje doble**, que permite hacer coincidir visualmente dos series cualesquiera.",
+  "keywords": [
+   "grafico enganoso",
+   "eje truncado",
+   "manipular grafico",
+   "grafico mentiroso",
+   "eje no empieza en cero",
+   "enganar"
+  ],
+  "moduleId": "m5",
+  "concepts": [
+   "eje truncado"
+  ],
+  "followUps": [
+   "¿Qué gráfico uso para cada tipo de variable?",
+   "¿Por qué las barras del histograma van pegadas?"
+  ]
+ },
+ {
+  "id": "t_elegir_grafico",
+  "title": "¿Qué gráfico uso para cada tipo de variable?",
+  "answer": "Primero el tipo de variable, después la pregunta:\n\n- **Cualitativa, comparar categorías** → barras (ordenadas de mayor a menor).\n- **Cualitativa, composición de un total, pocas categorías** → circular. Con más de cuatro o cinco porciones, vuelve a las barras: el ojo compara mal los ángulos.\n- **Cuantitativa, forma de la distribución** → histograma.\n- **Comparar varios grupos** → diagramas de caja lado a lado.\n- **Dos variables cuantitativas** → dispersión.\n- **Evolución en el tiempo** → líneas.\n\nLo que nunca: líneas sobre un eje horizontal categórico. Unir «Psicología» con «Contabilidad» con una línea insinúa una transición que no existe.",
+  "keywords": [
+   "que grafico uso",
+   "elegir grafico",
+   "tipo de grafico",
+   "cual grafico",
+   "grafico adecuado"
+  ],
+  "moduleId": "m5",
+  "concepts": [
+   "elección de gráfico"
+  ],
+  "followUps": [
+   "¿Por qué las barras del histograma van pegadas?",
+   "¿Qué muestra y qué esconde un diagrama de caja?"
+  ]
+ },
+ {
+  "id": "t_histograma_barras",
+  "title": "¿Por qué las barras del histograma van pegadas?",
+  "answer": "Porque el eje horizontal de un histograma es **continuo**: entre 35 y 58 minutos existen todos los valores intermedios, y la ausencia de espacio entre barras lo representa.\n\nEn un gráfico de barras, entre «Psicología» y «Contabilidad» no hay nada. El espacio en blanco indica precisamente eso.\n\nNo es una convención estética: la separación transporta información sobre el tipo de variable. Un histograma con barras separadas está afirmando que la variable es categórica.",
+  "keywords": [
+   "histograma barras",
+   "barras pegadas",
+   "diferencia histograma barras",
+   "por que pegadas"
+  ],
+  "moduleId": "m5",
+  "concepts": [
+   "histograma"
+  ],
+  "followUps": [
+   "¿Qué gráfico uso para cada tipo de variable?"
+  ]
+ },
+ {
+  "id": "t_caja",
+  "title": "¿Qué muestra y qué esconde un diagrama de caja?",
+  "answer": "**Muestra** cinco números: mínimo dentro de las vallas, Q₁, mediana, Q₃ y máximo dentro de las vallas, más los atípicos como puntos sueltos. La caja va de Q₁ a Q₃, así que su ancho es el RIC. Si la mediana está descentrada dentro de la caja, ya tienes una señal de asimetría.\n\n**Esconde** la forma interna. Dos grupos claramente separados —bimodalidad— pueden producir una caja de aspecto perfectamente normal. Si sospechas dos poblaciones mezcladas, la caja no te lo va a decir: usa un histograma.\n\nLa caja es para **comparar grupos**; el histograma es para **ver la forma**.",
+  "keywords": [
+   "diagrama de caja",
+   "boxplot",
+   "caja y bigotes",
+   "bigotes",
+   "que muestra la caja"
+  ],
+  "moduleId": "m5",
+  "concepts": [
+   "diagrama de caja"
+  ],
+  "followUps": [
+   "¿Qué es un valor atípico y qué hago con él?",
+   "¿Cómo calculo el rango intercuartílico?"
+  ]
+ },
+ {
+  "id": "t_ric",
+  "title": "¿Cómo calculo el rango intercuartílico?",
+  "answer": "RIC = Q₃ − Q₁: la diferencia entre el tercer y el primer cuartil, es decir el ancho de la mitad central de los datos.\n\nSu virtud es que **ignora el 25 % más bajo y el 25 % más alto**, así que no se mueve cuando aparece un valor extremo. Por eso se usa cuando hay atípicos, mientras que el rango total los tiene dentro por definición.\n\nUn aviso sobre los cuartiles: existen varias convenciones para calcularlos y dan resultados ligeramente distintos. Esta app usa interpolación lineal, la misma de Excel y Google Sheets, para que puedas contrastar. Si tu texto de curso usa la regla (n+1)·p, es normal que difiera en las décimas.",
+  "keywords": [
+   "ric",
+   "rango intercuartilico",
+   "cuartil",
+   "q1",
+   "q3",
+   "como calculo cuartiles",
+   "percentil",
+   "calcular ric",
+   "calcular cuartiles",
+   "hallar cuartiles",
+   "intercuartilico"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "RIC",
+   "cuartiles"
+  ],
+  "followUps": [
+   "¿Qué es un valor atípico y qué hago con él?",
+   "¿Qué muestra y qué esconde un diagrama de caja?"
+  ]
+ },
+ {
+  "id": "t_escala",
+  "title": "¿Qué es la escala de medición y por qué importa?",
+  "answer": "Es el nivel de información que aporta una variable, y determina qué operaciones son válidas:\n\n- **Nominal**: solo distingue. Carrera, tipo de residuo. → moda.\n- **Ordinal**: hay orden, no distancia. Nivel de satisfacción, puesto en un ranking. → moda y mediana.\n- **Intervalo**: distancias comparables, cero convencional. Notas, temperatura Celsius, pH. → moda, mediana y media. Sin razones ni CV.\n- **Razón**: cero absoluto. Minutos, soles, kilogramos. → todo.\n\nImporta porque calcular por encima de lo que la escala permite produce números perfectamente válidos y conclusiones falsas. El promedio de los códigos de carrera de tus compañeros es calculable y vacío.",
+  "keywords": [
+   "escala de medicion",
+   "nominal",
+   "ordinal",
+   "intervalo",
+   "razon",
+   "escalas",
+   "stevens"
+  ],
+  "moduleId": "m1",
+  "concepts": [
+   "escala de medición"
+  ],
+  "followUps": [
+   "¿Por qué las notas son escala de intervalo?",
+   "¿Cómo distingo variable cualitativa de cuantitativa?"
+  ]
+ },
+ {
+  "id": "t_notas_intervalo",
+  "title": "¿Por qué las notas son escala de intervalo?",
+  "answer": "Porque el cero de la escala vigesimal es **convencional**, no absoluto. Un estudiante con 0 no tiene conocimiento nulo: tiene el conocimiento que esa prueba concreta no detectó.\n\nSin cero absoluto, las razones no significan nada: un 16 no es «el doble de bueno» que un 8. Lo que sí puedes hacer es restar diferencias, porque la distancia entre 8 y 10 sí es comparable a la que hay entre 16 y 18.\n\nConsecuencia práctica: puedes calcular media y desviación estándar de las notas, pero no coeficiente de variación.",
+  "keywords": [
+   "notas escala",
+   "por que intervalo",
+   "nota vigesimal",
+   "escala de las notas",
+   "cero absoluto"
+  ],
+  "moduleId": "m1",
+  "concepts": [
+   "escala de intervalo"
+  ],
+  "followUps": [
+   "¿Qué es la escala de medición y por qué importa?",
+   "¿Qué es el coeficiente de variación?"
+  ]
+ },
+ {
+  "id": "t_cual_cuant",
+  "title": "¿Cómo distingo variable cualitativa de cuantitativa?",
+  "answer": "La prueba no es si el dato se escribe con números. Es esta: **¿sumar dos valores produce algo interpretable?**\n\n- El DNI, el código de carrera, el número de camiseta y el número de aula se escriben con dígitos y no son cantidades: son etiquetas. Cualitativas.\n- Los minutos, los soles y las atenciones diarias sí. Cuantitativas.\n\nDentro de las cuantitativas, discreta se cuenta (entre 3 y 4 cursos no hay nada) y continua se mide (entre 6,0 y 7,0 horas hay infinitos valores). Que registres la variable redondeada no la vuelve discreta: lo decide la naturaleza de la magnitud, no la precisión del instrumento.",
+  "keywords": [
+   "cualitativa cuantitativa",
+   "tipo de variable",
+   "discreta continua",
+   "variable numerica",
+   "distinguir variables"
+  ],
+  "moduleId": "m1",
+  "concepts": [
+   "tipo de variable"
+  ],
+  "followUps": [
+   "¿Qué es la escala de medición y por qué importa?"
+  ]
+ },
+ {
+  "id": "t_poblacion_muestra",
+  "title": "¿Cuál es la diferencia entre población y muestra?",
+  "answer": "La **población** es el conjunto completo sobre el que quieres concluir algo. La **muestra** es el subconjunto que efectivamente mediste.\n\nTodo lo que calculas describe la muestra. Afirmar algo sobre la población es un paso adicional que hay que justificar.\n\nEl punto crítico es **quién quedó fuera**. La encuesta de traslado se aplicó a la entrada del campus un lunes a las 8:00: quien vive tan lejos que ya abandonó, quien estudia a distancia y quien tiene clase a las 11:00 no aparecen. La media resultante es correcta para los 40 que respondieron y probablemente demasiado baja para la población que creías describir.\n\nEso es sesgo de selección, y no se corrige aumentando el tamaño de la muestra.",
+  "keywords": [
+   "poblacion muestra",
+   "diferencia poblacion",
+   "sesgo",
+   "muestreo",
+   "representativa",
+   "generalizar"
+  ],
+  "moduleId": "m1",
+  "concepts": [
+   "población",
+   "muestra"
+  ],
+  "followUps": [
+   "¿Cómo distingo variable cualitativa de cuantitativa?"
+  ]
+ },
+ {
+  "id": "t_sturges",
+  "title": "¿Cuántas clases debe tener mi tabla de frecuencias?",
+  "answer": "La regla de Sturges sugiere k = 1 + 3,322 · log₁₀(n). Con n = 40 da 6 clases.\n\nLo importante: es una **sugerencia**, no una obligación. El criterio real es si la tabla deja ver la forma de los datos:\n\n- Con demasiado pocas clases, cualquier distribución parece uniforme.\n- Con demasiadas y pocos datos, la mayoría de clases tiene uno o cero casos: eso es ruido, no detalle.\n\nSi cambias el número de clases que sugiere Sturges, decláralo y explica por qué. Es una decisión analítica legítima, no un error.",
+  "keywords": [
+   "sturges",
+   "cuantas clases",
+   "numero de clases",
+   "tabla de frecuencias clases",
+   "intervalos"
+  ],
+  "moduleId": "m2",
+  "concepts": [
+   "Sturges"
+  ],
+  "followUps": [
+   "¿Cómo se construye una tabla de frecuencias?",
+   "¿Qué pierdo al agrupar los datos?"
+  ]
+ },
+ {
+  "id": "t_tabla",
+  "title": "¿Cómo se construye una tabla de frecuencias?",
+  "answer": "Cinco pasos:\n\n1. **Número de clases**: Sturges, k = 1 + 3,322·log₁₀(n), redondeado.\n2. **Ancho**: A = (máximo − mínimo) / k. Se puede redondear hacia arriba a un valor cómodo.\n3. **Límites**: cerrados por la izquierda y abiertos por la derecha, [Lᵢ, Lₛ), con el último cerrado para incluir el máximo. Esta convención es obligatoria: sin ella, un dato que cae en un límite se cuenta dos veces o ninguna, y la tabla deja de sumar n.\n4. **Frecuencias**: fᵢ (cuántos en la clase), hᵢ = fᵢ/n, Fᵢ (acumulada) y Hᵢ.\n5. **Comprobación**: Σfᵢ = n y la última Fᵢ = n. Si no cuadra, hay un dato en el limbo.",
+  "keywords": [
+   "tabla de frecuencias",
+   "construir tabla",
+   "como hacer tabla",
+   "frecuencias",
+   "limites de clase",
+   "marca de clase"
+  ],
+  "moduleId": "m2",
+  "concepts": [
+   "tabla de frecuencias"
+  ],
+  "followUps": [
+   "¿Cuántas clases debe tener mi tabla de frecuencias?",
+   "¿Qué diferencia hay entre fᵢ y Fᵢ?"
+  ]
+ },
+ {
+  "id": "t_fi_Fi",
+  "title": "¿Qué diferencia hay entre fᵢ y Fᵢ?",
+  "answer": "**fᵢ** responde a «¿cuántos hay *en* esta clase?». **Fᵢ** responde a «¿cuántos hay *hasta* esta clase?».\n\nLa pista está en la pregunta: si dice «entre 58 y 81 minutos», es fᵢ. Si dice «menos de 81 minutos», es Fᵢ.\n\nLas versiones relativas, hᵢ y Hᵢ, responden lo mismo en proporción, y son las que necesitas para comparar grupos de distinto tamaño.\n\nComprobación rápida: la última Fᵢ tiene que ser exactamente n, y la última Hᵢ exactamente 1 (o 100 %).",
+  "keywords": [
+   "fi Fi",
+   "frecuencia acumulada",
+   "diferencia fi",
+   "acumulada",
+   "hi Hi"
+  ],
+  "moduleId": "m2",
+  "concepts": [
+   "frecuencia acumulada"
+  ],
+  "followUps": [
+   "¿Cómo se construye una tabla de frecuencias?"
+  ]
+ },
+ {
+  "id": "t_perdida_agrupar",
+  "title": "¿Qué pierdo al agrupar los datos?",
+  "answer": "Los valores individuales. Cuando calculas la media desde la tabla, sustituyes cada dato por la **marca de su clase**: los 15 estudiantes de la clase [12–35) pasan a valer 23,5 todos.\n\nPor eso la media agrupada no coincide con la media exacta. En los tiempos de traslado: 51,68 frente a 50,75. Las dos están bien calculadas; son cálculos distintos sobre información distinta.\n\n**Regla práctica:** si tienes los datos originales, calcula con ellos. La tabla es para *ver* la forma y para *comunicar*, no para sustituir el cálculo. La media agrupada se usa cuando solo dispones de la tabla, y se declara como estimación.",
+  "keywords": [
+   "agrupar datos",
+   "media agrupada",
+   "perdida al agrupar",
+   "datos agrupados",
+   "marca de clase"
+  ],
+  "moduleId": "m2",
+  "concepts": [
+   "media agrupada"
+  ],
+  "followUps": [
+   "¿Cómo se construye una tabla de frecuencias?",
+   "¿Cuándo uso la media y cuándo la mediana?"
+  ]
+ },
+ {
+  "id": "t_regla_empirica",
+  "title": "¿Cuándo puedo aplicar la regla 68–95–99,7?",
+  "answer": "Solo cuando la distribución es **aproximadamente simétrica y acampanada**. No es una propiedad universal de los datos.\n\nDos ejemplos del curso, uno a favor y otro en contra:\n\n- **Horas de sueño** (simétrica): la regla predice 68 % dentro de ±1 desviación y el dato real es 68,4 %. Acierta casi exactamente.\n- **Sueldos de egresados** (asimetría fuerte): la regla predice 68 % y el dato real es 93,3 %. Además el intervalo de ±1 desviación incluye sueldos negativos, que es la señal más rápida de que la regla no aplica.\n\nSi la distribución no acompaña, usa **Chebyshev**: garantiza al menos el 75 % dentro de ±2 desviaciones y el 89 % dentro de ±3, para cualquier forma.",
+  "keywords": [
+   "regla empirica",
+   "68 95 99",
+   "chebyshev",
+   "desviaciones de la media",
+   "distribucion normal"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "regla empírica"
+  ],
+  "followUps": [
+   "¿Qué significa realmente la desviación estándar?",
+   "¿Qué es la asimetría?"
+  ]
+ },
+ {
+  "id": "t_asimetria",
+  "title": "¿Qué es la asimetría y cómo la detecto?",
+  "answer": "Una distribución es asimétrica cuando una de sus colas es más larga que la otra.\n\nLa forma más rápida de detectarla, y la que puedes justificar en un examen, es **comparar media y mediana**:\n\n- media > mediana → cola a la **derecha** (valores altos que tiran de la media).\n- media < mediana → cola a la **izquierda**.\n- media ≈ mediana → aproximadamente simétrica.\n\nEjemplo: tiempos de traslado, media 50,75 y mediana 40. La brecha de casi 11 minutos sobre un rango de 138 es la cola de quienes viven fuera de la ciudad.\n\nConsecuencia práctica: con asimetría fuerte, la media deja de describir el caso típico y la regla empírica deja de aplicar.",
+  "keywords": [
+   "asimetria",
+   "sesgada",
+   "cola",
+   "simetrica",
+   "forma de la distribucion",
+   "skew"
+  ],
+  "moduleId": "m3",
+  "concepts": [
+   "asimetría"
+  ],
+  "followUps": [
+   "¿Cuándo uso la media y cuándo la mediana?",
+   "¿Cuándo puedo aplicar la regla 68–95–99,7?"
+  ]
+ },
+ {
+  "id": "t_media_ponderada",
+  "title": "¿Cómo calculo un promedio ponderado?",
+  "answer": "x̄ₚ = Σ(wᵢ · xᵢ) / Σwᵢ: multiplicas cada valor por su peso, sumas, y divides entre la suma de los pesos.\n\nEjemplo con notas y créditos: 18 (2 créditos), 12 (4) y 14 (4).\n(18·2 + 12·4 + 14·4) / 10 = 140 / 10 = **14,0**.\nLa media simple daría 14,67. La diferencia es el peso de más que la media simple le regala a la nota alta del curso pequeño.\n\nDonde más se falla: **promediar promedios**. La media de las medias de dos grupos solo es válida si los grupos tienen el mismo tamaño. Con 20 y 45 estudiantes hay que ponderar por n.",
+  "keywords": [
+   "media ponderada",
+   "promedio ponderado",
+   "creditos",
+   "promediar promedios",
+   "pesos"
+  ],
+  "moduleId": "m3",
+  "concepts": [
+   "media ponderada"
+  ],
+  "followUps": [
+   "¿Cuándo uso la media y cuándo la mediana?"
+  ]
+ },
+ {
+  "id": "t_moda",
+  "title": "¿Cuándo uso la moda?",
+  "answer": "Siempre que la pregunta sea «¿cuál es el caso más frecuente?», y **obligatoriamente** cuando la variable es nominal, porque es la única medida de centro que esa escala admite.\n\nDos cosas que suelen sorprender:\n\n- Puede **no existir**. Si ningún valor se repite, el conjunto es amodal. Es una respuesta válida, no un fallo del cálculo.\n- Puede **haber varias**. Si dos o más valores empatan en la frecuencia máxima, hay varias modas, y eso ya es información: sugiere subgrupos dentro de los datos.\n\nEn datos agrupados no se habla de moda sino de **clase modal**, que es un intervalo y depende de cómo elegiste las clases.",
+  "keywords": [
+   "moda",
+   "cuando uso la moda",
+   "amodal",
+   "bimodal",
+   "clase modal",
+   "valor mas frecuente"
+  ],
+  "moduleId": "m3",
+  "concepts": [
+   "moda"
+  ],
+  "followUps": [
+   "¿Cuándo uso la media y cuándo la mediana?",
+   "¿Qué es la escala de medición y por qué importa?"
+  ]
+ },
+ {
+  "id": "t_dispersion_importa",
+  "title": "¿Por qué no basta con el promedio?",
+  "answer": "Porque dos grupos pueden tener media, mediana y moda **idénticas** y no parecerse en nada.\n\nEl caso del curso: sección A y sección B tienen las tres medidas iguales (media 13,15, mediana 13, moda 13). En A las notas van de 12 a 14; en B, de 5 a 20. La desviación estándar es 0,67 en A y 4,43 en B.\n\nY lo que importa: **exigen intervenciones opuestas**. A necesita subir el nivel de todo el grupo. B necesita atención diferenciada, porque tiene dentro estudiantes en riesgo y estudiantes desaprovechados a la vez.\n\nUn promedio idéntico habría llevado a la misma decisión para dos problemas contrarios. Por eso en un informe profesional el centro y la dispersión van siempre juntos.",
+  "keywords": [
+   "por que dispersion",
+   "no basta promedio",
+   "promedio enganoso",
+   "misma media",
+   "variabilidad importa"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "dispersión"
+  ],
+  "followUps": [
+   "¿Qué significa realmente la desviación estándar?",
+   "¿Qué es el coeficiente de variación?"
+  ]
+ },
+ {
+  "id": "t_rango",
+  "title": "¿Por qué el rango es una mala medida de variabilidad?",
+  "answer": "Porque lo determinan exactamente **dos datos** —el máximo y el mínimo— y suelen ser los dos menos representativos del conjunto. Los otros n − 2 no intervienen.\n\nEn los tiempos de respuesta del servidor el rango es 2 490 ms, cifra que describe únicamente el peor pico del día de matrícula. La mitad central de las mediciones cabe en 236 ms.\n\nEl rango sirve para responder «¿entre qué valores se mueve esto?», que es una pregunta legítima. No sirve para «¿cuánto varía típicamente?». Para eso, desviación estándar o RIC.",
+  "keywords": [
+   "rango",
+   "por que rango",
+   "maximo menos minimo",
+   "amplitud",
+   "mala medida",
+   "medida de variabilidad"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "rango"
+  ],
+  "followUps": [
+   "¿Cómo calculo el rango intercuartílico?",
+   "¿Qué significa realmente la desviación estándar?"
+  ]
+ },
+ {
+  "id": "t_como_calcula",
+  "title": "¿Con qué método calcula esta app los cuartiles?",
+  "answer": "Con **interpolación lineal sobre la posición (n − 1)·p**, que es el método de Excel (`PERCENTIL.INC`), Google Sheets y el tipo 7 de Hyndman–Fan.\n\nSe eligió ése a propósito: vas a contrastar los resultados de la app con una hoja de cálculo, y una discrepancia sin explicación destruye la confianza en la herramienta.\n\nExisten otras convenciones. Si tu texto de curso usa la regla (n + 1)·p, obtendrás valores ligeramente distintos en los cuartiles. Ninguno de los dos está mal: son convenciones diferentes, y lo correcto es declarar cuál usas. Esta app lo declara.\n\nEl resto de medidas —media, mediana, varianza, desviación, CV— no tienen ambigüedad de método.",
+  "keywords": [
+   "como calcula",
+   "metodo cuartiles",
+   "excel",
+   "diferencia con excel",
+   "percentil",
+   "interpolacion",
+   "que metodo usa",
+   "con que metodo"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "cuartiles"
+  ],
+  "followUps": [
+   "¿Cómo calculo el rango intercuartílico?"
+  ]
+ },
+ {
+  "id": "t_ordinal_promedio",
+  "title": "¿Puedo promediar una escala de satisfacción de 1 a 5?",
+  "answer": "Puedes calcularlo, y esa es justamente la trampa.\n\nCodificar «Muy insatisfecho» como 1 y «Muy satisfecho» como 5 no crea distancias: nada garantiza que el salto de Neutral a Satisfecho sea igual al de Satisfecho a Muy satisfecho. La media asume que sí lo son.\n\nEs la práctica más extendida y menos justificada del análisis de encuestas. Si la usas, **declara el supuesto**.\n\nLo que sí está plenamente justificado en escala ordinal: la **mediana** y la **moda**, y reportar la distribución completa de porcentajes por nivel, que además comunica mucho mejor.",
+  "keywords": [
+   "promediar satisfaccion",
+   "escala likert",
+   "likert",
+   "ordinal media",
+   "promedio de encuesta",
+   "1 a 5"
+  ],
+  "moduleId": "m1",
+  "concepts": [
+   "escala ordinal"
+  ],
+  "followUps": [
+   "¿Qué es la escala de medición y por qué importa?",
+   "¿Cuándo uso la moda?"
+  ]
+ },
+ {
+  "id": "t_z",
+  "title": "¿Qué es la puntuación z?",
+  "answer": "El número de desviaciones estándar que separan un valor de la media: z = (x − x̄) / s.\n\nSirve para dos cosas:\n\n- **Situar un dato**: un z de 2 significa «este valor está dos desviaciones por encima del promedio», y eso se entiende sin conocer las unidades.\n- **Comparar entre variables distintas**: un estudiante con z = 1,5 en Estadística y z = 0,4 en Matemática rindió relativamente mejor en Estadística, aunque las notas brutas digan otra cosa.\n\nCon distribuciones asimétricas, un z alto no implica automáticamente «raro»: eso depende de la forma, no solo de la distancia.",
+  "keywords": [
+   "puntuacion z",
+   "z score",
+   "estandarizar",
+   "tipificar",
+   "valor z"
+  ],
+  "moduleId": "m4",
+  "concepts": [
+   "puntuación z"
+  ],
+  "followUps": [
+   "¿Qué significa realmente la desviación estándar?",
+   "¿Cuándo puedo aplicar la regla 68–95–99,7?"
+  ]
+ },
+ {
+  "id": "t_confusion",
+  "title": "¿Qué es una variable de confusión?",
+  "answer": "Una tercera variable que influye a la vez sobre las dos que estás comparando, y que produce entre ellas una correlación que no refleja ninguna relación directa.\n\nEl ejemplo del curso: las ventas de bebidas frías y las atenciones por golpe de calor en el campus tienen r = 0,98. La variable de confusión es la **temperatura del mes**: sube y hace subir a las dos.\n\nCómo detectarla: pregúntate qué factor podría estar moviendo a ambas variables a la vez. Estacionalidad, tamaño de la población, nivel socioeconómico y tiempo son los sospechosos habituales.\n\nCómo tratarla: controlarla en el diseño (comparar dentro del mismo mes, por ejemplo) o mediante un experimento con asignación aleatoria.",
+  "keywords": [
+   "variable de confusion",
+   "tercera variable",
+   "confusor",
+   "espuria",
+   "confounding"
+  ],
+  "moduleId": "m5",
+  "concepts": [
+   "variable de confusión"
+  ],
+  "followUps": [
+   "¿Por qué correlación no es causalidad?",
+   "¿Qué mide exactamente el coeficiente r?"
+  ]
+ },
+ {
+  "id": "t_como_estudiar",
+  "title": "¿Cómo debería usar esta app para aprender?",
+  "answer": "El orden que funciona es: **teoría corta → laboratorio → ejercicios**.\n\n- La teoría de cada módulo son cuatro lecciones breves. No intentes memorizarlas: cada una termina con una idea clave, y esa es la que tiene que quedarte.\n- El **laboratorio** es la parte que más enseña y la que da tentación de saltarse. Es donde ves con las manos por qué la media se mueve y la mediana no.\n- Los **ejercicios** te piden elegir y después justificar. La elección vale 0,6 y el porqué 0,4, porque acertar sin entender es el problema que esta app intenta detectar.\n\nEn la pantalla de progreso verás tu «tasa de acierto ciego»: el porcentaje de veces que elegiste bien y justificaste mal. Si es alta, vuelve a la teoría del módulo aunque tu puntuación parezca buena.",
+  "keywords": [
+   "como estudiar",
+   "como usar la app",
+   "por donde empiezo",
+   "consejo estudio",
+   "metodo",
+   "estudiar",
+   "estudio",
+   "aprender",
+   "empezar"
+  ],
+  "moduleId": "",
+  "concepts": [],
+  "followUps": [
+   "¿Por qué no basta con el promedio?",
+   "¿Cuándo uso la media y cuándo la mediana?"
+  ]
+ }
+]

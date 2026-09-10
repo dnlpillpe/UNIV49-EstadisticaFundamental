@@ -1,0 +1,72 @@
+name: CI
+
+# Puerta de calidad en cada cambio: análisis estático y suite completa.
+# El test de integridad de contenido corre aquí, así que un error de edición en
+# los JSON del curso se detecta en el pull request y no en el APK.
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+  workflow_dispatch:
+
+jobs:
+  analizar-y-probar:
+    name: Análisis y pruebas
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Instalar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Mostrar versiones
+        run: flutter --version
+
+      # Las carpetas android/ e ios/ no se versionan (ver docs/05). Se generan
+      # aquí para que el proyecto sea válido; `--platforms` limita la
+      # generación a las carpetas nativas y no toca lib/.
+      - name: Generar plataformas nativas
+        run: |
+          flutter create \
+            --platforms=android,ios \
+            --project-name estadistica_fundamental \
+            --org com.estadisticafundamental \
+            --description "Estadística Fundamental" \
+            .
+
+      # Red de seguridad: si alguna versión de `flutter create` tocara el
+      # código o la configuración del proyecto, se restaura desde el commit.
+      - name: Restaurar el código del repositorio
+        run: git checkout -- lib pubspec.yaml analysis_options.yaml test assets || true
+
+      - name: Descargar dependencias
+        run: flutter pub get
+
+      # Informativo, no bloqueante: el formato es una convención de estilo y no
+      # debe impedir que se vea el resultado del análisis y de las pruebas, que
+      # es lo que de verdad indica si algo está roto. Ejecuta `dart format .`
+      # en local para dejarlo limpio.
+      - name: Comprobar el formato
+        continue-on-error: true
+        run: dart format --output=none --set-exit-if-changed lib test
+
+      - name: Análisis estático
+        run: flutter analyze --no-fatal-infos
+
+      - name: Pruebas con cobertura
+        run: flutter test --coverage --reporter expanded
+
+      - name: Publicar el informe de cobertura
+        uses: actions/upload-artifact@v4
+        with:
+          name: cobertura
+          path: coverage/lcov.info
+          if-no-files-found: warn

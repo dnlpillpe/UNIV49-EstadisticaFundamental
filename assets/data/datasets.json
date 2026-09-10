@@ -1,0 +1,886 @@
+[
+ {
+  "id": "ds_traslado",
+  "name": "Tiempo de traslado a la universidad",
+  "context": "Encuesta aplicada un lunes a la entrada del campus: cada estudiante reportó cuántos minutos tardó en llegar desde su vivienda.",
+  "population": "Estudiantes que asisten presencialmente al campus central",
+  "unit": "minutos",
+  "variableName": "Tiempo de traslado",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Encuesta interna de bienestar estudiantil, ciclo 2025-I (n = 40)",
+  "decimals": 0,
+  "tags": [
+   "general",
+   "asimetria"
+  ],
+  "values": [
+   12,
+   15,
+   18,
+   20,
+   20,
+   22,
+   25,
+   25,
+   25,
+   28,
+   30,
+   30,
+   30,
+   30,
+   32,
+   35,
+   35,
+   38,
+   40,
+   40,
+   40,
+   42,
+   45,
+   45,
+   48,
+   50,
+   50,
+   55,
+   60,
+   60,
+   65,
+   70,
+   75,
+   80,
+   90,
+   95,
+   105,
+   120,
+   135,
+   150
+  ],
+  "note": "Cuatro estudiantes viven fuera de la ciudad. Sus tiempos son reales, no errores de registro.",
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_notas_parcial",
+  "name": "Notas del primer parcial de Estadística",
+  "context": "Calificaciones vigesimales del primer examen parcial de un curso general de Estadística.",
+  "population": "Sección A del curso de Estadística General",
+  "unit": "puntos",
+  "variableName": "Nota del parcial",
+  "variableKind": "cuantitativa_discreta",
+  "scale": "intervalo",
+  "source": "Registro académico del docente, ciclo 2025-I (n = 45)",
+  "decimals": 0,
+  "tags": [
+   "general",
+   "escala"
+  ],
+  "values": [
+   5,
+   6,
+   7,
+   8,
+   8,
+   9,
+   9,
+   10,
+   10,
+   10,
+   11,
+   11,
+   11,
+   11,
+   12,
+   12,
+   12,
+   12,
+   12,
+   13,
+   13,
+   13,
+   13,
+   13,
+   13,
+   14,
+   14,
+   14,
+   14,
+   14,
+   15,
+   15,
+   15,
+   15,
+   16,
+   16,
+   16,
+   17,
+   17,
+   17,
+   18,
+   18,
+   19,
+   19,
+   20
+  ],
+  "note": "Una nota de 0 no significaría 'conocimiento nulo': el cero de esta escala es convencional, por eso se clasifica como escala de intervalo.",
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_gasto_transporte",
+  "name": "Gasto semanal en transporte",
+  "context": "Gasto declarado en pasajes durante una semana lectiva típica.",
+  "population": "Estudiantes de pregrado de todas las carreras",
+  "unit": "soles",
+  "variableName": "Gasto semanal",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Encuesta socioeconómica estudiantil, ciclo 2025-I (n = 36)",
+  "decimals": 1,
+  "tags": [
+   "general"
+  ],
+  "values": [
+   8.0,
+   10.5,
+   12.0,
+   14.0,
+   15.0,
+   15.0,
+   16.5,
+   18.0,
+   18.0,
+   19.5,
+   20.0,
+   20.0,
+   21.0,
+   22.5,
+   24.0,
+   24.0,
+   25.0,
+   25.0,
+   26.0,
+   27.5,
+   28.0,
+   28.0,
+   30.0,
+   30.0,
+   32.0,
+   33.5,
+   35.0,
+   36.0,
+   38.0,
+   40.0,
+   42.0,
+   45.0,
+   48.0,
+   52.0,
+   58.0,
+   64.0
+  ],
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_horas_sueno",
+  "name": "Horas de sueño la noche previa al examen",
+  "context": "Horas dormidas reportadas la noche anterior al examen parcial, registradas al inicio de la prueba.",
+  "population": "Sección A del curso de Estadística General",
+  "unit": "horas",
+  "variableName": "Horas de sueño",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Registro voluntario en aula, ciclo 2025-I (n = 38)",
+  "decimals": 1,
+  "tags": [
+   "general",
+   "simetrica"
+  ],
+  "values": [
+   3.0,
+   3.5,
+   4.0,
+   4.0,
+   4.5,
+   4.5,
+   5.0,
+   5.0,
+   5.0,
+   5.5,
+   5.5,
+   5.5,
+   6.0,
+   6.0,
+   6.0,
+   6.0,
+   6.0,
+   6.5,
+   6.5,
+   6.5,
+   6.5,
+   7.0,
+   7.0,
+   7.0,
+   7.0,
+   7.0,
+   7.5,
+   7.5,
+   7.5,
+   8.0,
+   8.0,
+   8.0,
+   8.5,
+   8.5,
+   9.0,
+   9.0,
+   9.5,
+   10.0
+  ],
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_sueldos_egresados",
+  "name": "Sueldo mensual de egresados (primer empleo)",
+  "context": "Ingreso mensual bruto declarado por egresados en su primer empleo formal, seis meses después de titularse.",
+  "population": "Egresados de la promoción 2024 de una facultad",
+  "unit": "soles",
+  "variableName": "Sueldo mensual",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Seguimiento de egresados, oficina de empleabilidad (n = 30)",
+  "decimals": 0,
+  "tags": [
+   "atipicos",
+   "media_vs_mediana"
+  ],
+  "values": [
+   1200,
+   1300,
+   1400,
+   1400,
+   1500,
+   1500,
+   1550,
+   1600,
+   1600,
+   1650,
+   1700,
+   1700,
+   1750,
+   1800,
+   1800,
+   1850,
+   1900,
+   1900,
+   2000,
+   2000,
+   2100,
+   2200,
+   2300,
+   2400,
+   2500,
+   2600,
+   2800,
+   3200,
+   9500,
+   14000
+  ],
+  "note": "Dos egresados fundaron empresas propias. Sus ingresos son verificados: son atípicos, no errores.",
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_seccion_a",
+  "name": "Sección A — nota final",
+  "context": "Notas finales de la sección A. Comparar con la sección B: las dos tienen exactamente la misma media.",
+  "population": "Sección A del curso de Estadística General",
+  "unit": "puntos",
+  "variableName": "Nota final",
+  "variableKind": "cuantitativa_discreta",
+  "scale": "intervalo",
+  "source": "Acta de notas, ciclo 2025-I (n = 20)",
+  "decimals": 0,
+  "tags": [
+   "comparacion",
+   "dispersion"
+  ],
+  "values": [
+   12,
+   12,
+   12,
+   13,
+   13,
+   13,
+   13,
+   13,
+   13,
+   13,
+   13,
+   13,
+   13,
+   13,
+   14,
+   14,
+   14,
+   14,
+   14,
+   14
+  ],
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_seccion_b",
+  "name": "Sección B — nota final",
+  "context": "Notas finales de la sección B. Comparar con la sección A: las dos tienen exactamente la misma media.",
+  "population": "Sección B del curso de Estadística General",
+  "unit": "puntos",
+  "variableName": "Nota final",
+  "variableKind": "cuantitativa_discreta",
+  "scale": "intervalo",
+  "source": "Acta de notas, ciclo 2025-I (n = 20)",
+  "decimals": 0,
+  "tags": [
+   "comparacion",
+   "dispersion"
+  ],
+  "values": [
+   5,
+   6,
+   7,
+   9,
+   10,
+   11,
+   11,
+   12,
+   13,
+   13,
+   13,
+   14,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   20
+  ],
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_tiempo_respuesta",
+  "name": "Tiempo de respuesta de una plataforma virtual",
+  "context": "Tiempo transcurrido entre la solicitud y la carga completa de la página de notas, medido cada 15 minutos durante un día de matrícula.",
+  "population": "Servidor de la plataforma académica en día de alta demanda",
+  "unit": "ms",
+  "variableName": "Tiempo de respuesta",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Registro del servidor, jornada de matrícula 2025-II (n = 40)",
+  "decimals": 0,
+  "tags": [
+   "asimetria",
+   "ingenieria"
+  ],
+  "values": [
+   110,
+   120,
+   125,
+   130,
+   135,
+   140,
+   140,
+   145,
+   150,
+   150,
+   155,
+   160,
+   165,
+   170,
+   175,
+   180,
+   185,
+   190,
+   195,
+   200,
+   210,
+   220,
+   230,
+   240,
+   250,
+   270,
+   290,
+   310,
+   340,
+   380,
+   420,
+   480,
+   560,
+   650,
+   780,
+   920,
+   1100,
+   1400,
+   1900,
+   2600
+  ],
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_ley_cobre",
+  "name": "Ley de cobre en muestras de mineral",
+  "context": "Porcentaje de cobre determinado por ensayo químico en muestras tomadas de un mismo frente de explotación.",
+  "population": "Frente de explotación N-3, nivel 240",
+  "unit": "% Cu",
+  "variableName": "Ley de cobre",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Laboratorio metalúrgico, campaña de muestreo (n = 32)",
+  "decimals": 2,
+  "tags": [
+   "ingenieria",
+   "control"
+  ],
+  "values": [
+   0.82,
+   0.88,
+   0.91,
+   0.94,
+   0.95,
+   0.97,
+   0.98,
+   0.99,
+   1.0,
+   1.01,
+   1.02,
+   1.02,
+   1.03,
+   1.04,
+   1.05,
+   1.05,
+   1.06,
+   1.07,
+   1.07,
+   1.08,
+   1.09,
+   1.1,
+   1.11,
+   1.12,
+   1.13,
+   1.14,
+   1.15,
+   1.17,
+   1.19,
+   1.22,
+   1.26,
+   1.31
+  ],
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_ph_rio",
+  "name": "pH del agua en un punto de monitoreo",
+  "context": "Medición diaria de pH en el punto de control aguas abajo de una planta de tratamiento.",
+  "population": "Punto de monitoreo M-4 del río, 30 días consecutivos",
+  "unit": "pH",
+  "variableName": "pH del agua",
+  "variableKind": "cuantitativa_continua",
+  "scale": "intervalo",
+  "source": "Programa de monitoreo ambiental (n = 30)",
+  "decimals": 2,
+  "tags": [
+   "ambiental",
+   "escala"
+  ],
+  "values": [
+   6.8,
+   6.85,
+   6.9,
+   6.92,
+   6.95,
+   6.98,
+   7.0,
+   7.02,
+   7.03,
+   7.05,
+   7.05,
+   7.06,
+   7.08,
+   7.1,
+   7.1,
+   7.12,
+   7.14,
+   7.15,
+   7.16,
+   7.18,
+   7.2,
+   7.22,
+   7.24,
+   7.26,
+   7.28,
+   7.3,
+   7.34,
+   7.38,
+   7.42,
+   7.5
+  ],
+  "note": "El pH es logarítmico: un pH de 6 no es 'el doble de ácido' que uno de 3. Por eso no admite razones.",
+  "kind": "numerico"
+ },
+ {
+  "id": "ds_carreras",
+  "kind": "categorico",
+  "name": "Carrera de procedencia de los estudiantes",
+  "context": "Distribución por carrera de los estudiantes matriculados en el curso general de Estadística.",
+  "population": "Curso de Estadística General, todas las secciones",
+  "unit": "estudiantes",
+  "variableName": "Carrera",
+  "variableKind": "cualitativa",
+  "scale": "nominal",
+  "source": "Registro de matrícula, ciclo 2025-I (n = 180)",
+  "decimals": 0,
+  "tags": [
+   "categorico"
+  ],
+  "categories": [
+   {
+    "label": "Ing. de Sistemas",
+    "count": 42
+   },
+   {
+    "label": "Administración",
+    "count": 38
+   },
+   {
+    "label": "Psicología",
+    "count": 31
+   },
+   {
+    "label": "Ing. Ambiental",
+    "count": 24
+   },
+   {
+    "label": "Contabilidad",
+    "count": 21
+   },
+   {
+    "label": "Ing. de Minas",
+    "count": 16
+   },
+   {
+    "label": "Economía",
+    "count": 8
+   }
+  ]
+ },
+ {
+  "id": "ds_satisfaccion",
+  "kind": "categorico",
+  "name": "Satisfacción con la plataforma virtual",
+  "context": "Respuesta a la pregunta '¿Qué tan satisfecho estás con la plataforma virtual del curso?' en una escala de cinco niveles.",
+  "population": "Estudiantes del curso de Estadística General",
+  "unit": "respuestas",
+  "variableName": "Nivel de satisfacción",
+  "variableKind": "cualitativa",
+  "scale": "ordinal",
+  "source": "Encuesta de fin de ciclo 2025-I (n = 160)",
+  "decimals": 0,
+  "tags": [
+   "categorico",
+   "ordinal"
+  ],
+  "categories": [
+   {
+    "label": "Muy insatisfecho",
+    "count": 14
+   },
+   {
+    "label": "Insatisfecho",
+    "count": 28
+   },
+   {
+    "label": "Neutral",
+    "count": 46
+   },
+   {
+    "label": "Satisfecho",
+    "count": 52
+   },
+   {
+    "label": "Muy satisfecho",
+    "count": 20
+   }
+  ],
+  "note": "Los niveles tienen orden pero no distancia comparable: no se puede afirmar que la diferencia entre 'Neutral' y 'Satisfecho' sea igual a la que hay entre 'Satisfecho' y 'Muy satisfecho'."
+ },
+ {
+  "id": "ds_residuos",
+  "kind": "categorico",
+  "name": "Composición de los residuos del campus",
+  "context": "Clasificación por peso de los residuos recogidos en el campus durante una semana.",
+  "population": "Residuos sólidos generados en el campus central",
+  "unit": "kg",
+  "variableName": "Tipo de residuo",
+  "variableKind": "cualitativa",
+  "scale": "nominal",
+  "source": "Caracterización de residuos, oficina ambiental (n = 1 250 kg)",
+  "decimals": 0,
+  "tags": [
+   "categorico",
+   "ambiental"
+  ],
+  "categories": [
+   {
+    "label": "Orgánicos",
+    "count": 512
+   },
+   {
+    "label": "Papel y cartón",
+    "count": 288
+   },
+   {
+    "label": "Plástico",
+    "count": 244
+   },
+   {
+    "label": "Vidrio",
+    "count": 102
+   },
+   {
+    "label": "Metales",
+    "count": 64
+   },
+   {
+    "label": "Otros",
+    "count": 40
+   }
+  ]
+ },
+ {
+  "id": "ds_estudio_nota",
+  "kind": "bivariado",
+  "name": "Horas de estudio y nota obtenida",
+  "context": "Horas dedicadas al curso durante la semana previa al examen, frente a la nota obtenida.",
+  "population": "Sección A del curso de Estadística General",
+  "unit": "",
+  "variableName": "Horas de estudio y nota",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Registro voluntario y acta de notas (n = 25)",
+  "decimals": 1,
+  "tags": [
+   "bivariado",
+   "correlacion"
+  ],
+  "xName": "Horas de estudio",
+  "yName": "Nota del parcial",
+  "xUnit": "horas",
+  "yUnit": "puntos",
+  "pairs": [
+   [
+    1,
+    6
+   ],
+   [
+    1.5,
+    9
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    2,
+    11
+   ],
+   [
+    2.5,
+    9
+   ],
+   [
+    3,
+    12
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    3.5,
+    9
+   ],
+   [
+    4,
+    13
+   ],
+   [
+    4,
+    11
+   ],
+   [
+    4.5,
+    12
+   ],
+   [
+    5,
+    11
+   ],
+   [
+    5,
+    15
+   ],
+   [
+    5.5,
+    14
+   ],
+   [
+    6,
+    13
+   ],
+   [
+    6,
+    16
+   ],
+   [
+    6.5,
+    14
+   ],
+   [
+    7,
+    17
+   ],
+   [
+    7,
+    15
+   ],
+   [
+    7.5,
+    18
+   ],
+   [
+    8,
+    16
+   ],
+   [
+    8.5,
+    19
+   ],
+   [
+    9,
+    17
+   ],
+   [
+    9.5,
+    20
+   ],
+   [
+    10,
+    18
+   ]
+  ]
+ },
+ {
+  "id": "ds_bebidas_insolacion",
+  "kind": "bivariado",
+  "name": "Venta de bebidas frías e incidentes por golpe de calor",
+  "context": "Registro mensual de ventas de bebidas frías en el campus y de atenciones por golpe de calor en el tópico universitario.",
+  "population": "Campus universitario, 12 meses",
+  "unit": "",
+  "variableName": "Ventas e incidentes",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Concesionario del campus y tópico universitario (n = 12 meses)",
+  "decimals": 1,
+  "tags": [
+   "bivariado",
+   "causalidad"
+  ],
+  "xName": "Ventas de bebidas frías",
+  "yName": "Atenciones por golpe de calor",
+  "xUnit": "miles de soles",
+  "yUnit": "casos",
+  "pairs": [
+   [
+    8.2,
+    4
+   ],
+   [
+    9.1,
+    3
+   ],
+   [
+    12.4,
+    8
+   ],
+   [
+    15.8,
+    10
+   ],
+   [
+    19.2,
+    16
+   ],
+   [
+    22.6,
+    18
+   ],
+   [
+    24.1,
+    21
+   ],
+   [
+    23.4,
+    22
+   ],
+   [
+    18.9,
+    13
+   ],
+   [
+    14.2,
+    10
+   ],
+   [
+    10.6,
+    4
+   ],
+   [
+    8.8,
+    5
+   ]
+  ],
+  "note": "Las dos variables suben y bajan juntas. Ninguna causa a la otra: la temperatura mensual las mueve a ambas."
+ },
+ {
+  "id": "ds_asistencia_semanal",
+  "name": "Asistencia semanal a clase",
+  "context": "Porcentaje de estudiantes presentes en cada sesión, semana a semana, a lo largo del ciclo.",
+  "population": "Sección A del curso de Estadística General, 16 semanas",
+  "unit": "%",
+  "variableName": "Asistencia",
+  "variableKind": "cuantitativa_continua",
+  "scale": "razon",
+  "source": "Registro de asistencia, ciclo 2025-I (n = 16 semanas)",
+  "decimals": 1,
+  "tags": [
+   "serie",
+   "enganoso"
+  ],
+  "values": [
+   94.0,
+   93.5,
+   92.0,
+   91.5,
+   90.0,
+   89.5,
+   88.0,
+   87.5,
+   87.0,
+   86.0,
+   85.5,
+   85.0,
+   84.0,
+   83.5,
+   82.0,
+   81.0
+  ],
+  "note": "La caída total en todo el ciclo es de 13 puntos porcentuales. Un gráfico con el eje recortado entre 80 y 95 la hace parecer un derrumbe.",
+  "kind": "numerico"
+ }
+]

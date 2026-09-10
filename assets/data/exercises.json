@@ -1,0 +1,2841 @@
+[
+ {
+  "id": "ex_m1_01",
+  "moduleId": "m1",
+  "type": "classify",
+  "title": "Ocho variables, cuatro escalas",
+  "prompt": "Asigna cada variable a su escala de medición.",
+  "context": "Todas provienen de registros reales de una universidad.",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "escala de medición"
+  ],
+  "hint": "Pregúntate qué operación conserva sentido: ¿distinguir, ordenar, restar o dividir?",
+  "explanation": "La escala no depende de si el dato se escribe con números, sino de qué operaciones siguen significando algo. El código de carrera y el DNI son etiquetas numéricas; el pH y la temperatura admiten diferencias pero no razones.",
+  "buckets": [
+   {
+    "id": "nominal",
+    "label": "Nominal",
+    "description": "Solo distingue categorías"
+   },
+   {
+    "id": "ordinal",
+    "label": "Ordinal",
+    "description": "Hay orden, no distancia"
+   },
+   {
+    "id": "intervalo",
+    "label": "Intervalo",
+    "description": "Distancia sí, cero convencional"
+   },
+   {
+    "id": "razon",
+    "label": "Razón",
+    "description": "Cero absoluto, razones válidas"
+   }
+  ],
+  "items": [
+   {
+    "id": "i1",
+    "text": "Código de la carrera (01, 02, 03…)",
+    "bucketId": "nominal",
+    "feedback": "Son etiquetas. El promedio de los códigos no significa nada.",
+    "tags": [
+     "escala_numerica"
+    ]
+   },
+   {
+    "id": "i2",
+    "text": "Nivel de satisfacción (Muy insatisfecho → Muy satisfecho)",
+    "bucketId": "ordinal",
+    "feedback": "Hay orden, pero nada garantiza que los saltos entre niveles sean iguales.",
+    "tags": [
+     "ordinal_promediado"
+    ]
+   },
+   {
+    "id": "i3",
+    "text": "Temperatura del laboratorio en °C",
+    "bucketId": "intervalo",
+    "feedback": "0 °C no es ausencia de temperatura: 20 °C no es el doble de calor que 10 °C.",
+    "tags": [
+     "intervalo_vs_razon"
+    ]
+   },
+   {
+    "id": "i4",
+    "text": "Tiempo de traslado en minutos",
+    "bucketId": "razon",
+    "feedback": "Cero minutos es ausencia de traslado, y 60 sí es el doble de 30.",
+    "tags": []
+   },
+   {
+    "id": "i5",
+    "text": "Número de DNI",
+    "bucketId": "nominal",
+    "feedback": "Identifica, no cuantifica.",
+    "tags": [
+     "escala_numerica"
+    ]
+   },
+   {
+    "id": "i6",
+    "text": "Puesto en el ranking de admisión (1.º, 2.º, 3.º…)",
+    "bucketId": "ordinal",
+    "feedback": "Ordena, pero la diferencia entre el 1.º y el 2.º no es la misma que entre el 50.º y el 51.º.",
+    "tags": []
+   },
+   {
+    "id": "i7",
+    "text": "Gasto semanal en soles",
+    "bucketId": "razon",
+    "feedback": "Cero soles es no gastar nada. Escala de razón.",
+    "tags": []
+   },
+   {
+    "id": "i8",
+    "text": "pH del agua",
+    "bucketId": "intervalo",
+    "feedback": "Escala logarítmica: un pH de 6 no es 'un 14 % más ácido' que uno de 7.",
+    "tags": [
+     "intervalo_vs_razon"
+    ]
+   }
+  ],
+  "visual": "none"
+ },
+ {
+  "id": "ex_m1_02",
+  "moduleId": "m1",
+  "type": "choice",
+  "title": "Quién quedó fuera",
+  "prompt": "La encuesta de traslado se aplicó a la entrada del campus un lunes a las 8:00 y obtuvo una media de 50,75 minutos. ¿Cuál de estas afirmaciones es defendible?",
+  "context": "40 estudiantes respondieron voluntariamente al entrar.",
+  "datasetId": "ds_traslado",
+  "visual": "datos",
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "población",
+   "muestra",
+   "sesgo"
+  ],
+  "hint": "Piensa en quién no podía estar a las 8:00 en la puerta del campus.",
+  "explanation": "La muestra excluye sistemáticamente a quienes tienen clase más tarde, estudian a distancia o abandonaron por la distancia. La media es correcta para los 40; extenderla a toda la población requiere justificar el muestreo.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Los estudiantes del campus tardan en promedio 50,75 minutos en llegar.",
+    "correct": false,
+    "feedback": "Ese salto de la muestra a la población es exactamente lo que no está justificado aquí.",
+    "tags": [
+     "poblacion_vs_muestra"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Entre los 40 estudiantes encuestados el lunes a las 8:00, el tiempo medio de traslado fue de 50,75 minutos.",
+    "correct": true,
+    "feedback": "Correcto: la afirmación se limita a lo que efectivamente se midió.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Como la muestra es de 40 y no de 10, el resultado ya es representativo.",
+    "correct": false,
+    "feedback": "El tamaño no corrige el sesgo de selección. Una muestra grande mal elegida es un error grande.",
+    "tags": [
+     "poblacion_vs_muestra"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "La media no sirve porque la encuesta fue voluntaria.",
+    "correct": false,
+    "feedback": "La media sí describe a quienes respondieron. El problema no es calcularla, es a quién se la atribuyes.",
+    "tags": [
+     "poblacion_vs_muestra"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Por qué esa es la formulación correcta?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Porque delimita la afirmación al grupo que efectivamente fue medido.",
+     "correct": true,
+     "feedback": "Exacto. Describir la muestra siempre es legítimo; generalizar exige justificar cómo se seleccionó.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Porque la media es una medida robusta y no le afectan los casos extremos.",
+     "correct": false,
+     "feedback": "La media es justamente la medida menos robusta. Y ese no es el problema aquí.",
+     "tags": [
+      "media_siempre"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Porque con 40 datos ya se cumple la regla empírica.",
+     "correct": false,
+     "feedback": "La regla empírica no tiene nada que ver con la representatividad de una muestra.",
+     "tags": [
+      "regla_empirica_mal_aplicada"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ex_m1_03",
+  "moduleId": "m1",
+  "type": "choice",
+  "title": "El número que no es cantidad",
+  "prompt": "En un torneo interfacultades se registra el número de camiseta de cada jugador. ¿Cómo se clasifica esa variable?",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "tipo de variable"
+  ],
+  "hint": "¿Qué significaría la suma del número 7 y el número 10?",
+  "explanation": "El número de camiseta identifica al jugador dentro del equipo. No cuenta ni mide nada, y por tanto es cualitativa en escala nominal aunque se escriba con dígitos.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Cuantitativa discreta, porque solo toma valores enteros.",
+    "correct": false,
+    "feedback": "Ser entero no la vuelve cuantitativa: lo que importa es si sumar dos valores significa algo.",
+    "tags": [
+     "escala_numerica"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Cualitativa nominal.",
+    "correct": true,
+    "feedback": "Correcto: es una etiqueta de identificación.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Cuantitativa continua, porque el rango de números es amplio.",
+    "correct": false,
+    "feedback": "La amplitud del rango no tiene relación con el tipo de variable.",
+    "tags": [
+     "escala_numerica"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Cualitativa ordinal, porque los números se pueden ordenar.",
+    "correct": false,
+    "feedback": "Se pueden ordenar los dígitos, pero ese orden no significa nada sobre el jugador.",
+    "tags": [
+     "escala_numerica"
+    ]
+   }
+  ],
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m1_04",
+  "moduleId": "m1",
+  "type": "choice",
+  "title": "La media de una escala ordinal",
+  "prompt": "El coordinador codifica la satisfacción como 1 a 5 y reporta «satisfacción media: 3,23». ¿Es defendible?",
+  "context": "Escala: Muy insatisfecho, Insatisfecho, Neutral, Satisfecho, Muy satisfecho.",
+  "datasetId": "ds_satisfaccion",
+  "visual": "barras",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "escala ordinal",
+   "media"
+  ],
+  "hint": "¿La distancia entre 'Neutral' y 'Satisfecho' es la misma que entre 'Satisfecho' y 'Muy satisfecho'?",
+  "explanation": "Codificar no crea distancias. El 3,23 es calculable y su interpretación descansa en un supuesto —niveles equiespaciados— que nadie ha verificado. La mediana ('Neutral') y la moda ('Satisfecho') describen sin ese supuesto.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Sí, porque los números 1 a 5 permiten calcular la media.",
+    "correct": false,
+    "feedback": "Que el cálculo sea posible no lo vuelve interpretable. Los números los puso él, no la escala.",
+    "tags": [
+     "ordinal_promediado"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "No sin declarar el supuesto: la media asume que los niveles están igualmente espaciados, y eso no se ha comprobado.",
+    "correct": true,
+    "feedback": "Correcto. Es una práctica extendida, pero exige declarar el supuesto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "No, porque con 160 respuestas la muestra es demasiado pequeña.",
+    "correct": false,
+    "feedback": "160 respuestas es una muestra amplia. El problema es la escala, no el tamaño.",
+    "tags": [
+     "poblacion_vs_muestra"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Sí, siempre que además reporte la desviación estándar.",
+    "correct": false,
+    "feedback": "Añadir una segunda medida que hereda el mismo supuesto no arregla nada.",
+    "tags": [
+     "ordinal_promediado"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Qué debería reportar en su lugar?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "La mediana y la moda, que describen sin suponer distancias iguales entre niveles.",
+     "correct": true,
+     "feedback": "Exacto: en escala ordinal esas dos medidas están plenamente justificadas.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "El rango entre el nivel más bajo y el más alto.",
+     "correct": false,
+     "feedback": "El rango de una escala ordinal siempre será 'de Muy insatisfecho a Muy satisfecho': no informa de nada.",
+     "tags": [
+      "rango_vs_desviacion"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "El coeficiente de variación de los códigos.",
+     "correct": false,
+     "feedback": "El CV exige escala de razón. Aquí es doblemente inválido.",
+     "tags": [
+      "cv_mal_usado"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ex_m1_05",
+  "moduleId": "m1",
+  "type": "choice",
+  "title": "El dato que estorba",
+  "prompt": "En el seguimiento de egresados dos personas declaran 9 500 y 14 000 soles. Verificaste que son ingresos reales de empresas propias. ¿Qué haces?",
+  "datasetId": "ds_sueldos_egresados",
+  "visual": "caja",
+  "difficulty": 2,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "valor atípico",
+   "calidad del dato"
+  ],
+  "hint": "¿Puedes demostrar que el dato es falso, o solo que te incomoda?",
+  "explanation": "Un valor extremo verificado forma parte del fenómeno. Eliminarlo cambia la conclusión sin cambiar la realidad. Lo correcto es conservarlo, señalarlo y acompañar la media con una medida robusta.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Los elimino: distorsionan el promedio y no representan al egresado típico.",
+    "correct": false,
+    "feedback": "Eliminar un dato verificado porque incomoda convierte el análisis en una opinión con decimales.",
+    "tags": [
+     "atipico_borrado"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Los conservo, los señalo como atípicos y reporto también la mediana.",
+    "correct": true,
+    "feedback": "Correcto: es el tratamiento estándar de un extremo verificado.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Los sustituyo por la media del resto para no perder los dos casos.",
+    "correct": false,
+    "feedback": "Sustituir un valor real por uno inventado es peor que eliminarlo: falsea sin dejar rastro.",
+    "tags": [
+     "atipico_borrado"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Los conservo y reporto solo la media, que usa toda la información.",
+    "correct": false,
+    "feedback": "Conservarlos está bien; reportar solo la media deja al lector con 2 556,67 como 'sueldo típico', que no describe a nadie.",
+    "tags": [
+     "media_siempre"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Por qué esa combinación?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Porque la mediana no se mueve con los extremos y describe al egresado del medio, mientras la media sigue informando del total repartido.",
+     "correct": true,
+     "feedback": "Exacto: cada medida responde a una pregunta distinta y las dos son legítimas.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Porque la mediana siempre es más precisa que la media.",
+     "correct": false,
+     "feedback": "No es cuestión de precisión: las dos son exactas. Es cuestión de qué pregunta responden.",
+     "tags": [
+      "media_vs_mediana"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Porque con atípicos la media no se puede calcular.",
+     "correct": false,
+     "feedback": "Se puede calcular perfectamente. El problema es qué representa, no si existe.",
+     "tags": [
+      "media_siempre"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m1_06",
+  "moduleId": "m1",
+  "type": "choice",
+  "title": "Por qué las notas son escala de intervalo",
+  "prompt": "¿Cuál es la razón correcta por la que una nota vigesimal se clasifica como escala de intervalo y no de razón?",
+  "datasetId": "ds_notas_parcial",
+  "visual": "histograma",
+  "difficulty": 3,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "escala de intervalo"
+  ],
+  "hint": "Piensa qué significaría un 0 en el examen.",
+  "explanation": "El cero de la escala vigesimal es convencional: un estudiante con 0 no tiene conocimiento nulo, tiene el conocimiento que esa prueba concreta no detectó. Sin cero absoluto, las razones ('el doble de bueno') no significan nada.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Porque las notas son números enteros.",
+    "correct": false,
+    "feedback": "Ser entero afecta a discreta/continua, no a la escala.",
+    "tags": [
+     "escala_numerica"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Porque un 0 no significa ausencia total de conocimiento, y por tanto un 16 no es «el doble» que un 8.",
+    "correct": true,
+    "feedback": "Correcto: falta el cero absoluto, que es lo que habilita las razones.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Porque las notas tienen un máximo de 20.",
+    "correct": false,
+    "feedback": "Tener tope no impide un cero absoluto. El porcentaje tiene tope 100 y es escala de razón.",
+    "tags": [
+     "intervalo_vs_razon"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Porque las notas se pueden ordenar de menor a mayor.",
+    "correct": false,
+    "feedback": "Ordenar es lo que define la escala ordinal; las notas admiten además restar diferencias.",
+    "tags": [
+     "intervalo_vs_razon"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m1_07",
+  "moduleId": "m1",
+  "type": "classify",
+  "title": "Cualitativa, discreta o continua",
+  "prompt": "Clasifica cada variable según su naturaleza.",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "tipo de variable"
+  ],
+  "hint": "Discreta se cuenta; continua se mide y admite decimales por naturaleza.",
+  "explanation": "El criterio para discreta/continua no es cómo se registró el dato sino qué valores admite la magnitud: entre 3 y 4 cursos no hay nada; entre 3,0 y 4,0 horas hay infinitos valores.",
+  "buckets": [
+   {
+    "id": "cual",
+    "label": "Cualitativa",
+    "description": "Categorías"
+   },
+   {
+    "id": "disc",
+    "label": "Cuantitativa discreta",
+    "description": "Se cuenta"
+   },
+   {
+    "id": "cont",
+    "label": "Cuantitativa continua",
+    "description": "Se mide"
+   }
+  ],
+  "items": [
+   {
+    "id": "i1",
+    "text": "Número de cursos matriculados",
+    "bucketId": "disc",
+    "feedback": "Entre 4 y 5 cursos no hay valores posibles.",
+    "tags": []
+   },
+   {
+    "id": "i2",
+    "text": "Tipo de residuo (orgánico, plástico, vidrio…)",
+    "bucketId": "cual",
+    "feedback": "Categorías sin orden.",
+    "tags": []
+   },
+   {
+    "id": "i3",
+    "text": "Ley de cobre en porcentaje",
+    "bucketId": "cont",
+    "feedback": "Magnitud continua, aunque se reporte con dos decimales.",
+    "tags": []
+   },
+   {
+    "id": "i4",
+    "text": "Horas de sueño",
+    "bucketId": "cont",
+    "feedback": "Continua: 6,5 horas es un valor posible.",
+    "tags": []
+   },
+   {
+    "id": "i5",
+    "text": "Atenciones diarias en el tópico",
+    "bucketId": "disc",
+    "feedback": "Se cuentan casos enteros.",
+    "tags": []
+   },
+   {
+    "id": "i6",
+    "text": "Carrera de procedencia",
+    "bucketId": "cual",
+    "feedback": "Etiqueta, no cantidad.",
+    "tags": [
+     "escala_numerica"
+    ]
+   }
+  ],
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m1_08",
+  "moduleId": "m1",
+  "type": "choice",
+  "title": "Qué se puede calcular con una nominal",
+  "prompt": "Con la distribución de estudiantes por carrera, ¿qué medida de tendencia central puedes reportar?",
+  "datasetId": "ds_carreras",
+  "visual": "barras",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "moda",
+   "escala nominal"
+  ],
+  "hint": "¿Tiene sentido ordenar las carreras de menor a mayor?",
+  "explanation": "En escala nominal no hay orden, así que no hay 'valor del medio'. La única medida de centro disponible es la categoría más frecuente: Ingeniería de Sistemas, con 42 estudiantes (23,33 %).",
+  "options": [
+   {
+    "id": "a",
+    "text": "La media, convirtiendo cada carrera a su código numérico.",
+    "correct": false,
+    "feedback": "El promedio de códigos es calculable y vacío.",
+    "tags": [
+     "escala_numerica"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "La mediana, ordenando las carreras alfabéticamente.",
+    "correct": false,
+    "feedback": "El orden alfabético no es una propiedad de la variable: cambiaría la 'mediana' con solo renombrar una carrera.",
+    "tags": [
+     "ordinal_promediado"
+    ]
+   },
+   {
+    "id": "c",
+    "text": "Solo la moda: Ingeniería de Sistemas.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "d",
+    "text": "Ninguna: las variables cualitativas no tienen tendencia central.",
+    "correct": false,
+    "feedback": "Sí la tienen: la moda es una medida de tendencia central perfectamente válida.",
+    "tags": [
+     "moda_inexistente"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m1_09",
+  "moduleId": "m1",
+  "type": "choice",
+  "title": "Auditoría antes de calcular",
+  "prompt": "Revisando la planilla del monitoreo de pH encuentras cuatro anomalías. ¿Cuál de ellas es la única que debes corregir o marcar como faltante?",
+  "datasetId": "ds_ph_rio",
+  "visual": "datos",
+  "difficulty": 3,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "calidad del dato"
+  ],
+  "hint": "Solo una de las cuatro es imposible en la escala de la variable.",
+  "explanation": "El pH está definido aproximadamente entre 0 y 14: un 45 es imposible y por tanto un error de registro. Los otros tres casos son datos legítimos, aunque incómodos.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Un valor de 7,50, el más alto de la serie.",
+    "correct": false,
+    "feedback": "Es el máximo, no un imposible. Ser extremo no es ser erróneo.",
+    "tags": [
+     "atipico_borrado"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Un valor de 45, registrado el día 12.",
+    "correct": true,
+    "feedback": "Correcto: está fuera del rango físicamente posible del pH.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Dos días con exactamente el mismo pH de 7,05.",
+    "correct": false,
+    "feedback": "Que dos mediciones coincidan es normal, no un duplicado. El duplicado sería la misma medición registrada dos veces.",
+    "tags": []
+   },
+   {
+    "id": "d",
+    "text": "Un tramo de cinco días con valores muy parecidos entre sí.",
+    "correct": false,
+    "feedback": "Baja variabilidad puede ser el comportamiento real del sistema. No es una anomalía por sí misma.",
+    "tags": [
+     "atipico_borrado"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m2_01",
+  "moduleId": "m2",
+  "type": "numeric",
+  "title": "Cuántas clases sugiere Sturges",
+  "prompt": "Con n = 40 observaciones, ¿cuántas clases sugiere la regla de Sturges? Redondea al entero más próximo.",
+  "datasetId": "ds_traslado",
+  "visual": "datos",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "Sturges"
+  ],
+  "hint": "k = 1 + 3,322 · log₁₀(40). El logaritmo de 40 es 1,602.",
+  "explanation": "k = 1 + 3,322 · 1,602 = 6,32 → 6 clases. Es una sugerencia razonable, no una obligación: si con 6 clases se pierde algo relevante, se cambia y se justifica.",
+  "answer": {
+   "value": 6,
+   "tolerance": 0,
+   "unit": "clases"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m2_02",
+  "moduleId": "m2",
+  "type": "numeric",
+  "title": "Ancho de clase",
+  "prompt": "Con 6 clases y los tiempos de traslado (mínimo 12, máximo 150 minutos), ¿cuál es el ancho de cada clase?",
+  "datasetId": "ds_traslado",
+  "visual": "datos",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "ancho de clase"
+  ],
+  "hint": "A = (máximo − mínimo) / k.",
+  "explanation": "A = (150 − 12) / 6 = 23 minutos. En la práctica se admite redondear hacia arriba a un valor cómodo (25) para obtener límites más legibles, siempre que se declare.",
+  "answer": {
+   "value": 23,
+   "tolerance": 0.5,
+   "unit": "minutos"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m2_03",
+  "moduleId": "m2",
+  "type": "choice",
+  "title": "El valor que cae justo en el límite",
+  "prompt": "Con clases [12–35], [35–58], [58–81]… ¿dónde va un estudiante que tardó exactamente 35 minutos?",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "límites de clase"
+  ],
+  "hint": "Cada dato debe caer en exactamente una clase, o las frecuencias no sumarán n.",
+  "explanation": "Con la convención [Lᵢ, Lₛ) —cerrado por la izquierda, abierto por la derecha— el 35 entra en la segunda clase y en ninguna otra. Sin una convención declarada, la tabla puede no sumar n.",
+  "options": [
+   {
+    "id": "a",
+    "text": "En la primera clase, porque es su límite superior.",
+    "correct": false,
+    "feedback": "Con [12, 35) el 35 ya no pertenece a la primera clase.",
+    "tags": [
+     "limite_doble_conteo"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "En la segunda clase, [35–58), porque el intervalo es cerrado por la izquierda.",
+    "correct": true,
+    "feedback": "Correcto: la convención [Lᵢ, Lₛ) resuelve el empate sin ambigüedad.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "En las dos: se cuenta medio caso en cada una.",
+    "correct": false,
+    "feedback": "Medio caso no existe. Las frecuencias absolutas son conteos de unidades enteras.",
+    "tags": [
+     "limite_doble_conteo"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Da igual, mientras seas consistente en toda la tabla.",
+    "correct": false,
+    "feedback": "Ser consistente es necesario pero no suficiente: hace falta declarar cuál es la convención para que otro pueda reproducir la tabla.",
+    "tags": [
+     "limite_doble_conteo"
+    ]
+   }
+  ],
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m2_04",
+  "moduleId": "m2",
+  "type": "choice",
+  "title": "La clase modal",
+  "prompt": "Observa la tabla de frecuencias de los tiempos de traslado con 6 clases. ¿Cuál es la clase modal?",
+  "datasetId": "ds_traslado",
+  "visual": "tabla",
+  "classCount": 6,
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "clase modal"
+  ],
+  "hint": "Es la clase con mayor frecuencia absoluta.",
+  "explanation": "La clase [12 – 35) concentra 15 de los 40 casos (37,50 %). Es la clase modal, que no es lo mismo que la moda: la moda de los datos sin agrupar es 30 minutos.",
+  "options": [
+   {
+    "id": "a",
+    "text": "[12 – 35), con 15 casos.",
+    "correct": true,
+    "feedback": "Correcto: es la de mayor frecuencia absoluta.",
+    "tags": []
+   },
+   {
+    "id": "b",
+    "text": "[35 – 58), porque contiene la mediana.",
+    "correct": false,
+    "feedback": "Contener la mediana la convierte en clase mediana, no en clase modal.",
+    "tags": [
+     "clase_modal_vs_moda"
+    ]
+   },
+   {
+    "id": "c",
+    "text": "[127 – 150], porque contiene el valor más alto.",
+    "correct": false,
+    "feedback": "El valor más alto no tiene relación con la frecuencia de la clase.",
+    "tags": [
+     "clase_modal_vs_moda"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "30 minutos.",
+    "correct": false,
+    "feedback": "30 es la moda de los datos sin agrupar. La clase modal es un intervalo, no un valor.",
+    "tags": [
+     "clase_modal_vs_moda"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m2_05",
+  "moduleId": "m2",
+  "type": "choice",
+  "title": "Dos secciones de distinto tamaño",
+  "prompt": "La sección A tiene 20 estudiantes y la sección de Estadística General tiene 45. En la clase alta de notas, A tiene 6 casos y la otra 10. ¿Qué sección tiene mejor desempeño en esa clase?",
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "frecuencia relativa"
+  ],
+  "hint": "Compara proporciones, no conteos.",
+  "explanation": "6/20 = 30 % frente a 10/45 = 22,2 %. En frecuencia absoluta gana la sección grande; en frecuencia relativa gana la pequeña. Con grupos de distinto tamaño, la única comparación válida es la relativa.",
+  "options": [
+   {
+    "id": "a",
+    "text": "La de 45, porque tiene 10 casos frente a 6.",
+    "correct": false,
+    "feedback": "Un grupo con más integrantes tiene más casos en casi todas las clases. Esa comparación mide tamaño.",
+    "tags": [
+     "absoluta_vs_relativa"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "La sección A: 30 % frente a 22,2 %.",
+    "correct": true,
+    "feedback": "Correcto: la comparación relativa invierte la conclusión.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Empatan: la diferencia de 4 casos no es relevante.",
+    "correct": false,
+    "feedback": "El problema no es la magnitud de la diferencia, es que se están comparando conteos de grupos desiguales.",
+    "tags": [
+     "absoluta_vs_relativa"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "No se puede comparar si los grupos tienen distinto tamaño.",
+    "correct": false,
+    "feedback": "Sí se puede, y precisamente para eso existen las frecuencias relativas.",
+    "tags": [
+     "absoluta_vs_relativa"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Cuál es el motivo de fondo?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Porque la frecuencia relativa expresa cada clase como proporción de su propio total y neutraliza la diferencia de tamaño.",
+     "correct": true,
+     "feedback": "Exacto: es la razón por la que hᵢ existe.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Porque la sección A tiene menos estudiantes y eso mejora el promedio.",
+     "correct": false,
+     "feedback": "El tamaño del grupo no mejora ni empeora nada por sí mismo.",
+     "tags": [
+      "absoluta_vs_relativa"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Porque las frecuencias acumuladas ya corrigen el tamaño.",
+     "correct": false,
+     "feedback": "Las acumuladas absolutas heredan el mismo problema. La corrección la hace dividir entre n.",
+     "tags": [
+      "acumulada_mal_leida"
+     ]
+    }
+   ]
+  },
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m2_06",
+  "moduleId": "m2",
+  "type": "numeric",
+  "title": "Leer una acumulada",
+  "prompt": "Con la tabla de 6 clases de los tiempos de traslado, ¿qué porcentaje de estudiantes tarda menos de 81 minutos?",
+  "datasetId": "ds_traslado",
+  "visual": "tabla",
+  "classCount": 6,
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "frecuencia acumulada"
+  ],
+  "hint": "Busca la frecuencia relativa acumulada (Hᵢ) de la clase que termina en 81.",
+  "explanation": "Las tres primeras clases acumulan 15 + 13 + 6 = 34 de 40 estudiantes, es decir el 85 %. Es la columna Hᵢ, que responde a preguntas de umbral.",
+  "answer": {
+   "value": 85,
+   "tolerance": 0.6,
+   "unit": "%"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m2_07",
+  "moduleId": "m2",
+  "type": "choice",
+  "title": "Qué responde cada columna",
+  "prompt": "El decano pregunta: «¿cuántos estudiantes tardan entre 58 y 81 minutos?». ¿Qué columna de la tabla responde exactamente a eso?",
+  "datasetId": "ds_traslado",
+  "visual": "tabla",
+  "classCount": 6,
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "frecuencia absoluta",
+   "frecuencia acumulada"
+  ],
+  "hint": "La pregunta dice «entre», no «hasta».",
+  "explanation": "La pregunta es por una clase concreta, así que la responde fᵢ: 6 estudiantes. Fᵢ respondería a «¿cuántos tardan menos de 81?», que son 34.",
+  "options": [
+   {
+    "id": "a",
+    "text": "La frecuencia absoluta fᵢ de esa clase: 6 estudiantes.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "b",
+    "text": "La frecuencia acumulada Fᵢ de esa clase: 34 estudiantes.",
+    "correct": false,
+    "feedback": "Fᵢ acumula todas las clases anteriores. Responde a «hasta 81», no a «entre 58 y 81».",
+    "tags": [
+     "acumulada_mal_leida"
+    ]
+   },
+   {
+    "id": "c",
+    "text": "La frecuencia relativa hᵢ: 15 %.",
+    "correct": false,
+    "feedback": "hᵢ da la proporción correcta de esa clase, pero la pregunta pide un número de estudiantes.",
+    "tags": []
+   },
+   {
+    "id": "d",
+    "text": "La marca de clase: 69,5 minutos.",
+    "correct": false,
+    "feedback": "La marca de clase es un valor representativo del intervalo, no un conteo.",
+    "tags": [
+     "media_agrupada"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m2_08",
+  "moduleId": "m2",
+  "type": "choice",
+  "title": "Lo que cuesta agrupar",
+  "prompt": "La media exacta de los tiempos de traslado es 50,75 minutos. Calculada desde la tabla de 6 clases da 51,68. ¿Cómo se interpreta esa diferencia?",
+  "datasetId": "ds_traslado",
+  "visual": "tabla",
+  "classCount": 6,
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "media agrupada"
+  ],
+  "hint": "¿Qué valor representa a cada dato cuando calculas desde la tabla?",
+  "explanation": "Al agrupar, cada dato se sustituye por la marca de su clase. Los 15 casos de [12–35) pasan a valer 23,5 todos. La media agrupada es una estimación con pérdida, no un cálculo alternativo de la misma cantidad.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Una de las dos está mal calculada.",
+    "correct": false,
+    "feedback": "Las dos están bien calculadas: responden a cálculos distintos sobre información distinta.",
+    "tags": [
+     "media_agrupada"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Es el error introducido al sustituir cada dato por la marca de su clase.",
+    "correct": true,
+    "feedback": "Correcto: es pérdida por compresión, y es esperable.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Es el redondeo del ancho de clase.",
+    "correct": false,
+    "feedback": "El ancho es exactamente 23, sin redondeo. La pérdida viene de las marcas de clase.",
+    "tags": [
+     "media_agrupada"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "La media agrupada es más precisa porque usa la estructura de la tabla.",
+    "correct": false,
+    "feedback": "Es al revés: la agrupada usa menos información que los datos originales.",
+    "tags": [
+     "media_agrupada"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "Entonces, ¿cuándo se usa la media agrupada?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Cuando solo dispones de la tabla y no de los datos originales, declarándola como estimación.",
+     "correct": true,
+     "feedback": "Exacto: es la situación habitual con datos publicados por terceros.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Siempre que la tabla esté construida con la regla de Sturges.",
+     "correct": false,
+     "feedback": "Sturges decide el número de clases, no la validez del cálculo.",
+     "tags": [
+      "media_agrupada"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Cuando hay valores atípicos, porque agrupar los neutraliza.",
+     "correct": false,
+     "feedback": "Agrupar no neutraliza los atípicos: los mete en una clase extrema y sigue arrastrando la media.",
+     "tags": [
+      "atipico_borrado"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m2_09",
+  "moduleId": "m2",
+  "type": "choice",
+  "title": "Qué tabla elegirías",
+  "prompt": "Con las notas del parcial (n = 45), ¿cuál de estas configuraciones describes mejor la distribución?",
+  "datasetId": "ds_notas_parcial",
+  "visual": "histograma",
+  "classCount": 6,
+  "difficulty": 3,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "número de clases"
+  ],
+  "hint": "Piensa qué ves con 2 clases y qué ves con 20.",
+  "explanation": "Con 2 clases toda la información de forma desaparece; con 20 y solo 45 datos, la mayoría de clases tendría uno o cero casos y el histograma se convierte en ruido. Sturges sugiere 6, que aquí muestra el pico central y las dos colas.",
+  "options": [
+   {
+    "id": "a",
+    "text": "2 clases: es la tabla más simple de leer.",
+    "correct": false,
+    "feedback": "Simple no es informativo: con dos clases cualquier distribución parece uniforme.",
+    "tags": [
+     "clase_modal_vs_moda"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "6 clases, el valor sugerido por Sturges, porque deja ver el pico y las colas.",
+    "correct": true,
+    "feedback": "Correcto, y la justificación es lo que importa: se ve la forma.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "20 clases: cuanto más detalle, mejor.",
+    "correct": false,
+    "feedback": "Con 45 datos y 20 clases, la mayoría tendría 1 o 2 casos: eso es ruido, no detalle.",
+    "tags": [
+     "clase_modal_vs_moda"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "45 clases, una por dato, para no perder nada.",
+    "correct": false,
+    "feedback": "Eso no es una tabla de frecuencias, es la lista original. Agrupar existe precisamente para resumir.",
+    "tags": [
+     "media_agrupada"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m3_01",
+  "moduleId": "m3",
+  "type": "numeric",
+  "title": "La media de las horas de sueño",
+  "prompt": "Calcula la media de horas de sueño de los 38 estudiantes. Responde con un decimal.",
+  "datasetId": "ds_horas_sueno",
+  "visual": "puntos",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "media"
+  ],
+  "hint": "Suma los 38 valores y divide entre 38. La suma es 247.",
+  "explanation": "247 / 38 = 6,5 horas. En este conjunto la media coincide con la mediana, señal de una distribución aproximadamente simétrica.",
+  "answer": {
+   "value": 6.5,
+   "tolerance": 0.06,
+   "unit": "horas"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m3_02",
+  "moduleId": "m3",
+  "type": "numeric",
+  "title": "La mediana de los sueldos",
+  "prompt": "¿Cuál es la mediana del sueldo mensual de los 30 egresados?",
+  "datasetId": "ds_sueldos_egresados",
+  "visual": "datos",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "mediana"
+  ],
+  "hint": "Con n par, la mediana es el promedio de los dos valores centrales: las posiciones 15 y 16.",
+  "explanation": "Los valores centrales son 1 800 y 1 850; su promedio es 1 825 soles. Compáralo con la media, 2 556,67: la diferencia de más de 700 soles la producen dos egresados.",
+  "answer": {
+   "value": 1825,
+   "tolerance": 5,
+   "unit": "soles"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m3_03",
+  "moduleId": "m3",
+  "type": "choice",
+  "title": "«¿Cuánto voy a ganar?»",
+  "prompt": "Un estudiante de último ciclo pregunta cuánto puede esperar ganar en su primer empleo. Media: 2 556,67. Mediana: 1 825. ¿Qué le respondes?",
+  "datasetId": "ds_sueldos_egresados",
+  "visual": "caja",
+  "difficulty": 3,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "media",
+   "mediana",
+   "asimetría"
+  ],
+  "hint": "¿Qué pregunta está haciendo realmente: por el total repartido o por el caso típico?",
+  "explanation": "Pregunta por su caso, no por el total de la promoción. La mediana describe al egresado del medio; la media está arrastrada por dos fundadores de empresa y no describe a ningún egresado concreto.",
+  "options": [
+   {
+    "id": "a",
+    "text": "2 556,67 soles, que es el promedio de la promoción.",
+    "correct": false,
+    "feedback": "Es el reparto igualitario del total. Ningún egresado de esta promoción gana algo cercano a esa cifra salvo los dos extremos.",
+    "tags": [
+     "media_siempre"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Alrededor de 1 825 soles, y le explicas que hay dos casos muy por encima que elevan el promedio.",
+    "correct": true,
+    "feedback": "Correcto: la mediana responde a su pregunta y la explicación evita que se sienta engañado si ve la media en otro sitio.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Entre 1 200 y 14 000, que es el rango observado.",
+    "correct": false,
+    "feedback": "Técnicamente cierto e inútil para decidir: el rango lo fijan los dos casos menos representativos.",
+    "tags": [
+     "rango_vs_desviacion"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "No se puede responder porque los datos tienen atípicos.",
+    "correct": false,
+    "feedback": "Sí se puede: para eso existen las medidas robustas.",
+    "tags": [
+     "atipico_borrado"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Por qué la mediana y no la media?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Porque la distribución es fuertemente asimétrica a la derecha y la media está desplazada por dos valores extremos.",
+     "correct": true,
+     "feedback": "Exacto: media 2 556,67 frente a mediana 1 825, sobre un rango de 12 800. La brecha es la cola.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Porque la mediana siempre es más fiable que la media.",
+     "correct": false,
+     "feedback": "No siempre: si el estudiante preguntara por el total de sueldos de la promoción, la media sería la única útil.",
+     "tags": [
+      "media_vs_mediana"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Porque con 30 datos la media todavía no es estable.",
+     "correct": false,
+     "feedback": "El problema no es el tamaño de la muestra, es la forma de la distribución.",
+     "tags": [
+      "poblacion_vs_muestra"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m3_04",
+  "moduleId": "m3",
+  "type": "choice",
+  "title": "El caso en que la mediana falla",
+  "prompt": "Bienestar Estudiantil quiere estimar cuánto costaría subsidiar el transporte de los 36 estudiantes durante una semana. Media: 28,36 soles. Mediana: 25,50. ¿Qué medida usas?",
+  "datasetId": "ds_gasto_transporte",
+  "visual": "histograma",
+  "difficulty": 3,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "media",
+   "total"
+  ],
+  "hint": "¿La decisión depende del caso típico o del total?",
+  "explanation": "Un presupuesto necesita el total, y solo la media lo reconstruye: media × n = 28,36 × 36 = 1 021 soles, la suma exacta. La mediana × n daría 918 soles y dejaría el programa corto.",
+  "options": [
+   {
+    "id": "a",
+    "text": "La mediana, porque es más robusta frente a los gastos altos.",
+    "correct": false,
+    "feedback": "Robusta sí, pero no reconstruye el total: 25,50 × 36 = 918, y el gasto real es de 1 021 soles.",
+    "tags": [
+     "media_vs_mediana"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "La media, porque multiplicada por n devuelve exactamente el total que hay que financiar.",
+    "correct": true,
+    "feedback": "Correcto: 28,36 × 36 = 1 021 soles, la suma real.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "La moda, porque es el gasto más frecuente.",
+    "correct": false,
+    "feedback": "El gasto más frecuente no dice nada sobre el total a financiar.",
+    "tags": [
+     "media_vs_mediana"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "El máximo, para no quedarse corto.",
+    "correct": false,
+    "feedback": "64 × 36 = 2 304 soles: se financiaría más del doble de lo necesario.",
+    "tags": [
+     "rango_vs_desviacion"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Cuál es la propiedad de la media que decide aquí?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Que la media multiplicada por el número de casos reproduce la suma total.",
+     "correct": true,
+     "feedback": "Exacto. Es la propiedad que ninguna otra medida de centro tiene.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Que la media usa todos los datos y por eso es más precisa.",
+     "correct": false,
+     "feedback": "Usar todos los datos es cierto, pero no es lo que decide en un presupuesto: lo que decide es reconstruir el total.",
+     "tags": [
+      "media_vs_mediana"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Que la media es siempre mayor que la mediana.",
+     "correct": false,
+     "feedback": "Solo en distribuciones asimétricas a la derecha. En las simétricas coinciden y en las asimétricas a la izquierda es menor.",
+     "tags": [
+      "media_vs_mediana"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m3_05",
+  "moduleId": "m3",
+  "type": "numeric",
+  "title": "El promedio que sale en la boleta",
+  "prompt": "Un estudiante obtuvo 18 en un curso de 2 créditos, 12 en uno de 4 créditos y 14 en otro de 4 créditos. ¿Cuál es su promedio ponderado?",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "media ponderada"
+  ],
+  "hint": "Multiplica cada nota por sus créditos, suma y divide entre el total de créditos (10).",
+  "explanation": "(18·2 + 12·4 + 14·4) / 10 = (36 + 48 + 56) / 10 = 14,0. La media simple daría 14,67: la diferencia de 0,67 es el peso que la media simple le regala a la nota alta del curso más pequeño.",
+  "answer": {
+   "value": 14.0,
+   "tolerance": 0.06,
+   "unit": "puntos"
+  },
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m3_06",
+  "moduleId": "m3",
+  "type": "choice",
+  "title": "Cuando no hay moda",
+  "prompt": "En la serie de asistencia semanal (16 semanas) ningún porcentaje se repite. ¿Cuál es la moda?",
+  "datasetId": "ds_asistencia_semanal",
+  "visual": "lineas",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "moda"
+  ],
+  "hint": "La moda existe cuando algún valor aparece más veces que los demás.",
+  "explanation": "Si todos los valores aparecen una sola vez, el conjunto es amodal: no hay moda. Es una respuesta válida, no un fallo del cálculo.",
+  "options": [
+   {
+    "id": "a",
+    "text": "El valor más alto, 94 %.",
+    "correct": false,
+    "feedback": "El máximo no tiene relación con la frecuencia.",
+    "tags": [
+     "moda_inexistente"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "No hay moda: el conjunto es amodal.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "La media, 87,5 %, porque es el valor más representativo.",
+    "correct": false,
+    "feedback": "La media es otra medida distinta. Que no haya moda no la convierte en moda.",
+    "tags": [
+     "moda_inexistente"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Hay 16 modas, una por cada valor.",
+    "correct": false,
+    "feedback": "Por convención, si todos los valores tienen la misma frecuencia el conjunto se declara amodal.",
+    "tags": [
+     "moda_inexistente"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m3_07",
+  "moduleId": "m3",
+  "type": "choice",
+  "title": "Combinar dos secciones",
+  "prompt": "La sección A (20 estudiantes) tiene media 13,15. La sección general (45 estudiantes) tiene media 13,04. ¿Cuál es la media del conjunto de los 65?",
+  "difficulty": 3,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "media ponderada"
+  ],
+  "hint": "¿Pesan igual una sección de 20 y una de 45?",
+  "explanation": "Hay que ponderar por el tamaño: (20·13,15 + 45·13,04) / 65 = (263 + 587) / 65 = 13,08. La media simple de las dos medias daría 13,10, que es incorrecta porque le da a los 20 el mismo peso que a los 45.",
+  "options": [
+   {
+    "id": "a",
+    "text": "13,10: el promedio de 13,15 y 13,04.",
+    "correct": false,
+    "feedback": "Ese cálculo trata a los 20 estudiantes como si fueran 45.",
+    "tags": [
+     "media_de_medias"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "13,08: la media ponderada por el número de estudiantes de cada sección.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "13,15, porque la sección A es la que se está evaluando.",
+    "correct": false,
+    "feedback": "La pregunta es por el conjunto de los 65, no por una sección.",
+    "tags": [
+     "media_de_medias"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "No se puede calcular sin tener las 65 notas individuales.",
+    "correct": false,
+    "feedback": "Sí se puede: la media ponderada reconstruye exactamente el total y lo divide entre 65.",
+    "tags": [
+     "media_de_medias"
+    ]
+   }
+  ],
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m3_08",
+  "moduleId": "m3",
+  "type": "numeric",
+  "title": "Media combinada",
+  "prompt": "Calcula la media conjunta de las dos secciones del ejercicio anterior: 20 estudiantes con suma 263 puntos y 45 estudiantes con suma 587 puntos. Da el resultado con dos decimales.",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "media ponderada"
+  ],
+  "hint": "Suma los totales y divide entre el total de estudiantes.",
+  "explanation": "(263 + 587) / 65 = 850 / 65 = 13,08 puntos.",
+  "answer": {
+   "value": 13.08,
+   "tolerance": 0.02,
+   "unit": "puntos"
+  },
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m3_09",
+  "moduleId": "m3",
+  "type": "choice",
+  "title": "Dos secciones idénticas en el centro",
+  "prompt": "Las secciones A y B tienen la misma media (13,15), la misma mediana (13) y la misma moda (13). ¿Qué puedes concluir?",
+  "datasetId": "ds_seccion_a",
+  "secondaryDatasetId": "ds_seccion_b",
+  "visual": "comparacion",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "dispersión",
+   "tendencia central"
+  ],
+  "hint": "Mira los valores mínimo y máximo de cada sección.",
+  "explanation": "Nada sobre el parecido entre los grupos. En A las notas van de 12 a 14; en B, de 5 a 20. Las tres medidas de centro coinciden y los grupos son opuestos: A es homogéneo, B está partido.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Que las dos secciones tuvieron un rendimiento equivalente.",
+    "correct": false,
+    "feedback": "En A nadie desaprueba y nadie destaca; en B hay estudiantes con 5 y con 20. No es equivalente.",
+    "tags": [
+     "centro_sin_dispersion"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Que las medidas de centro no bastan: hacen falta medidas de dispersión.",
+    "correct": true,
+    "feedback": "Correcto, y es justamente el motivo por el que existe el módulo siguiente.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Que hay un error de cálculo, porque dos grupos distintos no pueden tener la misma media.",
+    "correct": false,
+    "feedback": "Sí pueden. Que dos grupos compartan centro es perfectamente posible y frecuente.",
+    "tags": [
+     "centro_sin_dispersion"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Que la sección B es mejor porque alcanza la nota máxima de 20.",
+    "correct": false,
+    "feedback": "También alcanza la mínima de 5. Juzgar un grupo por su valor extremo es el error del rango.",
+    "tags": [
+     "rango_vs_desviacion"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Qué decisión docente cambia con esa información?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "A necesita subir el nivel general; B necesita atención diferenciada, porque tiene dos grupos dentro del aula.",
+     "correct": true,
+     "feedback": "Exacto: promedios idénticos, intervenciones opuestas. Eso es lo que la dispersión aporta.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Ninguna: con el mismo promedio, la misma intervención sirve para las dos.",
+     "correct": false,
+     "feedback": "Es precisamente la conclusión errónea que la dispersión permite evitar.",
+     "tags": [
+      "centro_sin_dispersion"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Habría que repetir el examen en las dos secciones.",
+     "correct": false,
+     "feedback": "Los datos no sugieren un problema con el instrumento, sino con la homogeneidad de un grupo.",
+     "tags": [
+      "centro_sin_dispersion"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m3_10",
+  "moduleId": "m3",
+  "type": "choice",
+  "title": "La brecha entre media y mediana",
+  "prompt": "En los tiempos de traslado la media es 50,75 y la mediana 40. ¿Qué indica esa diferencia?",
+  "datasetId": "ds_traslado",
+  "visual": "histograma",
+  "classCount": 6,
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "asimetría"
+  ],
+  "hint": "¿Qué tipo de valores puede arrastrar a la media hacia arriba?",
+  "explanation": "Media por encima de mediana indica cola hacia la derecha: unos pocos estudiantes con traslados muy largos (120, 135 y 150 minutos) tiran de la media sin mover la mediana.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Que hay un error de cálculo en una de las dos.",
+    "correct": false,
+    "feedback": "Las dos son correctas. Que difieran es información, no error.",
+    "tags": [
+     "media_vs_mediana"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Que la distribución es asimétrica a la derecha: hay una cola de traslados muy largos.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Que la distribución es asimétrica a la izquierda.",
+    "correct": false,
+    "feedback": "Sería al revés: la media quedaría por debajo de la mediana.",
+    "tags": [
+     "media_vs_mediana"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Que faltan datos en el extremo inferior.",
+    "correct": false,
+    "feedback": "La brecha se explica por los valores altos existentes, no por valores bajos ausentes.",
+    "tags": [
+     "media_vs_mediana"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m4_01",
+  "moduleId": "m4",
+  "type": "numeric",
+  "title": "Rango de los tiempos de traslado",
+  "prompt": "El traslado más corto es de 12 minutos y el más largo de 150. ¿Cuál es el rango?",
+  "datasetId": "ds_traslado",
+  "visual": "puntos",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "rango"
+  ],
+  "hint": "R = máximo − mínimo.",
+  "explanation": "150 − 12 = 138 minutos. Fíjate en que este número lo determinan exactamente dos estudiantes de los cuarenta.",
+  "answer": {
+   "value": 138,
+   "tolerance": 0.5,
+   "unit": "minutos"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_02",
+  "moduleId": "m4",
+  "type": "numeric",
+  "title": "Rango intercuartílico de los sueldos",
+  "prompt": "En los sueldos de egresados, Q₁ = 1 600 y Q₃ = 2 275. ¿Cuál es el rango intercuartílico?",
+  "datasetId": "ds_sueldos_egresados",
+  "visual": "caja",
+  "difficulty": 1,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "RIC"
+  ],
+  "hint": "RIC = Q₃ − Q₁.",
+  "explanation": "2 275 − 1 600 = 675 soles. La mitad central de los egresados gana dentro de una franja de 675 soles, mientras el rango total es de 12 800: la diferencia entre ambos números mide cuánto pesan los extremos.",
+  "answer": {
+   "value": 675,
+   "tolerance": 5,
+   "unit": "soles"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_03",
+  "moduleId": "m4",
+  "type": "choice",
+  "title": "¿Es atípico?",
+  "prompt": "Un egresado más declara 3 300 soles. Con Q₁ = 1 600, Q₃ = 2 275 y RIC = 675, ¿se considera atípico según la regla de Tukey?",
+  "datasetId": "ds_sueldos_egresados",
+  "visual": "caja",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "vallas",
+   "atípico"
+  ],
+  "hint": "Valla superior = Q₃ + 1,5 · RIC.",
+  "explanation": "Valla superior = 2 275 + 1,5·675 = 3 287,50. Como 3 300 > 3 287,50, el dato queda fuera por muy poco: es atípico según la convención. «Atípico» significa «revísalo», no «bórralo».",
+  "options": [
+   {
+    "id": "a",
+    "text": "No, porque está muy por debajo de los 9 500 del máximo.",
+    "correct": false,
+    "feedback": "La regla no compara con el máximo, compara con las vallas.",
+    "tags": [
+     "rango_vs_desviacion"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Sí: supera la valla superior de 3 287,50 soles.",
+    "correct": true,
+    "feedback": "Correcto, aunque por un margen mínimo. Conviene decirlo al reportarlo.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "No, porque está dentro del rango observado de 1 200 a 14 000.",
+    "correct": false,
+    "feedback": "Estar dentro del rango no dice nada: el rango incluye a los propios atípicos.",
+    "tags": [
+     "rango_vs_desviacion"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Solo sería atípico si estuviera a más de tres desviaciones estándar.",
+    "correct": false,
+    "feedback": "Esa es otra regla, basada en la media. La de Tukey usa cuartiles y no le afectan los extremos.",
+    "tags": [
+     "regla_empirica_mal_aplicada"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m4_04",
+  "moduleId": "m4",
+  "type": "numeric",
+  "title": "Desviación estándar de la sección A",
+  "prompt": "Las 20 notas de la sección A son tres 12, once 13 y seis 14, con media 13,15. Calcula la desviación estándar muestral. Da dos decimales.",
+  "datasetId": "ds_seccion_a",
+  "visual": "puntos",
+  "difficulty": 3,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "desviación estándar"
+  ],
+  "hint": "Σ(xᵢ − x̄)² = 3·(1,15)² + 11·(0,15)² + 6·(0,85)² = 8,55. Divide entre n − 1 = 19 y saca la raíz.",
+  "explanation": "s² = 8,55 / 19 = 0,45 y s = √0,45 = 0,67 puntos. Interpretación: una nota típica de esta sección se aleja unos 0,67 puntos de 13,15.",
+  "answer": {
+   "value": 0.67,
+   "tolerance": 0.02,
+   "unit": "puntos"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_05",
+  "moduleId": "m4",
+  "type": "choice",
+  "title": "Mismo promedio, distinta aula",
+  "prompt": "Sección A: media 13,15, s = 0,67. Sección B: media 13,15, s = 4,43. ¿Qué afirmación describe correctamente la situación?",
+  "datasetId": "ds_seccion_a",
+  "secondaryDatasetId": "ds_seccion_b",
+  "visual": "comparacion",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "desviación estándar"
+  ],
+  "hint": "Traduce cada desviación a un intervalo alrededor de la media.",
+  "explanation": "En A una nota típica está entre 12,5 y 13,8: prácticamente todos rinden igual. En B una nota típica está entre 8,7 y 17,6: el aula contiene estudiantes en riesgo y estudiantes desaprovechados a la vez.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Las dos secciones rindieron igual, porque tienen la misma media.",
+    "correct": false,
+    "feedback": "La media idéntica es exactamente lo que hace peligrosa esa conclusión.",
+    "tags": [
+     "centro_sin_dispersion"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "A es homogénea y B está internamente dividida: la desviación de B es más de seis veces la de A.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "B es mejor porque tiene más variedad de notas.",
+    "correct": false,
+    "feedback": "Variedad no es calidad: en B hay estudiantes con 5.",
+    "tags": [
+     "rango_vs_desviacion"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "A es mejor porque su desviación es menor.",
+    "correct": false,
+    "feedback": "Menor dispersión significa más homogeneidad, no mejor rendimiento: las dos tienen el mismo promedio.",
+    "tags": [
+     "centro_sin_dispersion"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Qué intervención corresponde a cada sección?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "A: elevar el nivel del grupo entero. B: atención diferenciada, porque hay dos subgrupos distintos.",
+     "correct": true,
+     "feedback": "Exacto: el mismo promedio exige intervenciones opuestas.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Las dos necesitan lo mismo: reforzar el promedio general.",
+     "correct": false,
+     "feedback": "En B eso dejaría sin atender a los estudiantes de los dos extremos.",
+     "tags": [
+      "centro_sin_dispersion"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "B necesita repetir el examen porque su desviación es demasiado alta.",
+     "correct": false,
+     "feedback": "Una desviación alta describe al grupo, no invalida el instrumento.",
+     "tags": [
+      "centro_sin_dispersion"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_06",
+  "moduleId": "m4",
+  "type": "choice",
+  "title": "La varianza y sus unidades",
+  "prompt": "La varianza de los tiempos de traslado es 1 094,86. ¿Cómo se reporta correctamente?",
+  "datasetId": "ds_traslado",
+  "visual": "none",
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "varianza",
+   "unidades"
+  ],
+  "hint": "¿Qué le pasa a las unidades cuando elevas al cuadrado?",
+  "explanation": "La varianza queda en minutos al cuadrado, que no es una magnitud interpretable. Por eso se reporta la desviación estándar, s = 33,09 minutos, que vuelve a las unidades del problema.",
+  "options": [
+   {
+    "id": "a",
+    "text": "«La variación media es de 1 094,86 minutos».",
+    "correct": false,
+    "feedback": "Ese número no está en minutos, está en minutos cuadrados.",
+    "tags": [
+     "varianza_unidades"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "«La varianza es de 1 094,86 minutos², equivalente a una desviación estándar de 33,09 minutos».",
+    "correct": true,
+    "feedback": "Correcto: se declara la unidad al cuadrado y se traduce a la unidad original.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "«Los datos se alejan en promedio 1 094,86 unidades de la media».",
+    "correct": false,
+    "feedback": "«Unidades» no es una unidad. Y la distancia típica es 33,09 minutos, no 1 094,86.",
+    "tags": [
+     "varianza_unidades"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "«El rango de variación es de 1 094,86 minutos».",
+    "correct": false,
+    "feedback": "El rango es 138 minutos. La varianza no es un rango.",
+    "tags": [
+     "rango_vs_desviacion"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m4_07",
+  "moduleId": "m4",
+  "type": "numeric",
+  "title": "Coeficiente de variación del traslado",
+  "prompt": "Media 50,75 minutos, desviación estándar 33,09 minutos. Calcula el coeficiente de variación en porcentaje, con un decimal.",
+  "datasetId": "ds_traslado",
+  "visual": "none",
+  "difficulty": 2,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "coeficiente de variación"
+  ],
+  "hint": "CV = (s / x̄) · 100.",
+  "explanation": "(33,09 / 50,75) · 100 = 65,2 %. Un CV superior al 30 % suele considerarse alta variabilidad relativa: los tiempos de traslado de este grupo son muy heterogéneos.",
+  "answer": {
+   "value": 65.2,
+   "tolerance": 0.7,
+   "unit": "%"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_08",
+  "moduleId": "m4",
+  "type": "choice",
+  "title": "Cuál proceso es más inestable",
+  "prompt": "Ley de cobre: media 1,06 % Cu, s = 0,107. Tiempo de traslado: media 50,75 min, s = 33,09. ¿Cuál de las dos variables es más variable?",
+  "datasetId": "ds_ley_cobre",
+  "secondaryDatasetId": "ds_traslado",
+  "visual": "comparacion",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "coeficiente de variación"
+  ],
+  "hint": "No se pueden comparar desviaciones en unidades distintas. ¿Qué medida es adimensional?",
+  "explanation": "CV de la ley de cobre: 10,1 %. CV del traslado: 65,2 %. El traslado es mucho más variable en términos relativos, pese a que su desviación absoluta parezca enorme solo porque está en minutos.",
+  "options": [
+   {
+    "id": "a",
+    "text": "El traslado, porque 33,09 es mucho mayor que 0,107.",
+    "correct": false,
+    "feedback": "Comparas minutos con puntos porcentuales de cobre. La conclusión resulta ser correcta, pero por un razonamiento inválido.",
+    "tags": [
+     "desviacion_comparada_entre_unidades"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "El traslado: su coeficiente de variación es 65,2 % frente al 10,1 % de la ley de cobre.",
+    "correct": true,
+    "feedback": "Correcto: la comparación adimensional es la única válida entre unidades distintas.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "La ley de cobre, porque sus valores son más pequeños y cualquier variación pesa más.",
+    "correct": false,
+    "feedback": "Esa intuición es lo que el CV permite comprobar, y aquí la desmiente.",
+    "tags": [
+     "desviacion_comparada_entre_unidades"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "No se pueden comparar en absoluto.",
+    "correct": false,
+    "feedback": "Sí se pueden, mediante dispersión relativa. Las dos variables están en escala de razón.",
+    "tags": [
+     "cv_mal_usado"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Por qué el coeficiente de variación permite la comparación?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Porque expresa la desviación como porcentaje de la media y por tanto no tiene unidades.",
+     "correct": true,
+     "feedback": "Exacto. Es la única medida de dispersión comparable entre variables distintas.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Porque normaliza los datos entre 0 y 1.",
+     "correct": false,
+     "feedback": "El CV no acota los valores: puede superar el 100 %, como en los sueldos de egresados.",
+     "tags": [
+      "cv_mal_usado"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Porque elimina el efecto de los valores atípicos.",
+     "correct": false,
+     "feedback": "No los elimina: el CV se calcula con la media y la desviación, y a las dos les afectan los extremos.",
+     "tags": [
+      "cv_mal_usado"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_09",
+  "moduleId": "m4",
+  "type": "choice",
+  "title": "La regla empírica fuera de sitio",
+  "prompt": "En los sueldos de egresados la media es 2 556,67 y s = 2 608,37. Aplicando la regla empírica, ¿el 68 % de los egresados gana entre −51,70 y 5 165,04 soles?",
+  "datasetId": "ds_sueldos_egresados",
+  "visual": "histograma",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "regla empírica"
+  ],
+  "hint": "Fíjate en el límite inferior del intervalo y en la forma de la distribución.",
+  "explanation": "El intervalo incluye sueldos negativos, que son imposibles, y en realidad el 93,3 % de los egresados cae dentro de él, no el 68 %. La regla empírica exige una distribución aproximadamente simétrica, y esta tiene una cola enorme.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Sí: la regla 68–95–99,7 se aplica a cualquier conjunto de datos.",
+    "correct": false,
+    "feedback": "Es una regla condicionada a la forma de la distribución, no una propiedad universal.",
+    "tags": [
+     "regla_empirica_mal_aplicada"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "No: la distribución es fuertemente asimétrica, y de hecho el 93,3 % cae dentro de ese intervalo.",
+    "correct": true,
+    "feedback": "Correcto. Además el límite inferior es negativo, señal inmediata de que la regla no aplica.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "No, porque 30 datos son pocos para aplicar cualquier regla.",
+    "correct": false,
+    "feedback": "El tamaño no es el problema: con las horas de sueño, 38 datos simétricos dan un 68,4 % casi perfecto.",
+    "tags": [
+     "poblacion_vs_muestra"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Sí, pero solo si se eliminan antes los dos sueldos más altos.",
+    "correct": false,
+    "feedback": "Eliminar datos verificados para que encaje la regla es invertir el método.",
+    "tags": [
+     "atipico_borrado"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Qué usarías en su lugar?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "La desigualdad de Chebyshev, que no exige forma: garantiza al menos el 75 % dentro de ±2 desviaciones.",
+     "correct": true,
+     "feedback": "Exacto: garantiza menos, pero es válida para cualquier distribución.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "La regla empírica, pero con ±3 desviaciones en lugar de ±2.",
+     "correct": false,
+     "feedback": "Cambiar el número de desviaciones no arregla el supuesto de simetría.",
+     "tags": [
+      "regla_empirica_mal_aplicada"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "El rango, porque no depende de la forma.",
+     "correct": false,
+     "feedback": "El rango tampoco depende de la forma, pero no responde a la pregunta de qué proporción cae dónde.",
+     "tags": [
+      "rango_vs_desviacion"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_10",
+  "moduleId": "m4",
+  "type": "choice",
+  "title": "Coeficiente de variación de las notas",
+  "prompt": "¿Tiene sentido calcular el coeficiente de variación de las notas del parcial (media 13,04, s = 3,52)?",
+  "datasetId": "ds_notas_parcial",
+  "visual": "none",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "coeficiente de variación",
+   "escala"
+  ],
+  "hint": "Recuerda la escala de las notas del módulo 1.",
+  "explanation": "Las notas son escala de intervalo: el cero es convencional. El CV divide entre la media y necesita un cero absoluto; si la escala fuera de 0 a 100 en lugar de 0 a 20, el CV cambiaría sin que cambiara ningún rendimiento.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Sí: 3,52 / 13,04 · 100 = 27 %, y ese porcentaje describe la variabilidad relativa.",
+    "correct": false,
+    "feedback": "El cálculo es correcto y el número no significa nada: la escala no lo admite.",
+    "tags": [
+     "cv_mal_usado"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "No: las notas son escala de intervalo y el CV exige un cero absoluto.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "No, porque la desviación estándar de 3,52 ya es suficiente.",
+    "correct": false,
+    "feedback": "La desviación es válida aquí, pero el motivo por el que el CV no lo es tiene que ver con la escala, no con que sobre información.",
+    "tags": [
+     "cv_mal_usado"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Sí, siempre que las notas no tengan valores atípicos.",
+    "correct": false,
+    "feedback": "La presencia de atípicos no es lo que decide. Lo que decide es el cero de la escala.",
+    "tags": [
+     "cv_mal_usado"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m4_11",
+  "moduleId": "m4",
+  "type": "numeric",
+  "title": "Comprobar la regla empírica",
+  "prompt": "En las horas de sueño (media 6,5; s = 1,69), 26 de los 38 estudiantes caen dentro de ±1 desviación estándar. ¿Qué porcentaje es? Da un decimal.",
+  "datasetId": "ds_horas_sueno",
+  "visual": "histograma",
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "regla empírica"
+  ],
+  "hint": "26 dividido entre 38, por 100.",
+  "explanation": "26 / 38 = 68,4 %. La regla empírica predice 68 % y aquí acierta casi exactamente, porque esta distribución sí es aproximadamente simétrica. Compáralo con el 93,3 % de los sueldos.",
+  "answer": {
+   "value": 68.4,
+   "tolerance": 0.6,
+   "unit": "%"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m4_12",
+  "moduleId": "m4",
+  "type": "choice",
+  "title": "n o n − 1",
+  "prompt": "Tienes las 20 notas finales de la sección A: todas, sin excepción, porque la sección tiene 20 estudiantes. ¿Divides entre n o entre n − 1?",
+  "datasetId": "ds_seccion_a",
+  "visual": "none",
+  "difficulty": 3,
+  "competency": "analisis_descriptivo",
+  "concepts": [
+   "varianza muestral",
+   "varianza poblacional"
+  ],
+  "hint": "¿Los 20 son una muestra de algo mayor, o son todos los casos que te interesan?",
+  "explanation": "Si la pregunta es sobre esa sección concreta, los 20 son la población y se divide entre n. Si los 20 se usan para estimar el rendimiento de todas las secciones, son una muestra y se divide entre n − 1.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Siempre entre n − 1: es lo que hace la calculadora.",
+    "correct": false,
+    "feedback": "La calculadora ofrece las dos teclas precisamente porque la elección depende del problema.",
+    "tags": [
+     "n_vs_n1"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Depende de la pregunta: entre n si describes esa sección, entre n − 1 si la usas para estimar algo más amplio.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Siempre entre n, porque tienes todos los datos disponibles.",
+    "correct": false,
+    "feedback": "Tener todos los datos a mano no significa que sean la población de interés.",
+    "tags": [
+     "n_vs_n1"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Da igual: con 20 datos la diferencia es despreciable.",
+    "correct": false,
+    "feedback": "La diferencia numérica es pequeña, pero la elección expresa qué estás afirmando. No es un detalle de precisión.",
+    "tags": [
+     "n_vs_n1"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m5_01",
+  "moduleId": "m5",
+  "type": "classify",
+  "title": "Qué gráfico para cada pregunta",
+  "prompt": "Asigna a cada situación el gráfico que le corresponde.",
+  "difficulty": 2,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "elección de gráfico"
+  ],
+  "hint": "Primero mira el tipo de variable; después, la pregunta.",
+  "explanation": "La elección la determinan el tipo de variable y la pregunta. Barras compara categorías, histograma muestra la forma de una cuantitativa, caja compara grupos, dispersión explora relación entre dos cuantitativas y líneas muestra evolución temporal.",
+  "buckets": [
+   {
+    "id": "barras",
+    "label": "Barras",
+    "description": "Comparar categorías"
+   },
+   {
+    "id": "histograma",
+    "label": "Histograma",
+    "description": "Forma de una cuantitativa"
+   },
+   {
+    "id": "caja",
+    "label": "Diagrama de caja",
+    "description": "Comparar grupos"
+   },
+   {
+    "id": "dispersion",
+    "label": "Dispersión",
+    "description": "Relación entre dos cuantitativas"
+   },
+   {
+    "id": "lineas",
+    "label": "Líneas",
+    "description": "Evolución en el tiempo"
+   }
+  ],
+  "items": [
+   {
+    "id": "i1",
+    "text": "¿Cuál es la carrera más numerosa del curso?",
+    "bucketId": "barras",
+    "feedback": "Variable cualitativa y pregunta de comparación: barras.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   },
+   {
+    "id": "i2",
+    "text": "¿Los tiempos de traslado son simétricos o tienen cola?",
+    "bucketId": "histograma",
+    "feedback": "Pregunta por la forma de una variable cuantitativa: histograma.",
+    "tags": [
+     "histograma_vs_barras"
+    ]
+   },
+   {
+    "id": "i3",
+    "text": "¿Cómo se comparan las notas de las secciones A, B y C?",
+    "bucketId": "caja",
+    "feedback": "Comparar centro y dispersión de varios grupos a la vez: cajas lado a lado.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   },
+   {
+    "id": "i4",
+    "text": "¿Hay relación entre horas de estudio y nota obtenida?",
+    "bucketId": "dispersion",
+    "feedback": "Dos variables cuantitativas por unidad: dispersión.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   },
+   {
+    "id": "i5",
+    "text": "¿Cómo evolucionó la asistencia a lo largo de las 16 semanas?",
+    "bucketId": "lineas",
+    "feedback": "Eje horizontal temporal: líneas.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   },
+   {
+    "id": "i6",
+    "text": "¿Qué proporción del peso total de residuos es plástico?",
+    "bucketId": "barras",
+    "feedback": "Cualitativa: barras. El circular también valdría, pero con seis categorías las barras se comparan mejor.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   }
+  ],
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m5_02",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "Barras pegadas o separadas",
+  "prompt": "¿Por qué en un histograma las barras se dibujan pegadas y en un gráfico de barras separadas?",
+  "datasetId": "ds_traslado",
+  "visual": "histograma",
+  "classCount": 6,
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "histograma",
+   "barras"
+  ],
+  "hint": "Piensa qué hay entre dos categorías y qué hay entre dos intervalos.",
+  "explanation": "En un histograma el eje horizontal es continuo: entre 35 y 58 minutos existen todos los valores intermedios, y la ausencia de espacio lo representa. En barras, entre 'Psicología' y 'Contabilidad' no hay nada, y el espacio lo indica.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Es solo una convención estética para distinguirlos.",
+    "correct": false,
+    "feedback": "No es estética: la separación transporta información sobre el tipo de variable.",
+    "tags": [
+     "histograma_vs_barras"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Porque en el histograma el eje es continuo y entre dos clases contiguas no hay hueco; en barras las categorías no tienen continuidad.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Porque el histograma siempre tiene más barras.",
+    "correct": false,
+    "feedback": "El número de barras no tiene relación con la separación.",
+    "tags": [
+     "histograma_vs_barras"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Porque el histograma usa frecuencias absolutas y el de barras, relativas.",
+    "correct": false,
+    "feedback": "Los dos pueden usar cualquiera de las dos frecuencias.",
+    "tags": [
+     "histograma_vs_barras"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m5_03",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "r = 0,98 y una conclusión peligrosa",
+  "prompt": "Las ventas de bebidas frías y las atenciones por golpe de calor tienen r = 0,98 a lo largo de 12 meses. La administración propone restringir la venta de bebidas frías para reducir los casos. ¿Qué respondes?",
+  "datasetId": "ds_bebidas_insolacion",
+  "visual": "dispersion",
+  "difficulty": 3,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "correlación",
+   "causalidad"
+  ],
+  "hint": "¿Qué tercera variable sube en los mismos meses que las dos?",
+  "explanation": "La temperatura mensual mueve las dos variables a la vez: es una variable de confusión. Restringir las bebidas frías no reduciría ni un caso, y probablemente aumentaría el riesgo de deshidratación.",
+  "options": [
+   {
+    "id": "a",
+    "text": "La correlación es casi perfecta, así que la medida está justificada.",
+    "correct": false,
+    "feedback": "Una correlación alta es una pregunta, no una respuesta.",
+    "tags": [
+     "correlacion_causalidad"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "La correlación no prueba causa: la temperatura mensual explica las dos series, y restringir bebidas frías podría empeorar el problema.",
+    "correct": true,
+    "feedback": "Correcto, incluida la consecuencia práctica.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Con 12 datos la correlación no es fiable; con más meses sí se podría concluir causalidad.",
+    "correct": false,
+    "feedback": "Más datos darían una correlación mejor estimada, y seguiría sin ser causa.",
+    "tags": [
+     "correlacion_causalidad"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Habría que invertir la relación: los golpes de calor causan las ventas.",
+    "correct": false,
+    "feedback": "La inversión es una de las alternativas a considerar, pero aquí tampoco es la explicación: es la temperatura.",
+    "tags": [
+     "correlacion_causalidad"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Qué haría falta para poder afirmar una relación causal?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Un diseño que controle la temperatura, o un experimento con asignación aleatoria.",
+     "correct": true,
+     "feedback": "Exacto: hay que neutralizar la variable de confusión, y un gráfico de dispersión no lo hace.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Un coeficiente de correlación superior a 0,99.",
+     "correct": false,
+     "feedback": "Ningún valor de r, por alto que sea, convierte una correlación en causa.",
+     "tags": [
+      "correlacion_causalidad"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Repetir la medición durante tres años seguidos.",
+     "correct": false,
+     "feedback": "Más años darían la misma correlación espuria, con más confianza en el número equivocado.",
+     "tags": [
+      "correlacion_causalidad"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m5_04",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "El eje que empieza donde conviene",
+  "prompt": "La asistencia pasó de 94 % a 81 % en 16 semanas. Un informe presenta la serie con el eje vertical de 80 a 95 y titula «Colapso de la asistencia». ¿Qué observas?",
+  "datasetId": "ds_asistencia_semanal",
+  "visual": "lineas",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "eje truncado"
+  ],
+  "hint": "Calcula la caída real y compárala con la impresión visual.",
+  "explanation": "La caída es de 13 puntos porcentuales sobre 94, un descenso del 13,8 %. Real, gradual y preocupante, pero no un colapso. El eje truncado hace que esos 13 puntos ocupen todo el alto del gráfico.",
+  "options": [
+   {
+    "id": "a",
+    "text": "El título es correcto: el gráfico muestra una caída muy pronunciada.",
+    "correct": false,
+    "feedback": "La pendiente del gráfico depende del rango del eje, no de la magnitud del cambio.",
+    "tags": [
+     "eje_truncado"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "El eje truncado exagera visualmente una caída real de 13 puntos; con el eje desde cero la tendencia se ve gradual.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "El gráfico está falseado porque los datos no son ciertos.",
+    "correct": false,
+    "feedback": "Los datos son exactos. La manipulación está en la escala, no en los números.",
+    "tags": [
+     "eje_truncado"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Truncar el eje nunca es admisible.",
+    "correct": false,
+    "feedback": "En una serie temporal es admisible si se declara. Lo inadmisible es no declararlo y titularlo «colapso».",
+    "tags": [
+     "eje_truncado"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Dónde sí es obligatorio que el eje empiece en cero?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "En gráficos de barras, porque el lector compara longitudes y áreas.",
+     "correct": true,
+     "feedback": "Exacto: recortar el eje en barras distorsiona la comparación que el gráfico propone.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "En todos los gráficos, sin excepción.",
+     "correct": false,
+     "feedback": "En series temporales de variables que nunca se acercan a cero, empezar en cero puede ocultar variación relevante.",
+     "tags": [
+      "eje_truncado"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Solo en los gráficos de dispersión.",
+     "correct": false,
+     "feedback": "En dispersión el origen rara vez es relevante: lo que importa es la nube de puntos.",
+     "tags": [
+      "eje_truncado"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m5_05",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "Leer la forma",
+  "prompt": "Observa el histograma de los tiempos de respuesta del servidor. ¿Qué describe mejor su forma?",
+  "datasetId": "ds_tiempo_respuesta",
+  "visual": "histograma",
+  "classCount": 6,
+  "difficulty": 2,
+  "competency": "interpretacion",
+  "concepts": [
+   "asimetría"
+  ],
+  "hint": "Media 416,75 ms, mediana 205 ms.",
+  "explanation": "El grueso de las mediciones está por debajo de 250 ms y unas pocas llegan a 2 600. Es asimetría a la derecha, la forma típica de los tiempos: hay un mínimo natural y ningún máximo.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Aproximadamente simétrica alrededor de 400 ms.",
+    "correct": false,
+    "feedback": "Si fuera simétrica, media y mediana coincidirían. Aquí difieren en más de 200 ms.",
+    "tags": [
+     "media_vs_mediana"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Asimétrica a la derecha: la mayoría de mediciones son bajas y una cola larga llega hasta 2 600 ms.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Asimétrica a la izquierda.",
+    "correct": false,
+    "feedback": "En ese caso la media quedaría por debajo de la mediana.",
+    "tags": [
+     "media_vs_mediana"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Uniforme: todas las clases tienen frecuencias parecidas.",
+    "correct": false,
+    "feedback": "La primera clase concentra la gran mayoría de los casos.",
+    "tags": [
+     "histograma_vs_barras"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m5_06",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "Lo que la caja no muestra",
+  "prompt": "Un diagrama de caja de las notas de la sección B se ve razonablemente equilibrado. ¿Qué NO puedes concluir de él?",
+  "datasetId": "ds_seccion_b",
+  "visual": "caja",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "diagrama de caja"
+  ],
+  "hint": "¿Podrían esconderse dos grupos separados dentro de esa caja?",
+  "explanation": "El diagrama de caja resume cinco números y no revela la forma interna. Dos subgrupos claramente separados pueden producir una caja de aspecto normal. Para detectar bimodalidad hace falta el histograma.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Que la mediana está en 13.",
+    "correct": false,
+    "feedback": "Eso sí lo muestra la caja: es la línea interior.",
+    "tags": [
+     "lectura_caja"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Que la mitad central de las notas está entre 10,75 y 16,25.",
+    "correct": false,
+    "feedback": "Eso también lo muestra: son los bordes de la caja.",
+    "tags": [
+     "lectura_caja"
+    ]
+   },
+   {
+    "id": "c",
+    "text": "Que las notas se distribuyen de forma unimodal, sin dos grupos separados.",
+    "correct": true,
+    "feedback": "Correcto: la caja no muestra la forma interna. Para eso está el histograma.",
+    "tags": []
+   },
+   {
+    "id": "d",
+    "text": "Que no hay valores atípicos según la regla de Tukey.",
+    "correct": false,
+    "feedback": "Eso sí lo muestra: los atípicos aparecen como puntos sueltos fuera de los bigotes.",
+    "tags": [
+     "lectura_caja"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Qué gráfico usarías para responder a lo que la caja no responde?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Un histograma, que muestra picos, huecos y bimodalidad.",
+     "correct": true,
+     "feedback": "Exacto.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Un gráfico circular de las notas.",
+     "correct": false,
+     "feedback": "El circular es para composición de categorías, no para la forma de una variable cuantitativa.",
+     "tags": [
+      "grafico_mal_elegido"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Otro diagrama de caja con más bigotes.",
+     "correct": false,
+     "feedback": "Ningún ajuste de la caja revela la forma interna: es una limitación del gráfico, no de la configuración.",
+     "tags": [
+      "caja_bimodal"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m5_07",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "r = 0 no es «sin relación»",
+  "prompt": "Dos variables tienen r = 0,02. El gráfico de dispersión muestra una U perfecta. ¿Qué concluyes?",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "correlación lineal"
+  ],
+  "hint": "¿Qué tipo de relación mide exactamente el coeficiente r?",
+  "explanation": "El coeficiente de Pearson mide relación lineal. Una relación en U es fortísima y perfectamente predecible, y aun así produce r ≈ 0 porque la mitad izquierda y la derecha se cancelan.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Las variables son independientes.",
+    "correct": false,
+    "feedback": "Una U perfecta significa que conocer x predice y con precisión: eso es lo contrario de independencia.",
+    "tags": [
+     "r_cero_sin_relacion"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "No hay relación lineal, pero sí una relación no lineal muy fuerte.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "El coeficiente está mal calculado.",
+    "correct": false,
+    "feedback": "Está bien calculado: r = 0 es el resultado correcto para una U simétrica.",
+    "tags": [
+     "r_cero_sin_relacion"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "Hace falta más datos para detectar la relación.",
+    "correct": false,
+    "feedback": "Los datos ya la muestran. Lo que falla es mirar solo el número sin mirar el gráfico.",
+    "tags": [
+     "r_cero_sin_relacion"
+    ]
+   }
+  ],
+  "context": "",
+  "visual": "none"
+ },
+ {
+  "id": "ex_m5_08",
+  "moduleId": "m5",
+  "type": "numeric",
+  "title": "Qué proporción explica la recta",
+  "prompt": "Entre horas de estudio y nota, r = 0,93. ¿Qué porcentaje de la variabilidad de la nota queda explicado por la relación lineal con las horas de estudio? Da un decimal.",
+  "datasetId": "ds_estudio_nota",
+  "visual": "dispersion",
+  "difficulty": 3,
+  "competency": "interpretacion",
+  "concepts": [
+   "coeficiente de determinación"
+  ],
+  "hint": "Es r al cuadrado, expresado en porcentaje.",
+  "explanation": "r² = 0,93² = 0,867, es decir 86,7 %. El 13,3 % restante lo explican otras cosas: calidad del estudio, conocimientos previos, sueño. Y sigue sin ser una afirmación causal.",
+  "answer": {
+   "value": 86.7,
+   "tolerance": 1.5,
+   "unit": "%"
+  },
+  "context": ""
+ },
+ {
+  "id": "ex_m5_09",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "El circular con siete porciones",
+  "prompt": "Para presentar la distribución de estudiantes por carrera (7 carreras, de 4,4 % a 23,3 %), ¿es buena idea un gráfico circular?",
+  "datasetId": "ds_carreras",
+  "visual": "circular",
+  "difficulty": 2,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "elección de gráfico"
+  ],
+  "hint": "¿Podrías distinguir a ojo una porción del 11,7 % de otra del 13,3 %?",
+  "explanation": "El ojo compara longitudes mucho mejor que ángulos. Con siete categorías y varias de tamaño parecido —13,3 % y 11,7 %— el circular obliga a leer las etiquetas para entenderlo, y entonces el gráfico ya no está aportando nada.",
+  "options": [
+   {
+    "id": "a",
+    "text": "Sí: muestra que las porciones suman el 100 %.",
+    "correct": false,
+    "feedback": "Ese es su único punto fuerte, y no compensa la dificultad de comparar siete ángulos.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "Es preferible un gráfico de barras ordenado: con siete categorías y tamaños parecidos, las longitudes se comparan mejor que los ángulos.",
+    "correct": true,
+    "feedback": "Correcto.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Sí, siempre que se ordenen las porciones de mayor a menor.",
+    "correct": false,
+    "feedback": "Ordenar ayuda, pero no resuelve el problema de fondo: comparar ángulos sigue siendo difícil.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "No, porque los gráficos circulares nunca deben usarse.",
+    "correct": false,
+    "feedback": "Con dos o tres categorías y la pregunta '¿qué parte del total es esto?', el circular funciona bien.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   }
+  ],
+  "context": ""
+ },
+ {
+  "id": "ex_m5_10",
+  "moduleId": "m5",
+  "type": "choice",
+  "title": "Un gráfico para el decano",
+  "prompt": "Tienes que exponer en cinco minutos si el problema de traslado justifica cambiar el horario de la primera clase. ¿Qué presentas?",
+  "datasetId": "ds_traslado",
+  "visual": "histograma",
+  "classCount": 6,
+  "difficulty": 3,
+  "competency": "toma_decisiones",
+  "concepts": [
+   "comunicación de datos"
+  ],
+  "hint": "¿Qué necesita ver quien decide: el caso típico, la cola, o las dos cosas?",
+  "explanation": "La decisión depende de cuánta gente hay en la cola, no del promedio. Un histograma muestra que el 70 % llega en menos de una hora y que hay un 15 % con traslados de más de 80 minutos: ese 15 % es la población afectada por el cambio de horario.",
+  "options": [
+   {
+    "id": "a",
+    "text": "La media, 50,75 minutos, en un texto: es el dato más resumido.",
+    "correct": false,
+    "feedback": "Un solo número esconde justamente lo que decide: cuánta gente está en la cola.",
+    "tags": [
+     "centro_sin_dispersion"
+    ]
+   },
+   {
+    "id": "b",
+    "text": "El histograma con la media y la mediana señaladas, para que se vea el grueso y la cola a la vez.",
+    "correct": true,
+    "feedback": "Correcto: muestra el caso típico y el tamaño del grupo afectado.",
+    "tags": []
+   },
+   {
+    "id": "c",
+    "text": "Un gráfico circular con las seis clases de la tabla de frecuencias.",
+    "correct": false,
+    "feedback": "El circular convierte intervalos continuos en porciones, y pierde el orden del eje.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   },
+   {
+    "id": "d",
+    "text": "La lista completa de los 40 tiempos, para que el decano juzgue por sí mismo.",
+    "correct": false,
+    "feedback": "Cuarenta números en cinco minutos no comunican nada: agrupar existe para eso.",
+    "tags": [
+     "grafico_mal_elegido"
+    ]
+   }
+  ],
+  "justification": {
+   "prompt": "¿Cuál es el argumento decisivo para esa elección?",
+   "options": [
+    {
+     "id": "j1",
+     "text": "Porque la decisión depende del tamaño del grupo con traslados largos, y solo un gráfico de distribución lo muestra.",
+     "correct": true,
+     "feedback": "Exacto: el histograma responde a la pregunta que hay que responder.",
+     "tags": []
+    },
+    {
+     "id": "j2",
+     "text": "Porque el histograma es el gráfico más profesional.",
+     "correct": false,
+     "feedback": "La profesionalidad no es un criterio: el criterio es qué pregunta responde el gráfico.",
+     "tags": [
+      "grafico_mal_elegido"
+     ]
+    },
+    {
+     "id": "j3",
+     "text": "Porque muestra la media, que es lo que un directivo espera ver.",
+     "correct": false,
+     "feedback": "Si la media bastara, no haría falta el gráfico. Lo que aporta es la cola.",
+     "tags": [
+      "centro_sin_dispersion"
+     ]
+    }
+   ]
+  },
+  "context": ""
+ }
+]

@@ -1,0 +1,42 @@
+name: estadistica_fundamental
+description: >-
+  Estadística Fundamental — aplicación educativa universitaria para aprender a
+  interpretar datos, no solo a calcular fórmulas. Laboratorios interactivos,
+  ejercicios con justificación y tutor estadístico determinista.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Gestión de estado. Elegido por: sin generación de código, testeable sin
+  # widgets, y ProviderScope permite sobreescribir repositorios en tests.
+  flutter_riverpod: ^2.5.1
+  # Persistencia local del progreso. Clave-valor es suficiente: el volumen es
+  # pequeño y no hay consultas relacionales.
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  # Genera los iconos de Android/iOS desde assets/icon/app_icon.png.
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/
+    - assets/icon/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "#0E2A47"
+  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
+  min_sdk_android: 21

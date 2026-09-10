@@ -1,0 +1,29 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+pubspec.lock
+.flutter-plugins
+.flutter-plugins-dependencies
+coverage/
+
+# Plataformas nativas: se regeneran en CI con `flutter create .`
+# (ver docs/05_Despliegue_y_CI_CD.md)
+/android/
+/ios/
+/web/
+/linux/
+/macos/
+/windows/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# SO
+.DS_Store
+Thumbs.db

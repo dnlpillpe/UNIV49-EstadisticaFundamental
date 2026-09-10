@@ -1,0 +1,851 @@
+[
+ {
+  "id": "m1",
+  "order": 1,
+  "title": "Datos",
+  "subtitle": "Qué tienes delante antes de calcular nada",
+  "colorKey": "datos",
+  "iconKey": "datos",
+  "problem": "El estudiante empieza a calcular antes de preguntarse qué clase de dato tiene. De ahí salen promedios de códigos de carrera, medianas de colores y conclusiones sobre una población que nunca se midió.",
+  "goal": "Reconocer qué se puede y qué no se puede calcular con un dato, antes de calcular nada.",
+  "bigIdea": "La escala de medición decide qué operaciones tienen sentido. No es el preámbulo del curso: es la primera decisión estadística que tomas, y la que hace inútil todo lo demás si la fallas.",
+  "competencies": [
+   "analisis_descriptivo",
+   "interpretacion"
+  ],
+  "lessons": [
+   {
+    "id": "l1_1",
+    "title": "De la pregunta al dato",
+    "intro": "Antes de que exista un número existe una decisión: a quién medir y qué medirle. Casi todos los errores graves de un análisis se cometen aquí, cuando todavía no hay ninguna fórmula a la vista.",
+    "cards": [
+     {
+      "heading": "Población y muestra",
+      "body": "La población es el conjunto completo sobre el que quieres afirmar algo: 'los estudiantes que asisten presencialmente al campus'. La muestra es el subconjunto que efectivamente mediste: los 40 que respondieron a la entrada un lunes por la mañana. Todo lo que calcules describe la muestra; afirmar algo sobre la población es un salto, y ese salto hay que justificarlo.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Unidad de análisis y variable",
+      "body": "La unidad de análisis es *quién* o *qué* se mide: un estudiante, una muestra de mineral, un día de operación. La variable es la característica que registras de esa unidad: minutos de traslado, ley de cobre, número de atenciones. Confundirlas produce tablas que no significan nada: si tu unidad es el estudiante, no puedes tener dos filas para la misma persona sin explicar por qué.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "La muestra no habla de quien no está en ella",
+      "body": "La encuesta de traslado se aplicó a la entrada del campus un lunes a las 8:00. Quien vive tan lejos que ya no viene, quien estudia a distancia y quien llega a las 11:00 no aparecen. La media que obtengas será correcta *para los 40 que respondieron*, y probablemente demasiado baja para la población que creías describir.",
+      "kind": "aviso",
+      "caption": "A esto se le llama sesgo de selección. No se corrige calculando mejor: se corrige muestreando mejor."
+     },
+     {
+      "heading": "Un ejemplo con el que trabajarás todo el curso",
+      "body": "«Tiempo de traslado a la universidad», 40 estudiantes, minutos declarados un lunes. Población: quienes asisten presencialmente al campus central. Unidad: un estudiante. Variable: minutos. Guárdalo: este mismo conjunto reaparecerá en los cinco módulos, y cada módulo te enseñará a ver algo distinto en él.",
+      "kind": "ejemplo"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Un dato sin contexto no se puede interpretar, solo describir. Antes de cualquier cálculo, responde tres preguntas: ¿a quién se midió?, ¿qué se le midió?, ¿quién quedó fuera?",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Interpretar es imposible sin saber de dónde salen los números. Población, unidad, variable y quién quedó fuera: en ese orden.",
+    "readingMinutes": 4
+   },
+   {
+    "id": "l1_2",
+    "title": "Tipos de variable",
+    "intro": "La primera clasificación es sencilla y aun así se falla constantemente, porque el criterio no es si el dato se escribe con números.",
+    "cards": [
+     {
+      "heading": "Cualitativa",
+      "body": "Registra una categoría: carrera, tipo de residuo, nivel de satisfacción. Puedes contar cuántas unidades caen en cada categoría, y nada más. La operación disponible es contar.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Cuantitativa discreta",
+      "body": "Cuenta cosas enteras: número de cursos matriculados, atenciones en el tópico, hijos. Entre 3 y 4 no hay valores posibles. Tiene sentido sumarla y promediarla, aunque el promedio caiga en un valor imposible (2,4 hijos describe el grupo, no a una familia).",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Cuantitativa continua",
+      "body": "Mide magnitudes que admiten cualquier valor dentro de un rango: minutos, soles, pH, porcentaje de cobre. En la práctica siempre la registras redondeada, y eso no la vuelve discreta: lo que decide es la naturaleza de la magnitud, no la precisión del instrumento.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Números que no son cantidades",
+      "body": "El DNI, el código de carrera, el número de aula y el número de camiseta se escriben con dígitos y no son cantidades: son etiquetas. El promedio de los códigos de carrera de tus compañeros es un número perfectamente calculable y perfectamente vacío.",
+      "kind": "aviso",
+      "caption": "Si sumar dos valores de la variable no produce nada interpretable, la variable es cualitativa aunque se vea numérica."
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "La pregunta no es «¿tiene números?», sino «¿sumar dos valores significa algo?».",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Una variable es cuantitativa cuando sumar dos de sus valores produce algo interpretable. Si no, es una etiqueta.",
+    "readingMinutes": 4
+   },
+   {
+    "id": "l1_3",
+    "title": "Escalas de medición",
+    "intro": "Aquí está la distinción que decide qué medidas puedes usar más adelante. Cuatro escalas, cada una permite todo lo de la anterior y algo más.",
+    "cards": [
+     {
+      "heading": "Nominal: solo distingue",
+      "body": "Categorías sin orden: carrera, tipo de residuo, marca. Puedes decir «distinto de», nada más. Única medida de centro admisible: la moda. Preguntar cuál es la 'carrera mediana' de un grupo no es difícil, es incoherente.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Ordinal: hay orden, no hay distancia",
+      "body": "«Muy insatisfecho < Insatisfecho < Neutral < Satisfecho < Muy satisfecho». Puedes ordenar y hablar de mediana. Lo que no puedes es afirmar que el salto de Neutral a Satisfecho equivale al de Satisfecho a Muy satisfecho. Codificarlos como 1-2-3-4-5 y promediarlos es la práctica más extendida y menos justificada del análisis de encuestas.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Intervalo: la distancia es comparable, el cero es convencional",
+      "body": "En temperatura Celsius, la diferencia entre 10° y 20° es la misma que entre 30° y 40°, pero 0° no significa ausencia de temperatura y 40° no es «el doble de calor» que 20°. Lo mismo vale para las notas: un 0 no es conocimiento nulo, y un 16 no es «el doble de bueno» que un 8.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Razón: hay cero absoluto",
+      "body": "Minutos, soles, kilogramos, porcentaje de cobre. El cero significa ausencia y las razones tienen sentido: 60 minutos es efectivamente el doble que 30. Admite todas las medidas del curso, incluido el coeficiente de variación, que necesita una media con cero absoluto para significar algo.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "El caso del pH",
+      "body": "El pH es una escala logarítmica: pasar de 7 a 6 multiplica por diez la concentración de iones. Decir que un agua de pH 6 es «un 14 % más ácida» que una de pH 7 mezcla dos escalas. En este curso lo tratamos como escala de intervalo.",
+      "kind": "aviso"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Nominal → moda. Ordinal → moda y mediana. Intervalo y razón → moda, mediana y media. El coeficiente de variación, solo en razón.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "La escala no describe el dato: limita las operaciones. Calcular por encima de lo que la escala permite produce números válidos y conclusiones falsas.",
+    "readingMinutes": 6
+   },
+   {
+    "id": "l1_4",
+    "title": "Calidad del dato",
+    "intro": "Ningún conjunto real llega limpio. Antes de describir hay que auditar, y auditar no es borrar lo que incomoda.",
+    "cards": [
+     {
+      "heading": "Cuatro problemas que aparecen siempre",
+      "body": "Faltantes (celdas vacías que a veces se codifican como 0 y contaminan la media), duplicados (la misma unidad medida dos veces), imposibles (una edad de 250, un porcentaje de 140) y unidades mezcladas (minutos y horas en la misma columna).",
+      "kind": "concepto"
+     },
+     {
+      "heading": "El valor imposible sí se corrige; el incómodo, no",
+      "body": "Un pH de 45 es un error de registro: se corrige o se marca como faltante. Un sueldo de 14 000 soles en el seguimiento de egresados es un dato verificado: es un valor atípico y forma parte del fenómeno. Eliminarlo porque «descuadra el promedio» convierte el análisis en una opinión con decimales.",
+      "kind": "aviso",
+      "caption": "Regla práctica: un dato solo se elimina si puedes explicar por qué es falso, nunca porque el resultado te gusta menos con él."
+     },
+     {
+      "heading": "Documenta lo que hiciste",
+      "body": "Cuántos casos había, cuántos eliminaste y por qué. Un análisis sin esa nota no es reproducible, y no reproducible significa no verificable.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Auditar es separar el error de medición del hecho incómodo. Solo el primero se corrige.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Un dato se elimina cuando puedes demostrar que es falso, nunca cuando solo es inconveniente.",
+    "readingMinutes": 4
+   }
+  ],
+  "lab": {
+   "id": "lab_m1",
+   "kind": "clasificador_variables",
+   "title": "Clasificador de variables",
+   "subtitle": "Doce variables reales, cuatro escalas, cero fórmulas",
+   "goal": "Descubrir que la escala no depende de si el dato se escribe con números, sino de qué operaciones conservan sentido. Al terminar deberías poder justificar por qué el promedio de un código de carrera es calculable y vacío.",
+   "steps": [
+    "Lee cada variable y decide su escala de medición.",
+    "Comprueba tus respuestas y revisa las que fallaste.",
+    "Fíjate en qué medidas de centro te habilita cada escala."
+   ],
+   "datasetIds": []
+  }
+ },
+ {
+  "id": "m2",
+  "order": 2,
+  "title": "Tablas",
+  "subtitle": "Convertir 40 datos sueltos en una forma",
+  "colorKey": "tablas",
+  "iconKey": "tablas",
+  "problem": "La tabla de frecuencias se construye como un trámite —Sturges, ancho, límites— y luego no se lee. El estudiante rellena seis columnas y sigue sin poder decir qué le pasa a esos datos.",
+  "goal": "Construir una tabla de frecuencias correcta y, sobre todo, responder preguntas con ella.",
+  "bigIdea": "Agrupar es un intercambio: ganas una forma reconocible y pierdes los valores individuales. Solo vale la pena si sabes qué compraste y qué pagaste.",
+  "competencies": [
+   "analisis_descriptivo",
+   "interpretacion"
+  ],
+  "lessons": [
+   {
+    "id": "l2_1",
+    "title": "Por qué agrupar",
+    "intro": "Cuarenta números en fila no dicen nada. La tabla de frecuencias no es un requisito del curso: es la primera herramienta que convierte una lista en una forma.",
+    "cards": [
+     {
+      "heading": "De la lista al patrón",
+      "body": "Mira los 40 tiempos de traslado en bruto y trata de responder «¿cómo es un traslado típico aquí?». No se puede. Agrúpalos en seis clases y la respuesta aparece sola: la mayoría está por debajo de los 50 minutos y hay una cola larga de gente que vive lejos.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Frecuencia absoluta y relativa",
+      "body": "La absoluta (fᵢ) cuenta cuántos casos caen en la clase. La relativa (hᵢ) es esa cuenta dividida entre el total, y es la única que permite comparar grupos de distinto tamaño. Si comparas dos secciones con 20 y 45 estudiantes usando frecuencias absolutas, la sección grande siempre parecerá 'tener más de todo'.",
+      "kind": "formula",
+      "formula": "hᵢ = fᵢ / n"
+     },
+     {
+      "heading": "Frecuencias acumuladas",
+      "body": "Fᵢ responde «¿cuántos casos hay hasta aquí?» y Hᵢ, «¿qué proporción?». Sirven para preguntas de umbral, que son las que hace un gestor: ¿qué porcentaje de estudiantes tarda menos de una hora?",
+      "kind": "formula",
+      "formula": "Fᵢ = f₁ + f₂ + … + fᵢ"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "La frecuencia absoluta describe un grupo. La relativa permite compararlo con otro.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Agrupar existe para que aparezca la forma de los datos. Si la tabla no te deja ver esa forma, está mal construida.",
+    "readingMinutes": 4
+   },
+   {
+    "id": "l2_2",
+    "title": "Cómo se construye",
+    "intro": "Hay decisiones que el libro presenta como reglas y en realidad son convenciones. Conviene saber cuáles son cuáles.",
+    "cards": [
+     {
+      "heading": "Cuántas clases: la regla de Sturges",
+      "body": "k = 1 + 3,322·log₁₀(n), redondeado. Con n = 40 da 6 clases. Es una sugerencia razonable, no una ley: si el resultado esconde algo importante, cambia k y justifícalo.",
+      "kind": "formula",
+      "formula": "k = 1 + 3,322 · log₁₀(n)"
+     },
+     {
+      "heading": "Ancho de clase",
+      "body": "Se divide el rango entre el número de clases. Con los tiempos de traslado: (150 − 12) / 6 = 23 minutos por clase. Redondear el ancho hacia arriba a un número cómodo (25) es aceptable y suele producir tablas más legibles.",
+      "kind": "formula",
+      "formula": "A = (x_máx − x_mín) / k"
+     },
+     {
+      "heading": "El límite que se cuenta dos veces",
+      "body": "Si tus clases son [12–35] y [35–58], ¿dónde va un valor de 35? Este curso usa intervalos cerrados por la izquierda y abiertos por la derecha, [Lᵢ, Lₛ), salvo el último, que incluye el máximo. Con esa convención cada dato cae en exactamente una clase.",
+      "kind": "aviso"
+     },
+     {
+      "heading": "Marca de clase",
+      "body": "El punto medio del intervalo. Es el valor que representará a toda la clase cuando calcules medidas con datos agrupados, y por tanto la fuente del error que verás en la lección 4.",
+      "kind": "formula",
+      "formula": "xᵢ = (Lᵢ + Lₛ) / 2"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Sturges sugiere, no obliga. La convención de límites sí es obligatoria: sin ella, la tabla no suma n.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Elegir k y el ancho son decisiones tuyas y hay que poder defenderlas. La regla de los límites, en cambio, no es opinable.",
+    "readingMinutes": 5
+   },
+   {
+    "id": "l2_3",
+    "title": "Cómo se lee",
+    "intro": "Una tabla bien construida responde preguntas concretas. Aquí están las cuatro que aparecen en cualquier examen y en cualquier informe.",
+    "cards": [
+     {
+      "heading": "«¿Cuál es el grupo más numeroso?»",
+      "body": "La clase modal: la de mayor frecuencia absoluta. Ojo: la clase modal no es la moda. Es un intervalo, no un valor, y depende de cómo elegiste las clases.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "«¿Qué proporción está por debajo de X?»",
+      "body": "Frecuencia relativa acumulada, Hᵢ. Si el 82,5 % de los estudiantes tarda menos de 81 minutos, ya tienes una afirmación que un decano puede usar.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "«¿Está repartido o concentrado?»",
+      "body": "Compara las frecuencias relativas entre sí. Si una clase concentra el 40 % y las demás rondan el 10 %, la distribución tiene un pico claro; si todas rondan el 16 %, es plana.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "«¿Hay cola?»",
+      "body": "Clases finales con frecuencias muy pequeñas pero valores muy altos indican asimetría a la derecha. Es exactamente lo que verás en el histograma del módulo 5 y lo que explicará por qué la media supera a la mediana en el módulo 3.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "La tabla no se rellena: se interroga. Cada columna responde a un tipo distinto de pregunta.",
+    "readingMinutes": 4
+   },
+   {
+    "id": "l2_4",
+    "title": "Lo que se pierde al agrupar",
+    "intro": "Este es el contenido que casi ningún curso hace explícito, y es el que separa rellenar una tabla de entenderla.",
+    "cards": [
+     {
+      "heading": "La media agrupada no es la media",
+      "body": "Cuando calculas la media a partir de la tabla, sustituyes cada dato por la marca de su clase: asumes que los 12 casos de la clase [35–58) valen todos 46,5. No valen. El resultado se parece a la media real, pero no es la media real.",
+      "kind": "formula",
+      "formula": "x̄_agrupada = Σ(xᵢ · fᵢ) / n"
+     },
+     {
+      "heading": "Cuánto se pierde",
+      "body": "En el conjunto de traslado, la media exacta es 50,75 minutos y la agrupada en 6 clases da un valor distinto. La diferencia es pequeña aquí y puede ser grande en distribuciones con colas. Si tienes los datos originales, úsalos: agrupar es para *ver*, no para *calcular*.",
+      "kind": "ejemplo"
+     },
+     {
+      "heading": "Entonces, ¿para qué sirve?",
+      "body": "Para tres cosas que los datos en bruto no dan: ver la forma, comunicar a alguien que no va a mirar 40 números, y trabajar cuando *solo* tienes la tabla, que es la situación habitual con datos publicados por terceros.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Agrupar es comprimir con pérdida. Se acepta la pérdida a cambio de legibilidad, y se declara.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Si tienes los datos originales, calcula con ellos. La tabla es para ver la forma y para comunicar, no para sustituir el cálculo.",
+    "readingMinutes": 4
+   }
+  ],
+  "lab": {
+   "id": "lab_m2",
+   "kind": "constructor_frecuencias",
+   "title": "Constructor de tablas de frecuencia",
+   "subtitle": "Mueve el número de clases y observa qué aparece y qué desaparece",
+   "goal": "Comprobar en directo que el número de clases no es un detalle administrativo: con pocas clases la distribución parece uniforme y con demasiadas se convierte en ruido. Deberías salir sabiendo defender un valor de k concreto.",
+   "steps": [
+    "Elige un conjunto de datos.",
+    "Mueve el número de clases entre 2 y 15 y observa la tabla y el histograma.",
+    "Compara la media agrupada con la media exacta en cada configuración."
+   ],
+   "datasetIds": [
+    "ds_traslado",
+    "ds_notas_parcial",
+    "ds_gasto_transporte",
+    "ds_tiempo_respuesta"
+   ]
+  }
+ },
+ {
+  "id": "m3",
+  "order": 3,
+  "title": "Medidas centrales",
+  "subtitle": "Tres formas de decir «el centro», y ninguna es intercambiable",
+  "colorKey": "centrales",
+  "iconKey": "centrales",
+  "problem": "El estudiante calcula la media siempre, porque es la que sabe calcular. Cuando los datos tienen cola o atípicos, entrega un número correcto que describe a nadie.",
+  "goal": "Elegir la medida de centro adecuada y justificar la elección con la forma de los datos y su escala.",
+  "bigIdea": "La media, la mediana y la moda no son tres formas de aproximar lo mismo: responden a tres preguntas distintas. Elegir mal no es un error de cálculo, es un error de interpretación.",
+  "competencies": [
+   "analisis_descriptivo",
+   "interpretacion",
+   "toma_decisiones"
+  ],
+  "lessons": [
+   {
+    "id": "l3_1",
+    "title": "Tres preguntas distintas",
+    "intro": "Media, mediana y moda se presentan juntas y eso hace pensar que compiten. No compiten: cada una responde a una pregunta que las otras no responden.",
+    "cards": [
+     {
+      "heading": "Media: el punto de equilibrio",
+      "body": "Reparte el total a partes iguales. Responde a «si todos tuvieran lo mismo, ¿cuánto tendría cada uno?». Usa todos los valores, y por eso cualquier valor extremo la arrastra.",
+      "kind": "formula",
+      "formula": "x̄ = Σxᵢ / n"
+     },
+     {
+      "heading": "Mediana: el que parte por la mitad",
+      "body": "Ordena los datos y toma el del centro. Responde a «¿cuál es el valor que deja a la mitad por debajo?». No le importa cuán extremos sean los valores de los bordes, solo cuántos hay.",
+      "kind": "formula",
+      "formula": "Me = valor de la posición (n+1)/2 en los datos ordenados"
+     },
+     {
+      "heading": "Moda: el más repetido",
+      "body": "Responde a «¿cuál es el caso más frecuente?». Es la única disponible en escala nominal y la única que puede no existir (todos distintos) o ser múltiple (varios empatados).",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Los sueldos de los egresados",
+      "body": "Treinta egresados. Media: 2 556,67 soles. Mediana: 1 825 soles. Las dos son correctas. La media es el reparto igualitario del total; la mediana es lo que gana el egresado del medio. Si un estudiante de último ciclo pregunta «¿cuánto voy a ganar?», la respuesta honesta es 1 825, no 2 557.",
+      "kind": "ejemplo",
+      "caption": "Dos egresados fundaron empresas y ganan 9 500 y 14 000. Son datos verificados, no errores."
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "«¿Cuál es el centro?» es una pregunta incompleta. La completa es: ¿el centro para qué decisión?",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Media, mediana y moda responden a preguntas distintas. La pregunta la pone el problema, no la fórmula.",
+    "readingMinutes": 5
+   },
+   {
+    "id": "l3_2",
+    "title": "Cuándo cada una",
+    "intro": "Dos criterios deciden, y se aplican en este orden: primero la escala, después la forma.",
+    "cards": [
+     {
+      "heading": "Primer filtro: la escala",
+      "body": "Nominal admite solo moda. Ordinal admite moda y mediana. Intervalo y razón admiten las tres. Este filtro es absoluto: no hay distribución tan bonita que justifique la media de una variable nominal.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Segundo filtro: la forma",
+      "body": "Si la distribución es aproximadamente simétrica y sin atípicos, media ≈ mediana y da igual cuál uses; usa la media, que aprovecha más información. Si hay cola o atípicos, las dos se separan y hay que elegir con criterio.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "La señal de alarma",
+      "body": "Compara media y mediana. Si difieren mucho respecto al rango de los datos, la distribución es asimétrica y la media ya no representa al caso típico. En los tiempos de traslado: media 50,75 y mediana 40. Esa brecha de casi 11 minutos es la cola de quienes viven fuera de la ciudad.",
+      "kind": "aviso",
+      "caption": "media > mediana → cola a la derecha. media < mediana → cola a la izquierda."
+     },
+     {
+      "heading": "Un caso donde la mediana es la equivocada",
+      "body": "Presupuesto de transporte para 36 estudiantes durante una semana. Aquí no quieres «el estudiante del medio»: quieres el total, y el total es media × n. La mediana no sirve para presupuestar porque no reconstruye la suma.",
+      "kind": "ejemplo"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "La mediana es más robusta, no siempre más adecuada. Para totales y repartos, la media; para describir el caso típico con cola, la mediana.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Primero la escala descarta; después la forma decide. Y si la decisión es sobre un total, la media vuelve a ser la respuesta.",
+    "readingMinutes": 6
+   },
+   {
+    "id": "l3_3",
+    "title": "La media ponderada",
+    "intro": "El promedio de notas es el caso donde casi todo el mundo ha aplicado mal la media alguna vez.",
+    "cards": [
+     {
+      "heading": "Cuando los datos no pesan igual",
+      "body": "Un curso de 4 créditos y uno de 2 no cuentan lo mismo en tu promedio. La media simple los trata igual y produce un número que no coincide con el de tu boleta.",
+      "kind": "formula",
+      "formula": "x̄ₚ = Σ(wᵢ · xᵢ) / Σwᵢ"
+     },
+     {
+      "heading": "Un ejemplo que puedes verificar",
+      "body": "Notas 18 (2 créditos), 12 (4 créditos) y 14 (4 créditos). Media simple: (18+12+14)/3 = 14,67. Media ponderada: (36+48+56)/10 = 14,0. La diferencia de 0,67 puntos es exactamente el peso que le diste de más a la nota alta del curso pequeño.",
+      "kind": "ejemplo"
+     },
+     {
+      "heading": "Dónde más aparece",
+      "body": "Índices de precios, leyes medias de mineral por tonelaje de cada frente, satisfacción media por número de respuestas de cada sede. Siempre que combines grupos de distinto tamaño, la media de las medias es incorrecta salvo que los grupos sean iguales.",
+      "kind": "aviso",
+      "caption": "Error frecuente: promediar los promedios de dos secciones de 20 y 45 estudiantes como si pesaran lo mismo."
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "La media de las medias solo es válida si todos los grupos tienen el mismo tamaño. En cualquier otro caso, pondera.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Promediar promedios de grupos de distinto tamaño es un error, y es el error más frecuente al combinar datos.",
+    "readingMinutes": 4
+   },
+   {
+    "id": "l3_4",
+    "title": "El centro no basta",
+    "intro": "Este módulo termina con la limitación que da sentido al siguiente.",
+    "cards": [
+     {
+      "heading": "Dos secciones, la misma media",
+      "body": "Sección A y sección B tienen exactamente la misma media (13,15), la misma mediana (13) y la misma moda (13). Todas las medidas de centro coinciden. Y no se parecen en nada: en A las notas van de 12 a 14; en B, de 5 a 20.",
+      "kind": "ejemplo"
+     },
+     {
+      "heading": "Qué decisión cambia",
+      "body": "Si eres el docente, A necesita subir el nivel general y B necesita atención individualizada: hay estudiantes desahuciados y estudiantes desaprovechados en la misma aula. El promedio idéntico habría llevado a la misma intervención para dos problemas opuestos.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Lo que falta",
+      "body": "Una medida de cuánto se separan los datos entre sí. Eso es el módulo 4, y a partir de ahí ninguna descripción vuelve a ser solo un centro.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Reportar un centro sin una medida de dispersión al lado es dar media respuesta, y la mitad que falta es la que cambia la decisión.",
+    "readingMinutes": 3
+   }
+  ],
+  "lab": {
+   "id": "lab_m3",
+   "kind": "sandbox_atipicos",
+   "title": "Laboratorio del valor atípico",
+   "subtitle": "Arrastra un dato y observa a cuál de las tres medidas le importa",
+   "goal": "Ver con las manos por qué la media es sensible a los extremos y la mediana no. Al terminar deberías poder predecir, sin calcular, qué le pasa a cada medida cuando un dato se va lejos.",
+   "steps": [
+    "Elige un conjunto y observa las tres medidas.",
+    "Arrastra el valor más alto hacia arriba y hacia abajo.",
+    "Fíjate en cuánto se mueve la media, cuánto la mediana y cuánto la moda.",
+    "Añade o quita datos y repite."
+   ],
+   "datasetIds": [
+    "ds_horas_sueno",
+    "ds_notas_parcial",
+    "ds_gasto_transporte",
+    "ds_traslado"
+   ]
+  }
+ },
+ {
+  "id": "m4",
+  "order": 4,
+  "title": "Dispersión",
+  "subtitle": "La mitad de la respuesta que casi nadie da",
+  "colorKey": "dispersion",
+  "iconKey": "dispersion",
+  "problem": "El estudiante calcula la desviación estándar y no sabe decir qué significa el número que obtuvo. «3,5 puntos» no le dice nada porque nunca lo ha comparado con nada.",
+  "goal": "Cuantificar cuánto varían los datos y traducir esa cifra a una afirmación útil sobre el grupo.",
+  "bigIdea": "La dispersión no es un complemento del promedio: es la variable que decide qué hacer. Dos grupos con el mismo centro y distinta dispersión exigen intervenciones opuestas.",
+  "competencies": [
+   "analisis_descriptivo",
+   "interpretacion",
+   "toma_decisiones"
+  ],
+  "lessons": [
+   {
+    "id": "l4_1",
+    "title": "Por qué la media sola miente",
+    "intro": "Retomamos las dos secciones del módulo 3, ahora con las herramientas para distinguirlas.",
+    "cards": [
+     {
+      "heading": "Mismo centro, distinto mundo",
+      "body": "Sección A: media 13,15, desviación estándar 0,67. Sección B: media 13,15, desviación estándar 4,43. La desviación de B es más de seis veces la de A, y esa es toda la diferencia entre un grupo homogéneo y un grupo partido en dos.",
+      "kind": "ejemplo"
+     },
+     {
+      "heading": "Qué es «desviarse»",
+      "body": "Cada dato se separa de la media una cierta cantidad: xᵢ − x̄. Esa diferencia es la desviación de ese dato. Si sumas todas, obtienes cero siempre —es una propiedad de la media, no una casualidad—, y por eso hace falta elevar al cuadrado antes de promediar.",
+      "kind": "formula",
+      "formula": "Σ(xᵢ − x̄) = 0  para cualquier conjunto"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Un promedio sin dispersión al lado es un dato incompleto. En un informe profesional, siempre van juntos.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Las desviaciones respecto a la media suman cero. Toda la teoría de la dispersión nace de resolver ese problema.",
+    "readingMinutes": 4
+   },
+   {
+    "id": "l4_2",
+    "title": "Rango, cuartiles y RIC",
+    "intro": "Las medidas basadas en posición. Son las que sobreviven a un valor atípico.",
+    "cards": [
+     {
+      "heading": "Rango: máximo menos mínimo",
+      "body": "Simple y frágil: lo determinan exactamente dos datos, y suelen ser los dos menos representativos. En los tiempos de respuesta del servidor el rango es 2 490 ms, cifra que describe únicamente el peor pico del día.",
+      "kind": "formula",
+      "formula": "R = x_máx − x_mín"
+     },
+     {
+      "heading": "Cuartiles",
+      "body": "Q₁ deja por debajo el 25 % de los datos, Q₂ es la mediana y Q₃ deja por debajo el 75 %. Existen varias convenciones para calcularlos; esta app usa interpolación lineal, la misma de Excel y Google Sheets, y lo declara en la pantalla «Cómo calcula».",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Rango intercuartílico",
+      "body": "RIC = Q₃ − Q₁: el ancho de la mitad central de los datos. Ignora por completo el 25 % más bajo y el 25 % más alto, y por eso no se mueve cuando aparece un extremo.",
+      "kind": "formula",
+      "formula": "RIC = Q₃ − Q₁"
+     },
+     {
+      "heading": "Regla de las vallas",
+      "body": "Un dato es atípico si cae por debajo de Q₁ − 1,5·RIC o por encima de Q₃ + 1,5·RIC. El 1,5 es una convención de Tukey, no una verdad matemática. «Atípico» significa «merece que lo mires», no «bórralo».",
+      "kind": "aviso",
+      "caption": "En los sueldos de egresados las vallas están en 587,50 y 3 287,50: los sueldos de 9 500 y 14 000 quedan fuera."
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "El rango lo fijan dos datos; el RIC lo fija la mitad central. Cuando hay atípicos, el segundo describe mejor.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "RIC y vallas de Tukey son la forma estándar de señalar un dato para revisarlo, no para eliminarlo.",
+    "readingMinutes": 6
+   },
+   {
+    "id": "l4_3",
+    "title": "Varianza y desviación estándar",
+    "intro": "Las medidas basadas en la distancia a la media. Son las que usan toda la información.",
+    "cards": [
+     {
+      "heading": "De la desviación a la varianza",
+      "body": "Se elevan al cuadrado las desviaciones para que no se cancelen, y se promedian. El resultado queda en unidades al cuadrado: minutos cuadrados, soles cuadrados. No es interpretable directamente, y por eso existe el paso siguiente.",
+      "kind": "formula",
+      "formula": "s² = Σ(xᵢ − x̄)² / (n − 1)"
+     },
+     {
+      "heading": "Desviación estándar",
+      "body": "La raíz cuadrada de la varianza, de vuelta en las unidades originales. Se lee como «cuánto se aleja típicamente un dato de la media». En las horas de sueño: media 6,5 h, desviación 1,69 h. Un estudiante típico duerme entre 4,8 y 8,2 horas.",
+      "kind": "formula",
+      "formula": "s = √s²"
+     },
+     {
+      "heading": "Por qué n − 1",
+      "body": "Al calcular la desviación usas la media de la propia muestra, que ya está ajustada a esos datos. Dividir entre n subestima sistemáticamente la variabilidad de la población. Dividir entre n − 1 corrige ese sesgo. Si tus datos son la población completa —las 20 notas de una sección, todas—, divides entre n.",
+      "kind": "aviso"
+     },
+     {
+      "heading": "La regla empírica",
+      "body": "En una distribución aproximadamente simétrica y acampanada: 68 % de los datos cae a ±1 desviación de la media, 95 % a ±2 y 99,7 % a ±3. Es una regla condicionada: aplicarla a los sueldos de egresados, que son fuertemente asimétricos, da resultados falsos.",
+      "kind": "formula",
+      "formula": "[x̄ − s, x̄ + s] ≈ 68 %   ·   [x̄ − 2s, x̄ + 2s] ≈ 95 %"
+     },
+     {
+      "heading": "Cuando la forma no acompaña",
+      "body": "La desigualdad de Chebyshev funciona para cualquier distribución: al menos el 75 % de los datos está a ±2 desviaciones y al menos el 89 % a ±3. Garantiza menos, pero no exige forma.",
+      "kind": "formula",
+      "formula": "≥ (1 − 1/k²) · 100 %  de los datos, para k > 1"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "La desviación estándar se interpreta como distancia típica a la media. La regla empírica solo vale si la distribución es aproximadamente simétrica.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "s es la distancia típica de un dato a la media, en las unidades del problema. Ese es su significado, no su fórmula.",
+    "readingMinutes": 7
+   },
+   {
+    "id": "l4_4",
+    "title": "Coeficiente de variación",
+    "intro": "La medida que responde a la pregunta que ninguna de las anteriores puede responder.",
+    "cards": [
+     {
+      "heading": "El problema de comparar",
+      "body": "¿Qué es más variable: la ley de cobre de un frente (desviación 0,107 % Cu) o el tiempo de traslado (desviación 33,09 minutos)? Comparar 0,107 con 33,09 no significa nada: son unidades distintas y magnitudes distintas.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Dispersión relativa",
+      "body": "El coeficiente de variación expresa la desviación como porcentaje de la media. Al ser un porcentaje, no tiene unidades y se puede comparar entre variables.",
+      "kind": "formula",
+      "formula": "CV = (s / |x̄|) · 100 %"
+     },
+     {
+      "heading": "La respuesta",
+      "body": "Ley de cobre: CV = 10,09 %. Tiempo de traslado: CV = 65,20 %. El traslado es mucho más variable en términos relativos. Es la clase de comparación que un ingeniero de control de calidad hace todos los días.",
+      "kind": "ejemplo"
+     },
+     {
+      "heading": "Cuándo no se puede usar",
+      "body": "El CV exige escala de razón, porque necesita que el cero signifique ausencia. Calcularlo sobre temperaturas Celsius, notas o pH produce un número que cambia si cambias el origen de la escala: no significa nada.",
+      "kind": "aviso",
+      "caption": "Tampoco tiene sentido si la media está cerca de cero: el cociente se dispara."
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Misma unidad → compara desviaciones. Unidades distintas → compara coeficientes de variación, y solo si la escala es de razón.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "El coeficiente de variación es la única medida de dispersión comparable entre variables distintas, y solo funciona en escala de razón.",
+    "readingMinutes": 5
+   }
+  ],
+  "lab": {
+   "id": "lab_m4",
+   "kind": "comparador_dispersion",
+   "title": "Dos secciones, la misma media",
+   "subtitle": "Compara dos grupos idénticos en el centro y opuestos en todo lo demás",
+   "goal": "Comprobar que las tres medidas de centro pueden coincidir exactamente mientras los grupos son incomparables, y decidir qué intervención requiere cada uno. Es el argumento completo de por qué la dispersión no es opcional.",
+   "steps": [
+    "Observa que media, mediana y moda coinciden en los dos grupos.",
+    "Compara rango, RIC, desviación estándar y coeficiente de variación.",
+    "Cambia el conjunto de comparación y repite el razonamiento.",
+    "Decide qué grupo necesita qué tipo de intervención."
+   ],
+   "datasetIds": [
+    "ds_seccion_a",
+    "ds_seccion_b",
+    "ds_ley_cobre",
+    "ds_tiempo_respuesta"
+   ]
+  }
+ },
+ {
+  "id": "m5",
+  "order": 5,
+  "title": "Gráficos",
+  "subtitle": "Ver los datos y detectar cuándo un gráfico te está mintiendo",
+  "colorKey": "graficos",
+  "iconKey": "graficos",
+  "problem": "El estudiante elige el gráfico por costumbre y lee el que le ponen delante sin mirar los ejes. Es exactamente el perfil sobre el que funciona un gráfico manipulado.",
+  "goal": "Elegir el gráfico que corresponde a la variable, leerlo correctamente y detectar las tres formas habituales de distorsión.",
+  "bigIdea": "Un gráfico es un argumento, no una ilustración. Quien lo hizo tomó decisiones —ejes, escala, agrupación— y esas decisiones pueden cambiar la conclusión sin cambiar un solo dato.",
+  "competencies": [
+   "interpretacion",
+   "toma_decisiones"
+  ],
+  "lessons": [
+   {
+    "id": "l5_1",
+    "title": "Elegir el gráfico",
+    "intro": "La elección no es estética: la determina el tipo de variable y la pregunta.",
+    "cards": [
+     {
+      "heading": "Variable cualitativa → barras o circular",
+      "body": "Barras para comparar categorías: la longitud es lo más fácil de comparar visualmente. Circular solo para mostrar composición de un total, con pocas categorías y cuando la suma es realmente el 100 % de algo.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Cuantitativa, una variable → histograma",
+      "body": "Muestra la forma de la distribución. Las barras se tocan porque el eje es continuo: si las separas, estás dibujando un gráfico de barras y afirmando que la variable es categórica.",
+      "kind": "aviso",
+      "caption": "Barras separadas = categorías. Barras pegadas = intervalos de una variable continua."
+     },
+     {
+      "heading": "Comparar grupos → diagramas de caja",
+      "body": "Cada caja resume cinco números (mínimo, Q₁, mediana, Q₃, máximo) y marca los atípicos. Puestos lado a lado permiten comparar centro y dispersión de varios grupos de un vistazo.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Dos variables cuantitativas → dispersión",
+      "body": "Cada punto es una unidad con sus dos valores. Sirve para ver si existe relación, de qué signo y de qué intensidad.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Evolución en el tiempo → líneas",
+      "body": "El eje horizontal es el tiempo y la línea sugiere continuidad entre puntos. No lo uses cuando el eje horizontal sea categórico: unir 'Psicología' con 'Contabilidad' con una línea insinúa una transición que no existe.",
+      "kind": "aviso"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Primero el tipo de variable, después la pregunta, y solo al final el gráfico.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "El gráfico no se elige por costumbre: lo determinan el tipo de variable y la pregunta que quieres responder.",
+    "readingMinutes": 5
+   },
+   {
+    "id": "l5_2",
+    "title": "Leer un histograma y una caja",
+    "intro": "Los dos gráficos que resumen una distribución. Se leen buscando cuatro cosas, siempre las mismas.",
+    "cards": [
+     {
+      "heading": "Centro, dispersión, forma y rarezas",
+      "body": "Es la rutina completa de lectura: ¿dónde está el grueso?, ¿qué tan ancho es?, ¿es simétrico o tiene cola?, ¿hay algo separado del resto? Cuatro preguntas en ese orden, en cualquier histograma.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Asimetría a la derecha",
+      "body": "Cola larga hacia los valores altos. La media queda por encima de la mediana. Es la forma típica de tiempos, ingresos y tiempos de respuesta: hay un mínimo natural y ningún máximo.",
+      "kind": "ejemplo",
+      "caption": "Tiempo de respuesta del servidor: media 416,75 ms, mediana 205 ms. La cola es enorme."
+     },
+     {
+      "heading": "Cómo se lee una caja",
+      "body": "La caja va de Q₁ a Q₃, la línea interior es la mediana, los bigotes llegan hasta el dato más extremo dentro de las vallas, y los puntos sueltos son atípicos. Una mediana descentrada dentro de la caja ya indica asimetría.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Lo que la caja no muestra",
+      "body": "Bimodalidad. Dos grupos claramente separados pueden producir una caja de aspecto perfectamente normal. Si sospechas dos poblaciones mezcladas, mira el histograma.",
+      "kind": "aviso"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Centro, dispersión, forma, rarezas. En ese orden, siempre.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Todo histograma se lee igual: centro, dispersión, forma y rarezas. La caja añade los cuartiles y esconde la bimodalidad.",
+    "readingMinutes": 5
+   },
+   {
+    "id": "l5_3",
+    "title": "Correlación no es causalidad",
+    "intro": "El error de interpretación más caro que se comete con un gráfico de dispersión.",
+    "cards": [
+     {
+      "heading": "Qué mide la correlación",
+      "body": "El coeficiente r va de −1 a 1 y mide la fuerza y el sentido de la relación **lineal** entre dos variables. r = 0 significa «sin relación lineal», no «sin relación»: una relación en forma de U perfecta puede dar r ≈ 0.",
+      "kind": "formula",
+      "formula": "r = Σ(xᵢ−x̄)(yᵢ−ȳ) / √[Σ(xᵢ−x̄)² · Σ(yᵢ−ȳ)²]"
+     },
+     {
+      "heading": "Bebidas frías y golpes de calor",
+      "body": "Doce meses de datos del campus: las ventas de bebidas frías y las atenciones por golpe de calor tienen r = 0,98. Casi perfecta. Y prohibir las bebidas frías no reduciría ni un caso: la temperatura mensual mueve las dos variables a la vez.",
+      "kind": "ejemplo",
+      "caption": "A la temperatura se le llama variable de confusión. Está detrás de la mayoría de las correlaciones espurias."
+     },
+     {
+      "heading": "Las tres explicaciones alternativas",
+      "body": "Siempre que veas una correlación alta, antes de hablar de causa considera: (1) una tercera variable mueve a las dos, (2) la causalidad va al revés de lo que supones, (3) es coincidencia, sobre todo con pocos datos.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "Qué haría falta para afirmar causa",
+      "body": "Un experimento con asignación aleatoria, o un diseño observacional que controle explícitamente las variables de confusión. Un gráfico de dispersión, por bonito que sea, nunca es suficiente.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Una correlación alta es una pregunta, no una respuesta. Antes de decir «causa», hay que descartar confusión, inversión y coincidencia.",
+    "readingMinutes": 5
+   },
+   {
+    "id": "l5_4",
+    "title": "Gráficos que engañan",
+    "intro": "Tres manipulaciones que no falsean ni un dato y aun así cambian la conclusión. Se aprenden para detectarlas.",
+    "cards": [
+     {
+      "heading": "El eje truncado",
+      "body": "La asistencia del curso bajó de 94 % a 81 % en 16 semanas: 13 puntos. Con el eje vertical empezando en 0 se ve una pendiente suave. Con el eje empezando en 80 se ve un derrumbe. Los datos son idénticos.",
+      "kind": "aviso",
+      "caption": "Regla: en barras el eje debe empezar en cero, porque se compara área. En líneas de series temporales, truncar es admisible si se declara."
+     },
+     {
+      "heading": "El área que exagera",
+      "body": "Si una cantidad duplica a otra y la representas con un icono del doble de alto *y* del doble de ancho, el área es cuatro veces mayor. El lector compara áreas y percibe el cuádruple. Muy común en infografías de prensa.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "El eje doble",
+      "body": "Dos variables con escalas distintas en el mismo gráfico, cada una con su eje. Ajustando los rangos se puede hacer que dos series cualesquiera parezcan moverse juntas. Cuando veas un eje doble, mira los dos rangos antes que las líneas.",
+      "kind": "concepto"
+     },
+     {
+      "heading": "La rutina de defensa",
+      "body": "Cuatro comprobaciones antes de creerle a un gráfico: ¿dónde empieza cada eje?, ¿qué unidades tiene?, ¿de dónde salen los datos y de cuántos casos?, ¿qué no se está mostrando?",
+      "kind": "clave"
+     },
+     {
+      "heading": "Lo que hay que retener",
+      "body": "Un gráfico honesto se reconoce en los ejes, no en el diseño.",
+      "kind": "clave"
+     }
+    ],
+    "keyIdea": "Se puede mentir con un gráfico sin falsear un solo dato. La defensa es leer los ejes antes que las formas.",
+    "readingMinutes": 5
+   }
+  ],
+  "lab": {
+   "id": "lab_m5",
+   "kind": "grafico_enganoso",
+   "title": "Detector de gráficos engañosos",
+   "subtitle": "Los mismos datos, dos gráficos, dos conclusiones opuestas",
+   "goal": "Producir tú mismo la distorsión para no volver a caer en ella. Al mover el origen del eje verás la caída de asistencia convertirse en catástrofe o en línea plana sin que cambie ningún número.",
+   "steps": [
+    "Observa la serie con el eje desde cero.",
+    "Trunca el eje y observa la misma serie.",
+    "Cambia entre barras y líneas y decide cuál es admisible.",
+    "Formula la conclusión que sacaría alguien que solo ve el segundo gráfico."
+   ],
+   "datasetIds": [
+    "ds_asistencia_semanal",
+    "ds_carreras",
+    "ds_residuos"
+   ]
+  }
+ }
+]
