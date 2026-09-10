@@ -71,32 +71,32 @@ class AboutScreen extends ConsumerWidget {
                       'diferentes, y lo correcto es declarar cuál se usa.',
                 ),
                 const SizedBox(height: AppSpacing.md),
-                _Item(
+                const _Item(
                   title: 'Varianza y desviación estándar',
                   body:
                       'Se reporta la versión muestral, dividiendo entre n − 1. '
                       'La poblacional (entre n) se usa solo cuando el conjunto '
                       'es la población completa.',
                 ),
-                _Item(
+                const _Item(
                   title: 'Valores atípicos',
                   body:
                       'Regla de Tukey: fuera de Q₁ − 1,5·RIC o Q₃ + 1,5·RIC. '
                       'El 1,5 es una convención, no una verdad matemática.',
                 ),
-                _Item(
+                const _Item(
                   title: 'Número de clases',
                   body:
                       'Regla de Sturges, k = 1 + 3,322·log₁₀(n), redondeado. '
                       'Es una sugerencia: puedes cambiarla en los laboratorios.',
                 ),
-                _Item(
+                const _Item(
                   title: 'Intervalos de clase',
                   body:
                       'Cerrados por la izquierda y abiertos por la derecha, '
                       '[Lᵢ, Lₛ), salvo el último, que incluye el máximo.',
                 ),
-                _Item(
+                const _Item(
                   title: 'Asimetría',
                   body:
                       'Se deriva de la relación entre media y mediana, no de un '

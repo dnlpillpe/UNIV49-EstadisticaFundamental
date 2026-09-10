@@ -102,7 +102,7 @@ class _TutorScreenState extends ConsumerState<TutorScreen> {
       appBar: AppBar(
         title: const Text('Tutor estadístico'),
         // Es un destino de la barra inferior: sin flecha de retroceso.
-        automaticallyImplyLeading: !embedded,
+        automaticallyImplyLeading: !widget.embedded,
         actions: <Widget>[
           if (_messages.isNotEmpty)
             IconButton(

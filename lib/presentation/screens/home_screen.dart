@@ -87,7 +87,7 @@ class HomeScreen extends ConsumerWidget {
                   const SizedBox(height: AppSpacing.md),
                 ],
                 const SizedBox(height: AppSpacing.sm),
-                Callout(
+                const Callout(
                   title: 'Por qué esta app existe',
                   kind: CalloutKind.insight,
                   text:

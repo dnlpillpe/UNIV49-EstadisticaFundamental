@@ -113,7 +113,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                             style: theme.textTheme.headlineSmall
                                 ?.copyWith(height: 1.4)),
                         const SizedBox(height: AppSpacing.xl),
-                        Callout(
+                        const Callout(
                           text:
                               'Si dentro de una semana solo recuerdas una frase '
                               'de esta lección, que sea esa.',

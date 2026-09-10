@@ -164,7 +164,7 @@ class StatsGrid extends StatelessWidget {
         LayoutBuilder(
           builder: (BuildContext context, BoxConstraints c) {
             final int columns = c.maxWidth > 560 ? 4 : (c.maxWidth > 380 ? 3 : 2);
-            final double spacing = AppSpacing.sm;
+            const double spacing = AppSpacing.sm;
             final double width =
                 (c.maxWidth - spacing * (columns - 1)) / columns;
             return Wrap(

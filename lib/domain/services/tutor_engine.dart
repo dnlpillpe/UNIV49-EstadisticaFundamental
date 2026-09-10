@@ -35,7 +35,7 @@ class TutorEngine {
     'cual', 'cuales', 'cuando', 'donde', 'mi', 'me', 'te', 'lo', 'su', 'sus',
     'este', 'esta', 'esto', 'ese', 'esa', 'eso', 'hay', 'ser', 'estar', 'tiene',
     'tengo', 'puedo', 'porque', 'sobre', 'entre', 'mas', 'pero', 'si', 'no',
-    'a', 'e', 'u', 'yo', 'tu', 'el', 'ella', 'usted', 'dime', 'explicame',
+    'a', 'e', 'u', 'yo', 'tu', 'ella', 'usted', 'dime', 'explicame',
     'explica', 'ayuda', 'ayudame', 'saber', 'quiero', 'necesito', 'sirve',
   };
 

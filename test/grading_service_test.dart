@@ -112,7 +112,7 @@ void main() {
   });
 
   group('Respuestas numéricas', () {
-    final Exercise e = Exercise(
+    const Exercise e = Exercise(
       id: 'n1',
       moduleId: 'm4',
       type: ExerciseType.numeric,
@@ -122,11 +122,11 @@ void main() {
       visual: ExerciseVisual.none,
       difficulty: 1,
       competency: Competency.descriptiveAnalysis,
-      concepts: const <String>['rango'],
+      concepts: <String>['rango'],
       hint: '',
       explanation: '150 − 12 = 138.',
       numericAnswer:
-          const NumericAnswer(value: 138, tolerance: 0.5, unit: 'minutos'),
+          NumericAnswer(value: 138, tolerance: 0.5, unit: 'minutos'),
     );
 
     test('acepta dentro de la tolerancia declarada', () {
@@ -147,7 +147,7 @@ void main() {
   });
 
   group('Clasificación', () {
-    final Exercise e = Exercise(
+    const Exercise e = Exercise(
       id: 'c1',
       moduleId: 'm1',
       type: ExerciseType.classify,
@@ -157,14 +157,14 @@ void main() {
       visual: ExerciseVisual.none,
       difficulty: 2,
       competency: Competency.descriptiveAnalysis,
-      concepts: const <String>['escala'],
+      concepts: <String>['escala'],
       hint: '',
       explanation: '...',
-      buckets: const <ClassifyBucket>[
+      buckets: <ClassifyBucket>[
         ClassifyBucket(id: 'nom', label: 'Nominal', description: ''),
         ClassifyBucket(id: 'raz', label: 'Razón', description: ''),
       ],
-      items: const <ClassifyItem>[
+      items: <ClassifyItem>[
         ClassifyItem(
             id: 'i1',
             text: 'DNI',

@@ -26,7 +26,7 @@ class PrefsProgressRepository implements ProgressRepository {
     final SharedPreferences prefs = await _instance;
     final String? raw = prefs.getString(_key);
     if (raw == null || raw.isEmpty) {
-      return LearnerState.empty().copyWith(
+      return const LearnerState.empty().copyWith(
         startedAtMs: DateTime.now().millisecondsSinceEpoch,
       );
     }
@@ -36,7 +36,7 @@ class PrefsProgressRepository implements ProgressRepository {
       // Estado corrupto o de una versión anterior incompatible: se descarta.
       // Perder el progreso es malo; dejar la app sin arrancar es peor.
       await prefs.remove(_key);
-      return LearnerState.empty().copyWith(
+      return const LearnerState.empty().copyWith(
         startedAtMs: DateTime.now().millisecondsSinceEpoch,
       );
     }

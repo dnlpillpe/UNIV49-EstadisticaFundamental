@@ -54,7 +54,13 @@ jobs:
             .
 
       - name: Restaurar el código del repositorio
-        run: git checkout -- lib pubspec.yaml analysis_options.yaml test assets || true
+        run: |
+          git checkout -- lib pubspec.yaml analysis_options.yaml test assets || true
+          # `flutter create` añade su plantilla test/widget_test.dart, que
+          # referencia una clase `MyApp` que este proyecto no tiene y rompe el
+          # análisis. `git checkout` restaura lo versionado pero no borra lo
+          # que no lo está: se limpia aquí lo generado en lib/ y test/.
+          git clean -fd lib test
 
       - name: Descargar dependencias
         run: flutter pub get
