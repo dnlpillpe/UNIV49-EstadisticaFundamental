@@ -30,9 +30,13 @@ class AppCard extends StatelessWidget {
   final Color? accent;
   final double radius;
 
+  /// Ancho de la franja de color del borde izquierdo.
+  static const double _accentWidth = 4;
+
   @override
   Widget build(BuildContext context) {
     final ColorScheme scheme = Theme.of(context).colorScheme;
+    final Widget padded = Padding(padding: padding, child: child);
     final Widget content = Container(
       decoration: BoxDecoration(
         color: color ?? scheme.surface,
@@ -40,13 +44,27 @@ class AppCard extends StatelessWidget {
         border: Border.all(color: borderColor ?? scheme.outline),
       ),
       clipBehavior: Clip.antiAlias,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          if (accent != null) Container(width: 4, color: accent),
-          Expanded(child: Padding(padding: padding, child: child)),
-        ],
-      ),
+      // La franja va en un `Stack` y no en un `Row` estirado: la tarjeta vive
+      // dentro de listas verticales, donde la altura disponible es infinita y
+      // `CrossAxisAlignment.stretch` intentaría dar esa altura a la franja. El
+      // `Stack` toma la altura del contenido y la franja se ajusta a ella.
+      child: accent == null
+          ? padded
+          : Stack(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: _accentWidth),
+                  child: padded,
+                ),
+                Positioned(
+                  top: 0,
+                  bottom: 0,
+                  left: 0,
+                  width: _accentWidth,
+                  child: ColoredBox(color: accent!),
+                ),
+              ],
+            ),
     );
 
     if (onTap == null) return content;
